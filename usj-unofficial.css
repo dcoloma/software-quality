@@ -80,13 +80,6 @@ ul.toc, ol.toc {
   pre { speak-punctuation: code } 
 }
 
-
-
-body {
-  background-image: url(//www.w3.org/StyleSheets/TR/logo-unofficial.png); 
-}
-
-
 .content {
   background-image: url(//www.w3.org/StyleSheets/TR/watermark-unoffficial.png);
   background-repeat: repeat;
