@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Software Quality - Unit 2</title>
+    <meta charset='utf-8'>
+    <script src='js/respec-w3c-common.js'
+            async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus: "unofficial",
+          overrideCopyright: "<p class='copyright'> This document is licensed under a <a class='subfoot' href='http://creativecommons.org/licenses/by/3.0/' rel='license'>Creative Commons Attribution 3.0 License</a>. </p>",
+          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "xxx-xxx",
+          // if your specification has a subtitle that goes below the main
+          // formal title, define it here
+          // subtitle   :  "an excellent document",
+          // if you wish the publication date to be other than the last modification, set this
+          // publishDate:  "2009-08-06",
+          // if the specification's copyright date is a range of years, specify
+          // the start date here:
+          // copyrightStart: "2005"
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+          // if there a publicly available Editor's Draft, this is the link
+          // edDraftURI:           "http://berjon.com/",
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+          // editors, add as many as you like
+          // only "name" is required
+          editors:  [
+              {
+                  name:       "Daniel Coloma"
+              ,   url:        "https://dcoloma.github.io/"
+              ,   mailto:     "danielcoloma@gmail.com"
+              ,   company:    "USJ"
+              ,   companyURL: "http://www.usj.es/"
+              },
+          ],
+          
+          // name of the WG
+          wg:           "In Charge Of This Document Working Group",
+          
+          // URI of the public WG page
+          wgURI:        "http://example.org/really-cool-wg",
+          
+          // name (without the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "spec-writers-anonymous",
+          localBiblio:  {
+            "RELIABILITY-MATHS": {
+            title:    "Basic Reliability Mathematics"
+            ,   href:     "http://infohost.nmt.edu/~olegm/484/Chap3.pdf"
+            },
+            "WEIBULL-BASICS": {
+            title:    "Characteristics of Weibull Distribution"
+            ,   href:     "http://www.weibull.com/hotwire/issue14/relbasics14.htm"
+            },
+            "SOFTWARE-RELIABILITY": {
+            title:    "Software Reliability"
+            ,   href:     "http://users.ece.cmu.edu/~koopman/des_s99/sw_reliability/"
+            }
+          },
+          
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        These are the notes for Sofware Quality at USJ
+      </p>
+    </section>
+    
+    <section id='sotd'>
+      <p>
+        Early Draft
+      </p>
+    </section>
+
+    <section>
+      <h1> Software Quality Metrics </h1>
+      <section>
+
+        <p>"Quality metrics let you know when to laugh and when to cry", Tom Gilb</p>
+        <p>"If you can't measure it, you can0t manage it", Deming</p>
+        <p>"Count what is countable, measure what is measurable. What is not measurable, make measurable", Galileo</p>
+        <p>"Not everything that can be counted counts, and not everything that counts can be counted.", Albert Einstein</p>
+
+
+      <h2>Introduction</h2>
+        <p>
+          Measurement is the process by which numbers or symbols are assigned 
+          to attributes of entities of a software product, process, or project, 
+          according to a well defined set of rules or theory.
+        </p>
+        <p>
+          Measuring some software attributes (calculating metrics) is helpful in several ways:
+        </p>
+        <ul>
+          <li>
+          Creating indicators.
+          </li>
+          <li>
+          Building models for simulation.
+          </li>
+          <li>
+          Building models for decision making;
+          </li>
+          <li>
+          Aiding goal setting and deployment;
+          </li>
+        </ul>
+        <p>
+          In summary, by using metrics, visibility of the software and process 
+          quality can be obtained and thus it is possible to exert control 
+          based in concrete data.
+        </p>
+        <p>
+          There are three main kind of metrics related to software:
+        </p>
+        <ul>
+          <li>
+          Product Metrics: describe the characteristics of the product such 
+          as: size, complexity, design features, performance, and quality 
+          level, etc.
+          </li>
+          <li>
+          Process Metrics: These can be used to improve software processes 
+          such as: ffectiveness of defect removal during development, the 
+          pattern of testing defect arrival, the response time of the 
+          fix process, etc.
+          </li>
+          <li>
+          Project Metrics: Describe the project characteristics and execution: 
+          number of software developers, cost, schedule, and productivity, etc.
+          </li>
+        </ul>
+        <p>
+          Software quality metrics are a subset of software metrics that focus 
+          on the quality aspects of the product, process, and project. Software 
+          quality metrics can be divided further into:
+        </p>
+        <ul>
+          <li>
+          End-product quality metrics: Metrics related to the software product 
+          once it has been finalized and delivered. The following type of 
+          metrics are in this group:
+          <ul>
+            <li>
+            Intrinsic Product Quality Metrics: These are the metrics that are 
+            related with the quality of the product itself, without the need to 
+            involve customers.
+            </li>
+            <li>
+            Customer Satisfaction Metrics: These are the metrics that are 
+            related to the view customers have of the product quality.
+            </li>
+          </ul>
+          </li>
+          <li>
+          In-process quality metrics: Metrics related to the software while it 
+          is under development. As the goal of a software development team is 
+          use the methodologies that provide the best possible quality, it is 
+          important to pay attention to those metrics. In general, they are 
+          less formally defined that the end-product metrics.
+          </li>
+        </ul>
+        <p>
+        In general, the quality of a developed product (end-product metrics) 
+        is influenced by the quality of the production process (in-process 
+        metrics). Identifying the link between those two type of metrics is 
+        essential for software development as the end-product metrics, most of 
+        the times, can be only discovered when it is too late (i.e. the product 
+        is alreay in the market). However, the link between both type of 
+        metrics is hard and complex as in the most of the times its 
+        relationship is poorly understood.
+        </p>
+        <p>
+        The link model between a process and a product for manufacturer goods 
+        is in most of the cases simple. However, for software, this model is 
+        in general more complex because:
+        </p>
+        <ul>
+          <li>
+          The developer individual skills and experience is extremely 
+          important for the results of software development.
+          </li>
+          <li>
+          External factors such as the novelty of an application or the need 
+          for an accelerated development schedule may impair product quality.
+          </li>
+        </ul>
+        <p>
+        The ultimate goal of software quality engineering is to investigate 
+        the relationships among in-process metrics, project characteristics, 
+        and end-product quality, and based on these findings to engineer 
+        improvements in both process and product quality.
+        </p>
+        </section>
+        <section>
+        <h2>Product quality metrics</h2>
+          <section>
+          <h3>Intrinsic Product Quality Metrics</h3>
+            <section>
+            <h4>Reliability, Error Rate and Mean Time To Failure</h4>
+            <p>
+            Software reliability is a measure of how often the software 
+            encounters an error that leads to a failure. From a formal point 
+            view, Reliability can be defined as the probability of not 
+            failing in a specified length of time:
+            </p>
+            <p style="color: red">
+            R(n) (where n is the number of time units) 
+            </p>
+            <p>
+            The probability of failing in a specified length of time is 1 
+            minus the reliability for that length of time:
+            </p>
+            <p style="color: red">
+            F(n) = 1 - R(n)
+            </p>
+            <p>
+            If time is measured in days, R(1) is the probability of the 
+            software system having zero failures during one day (i.e. the 
+            probability of not failing in 1 day)
+            </p>
+            <p>
+            A couple of metrics related with the software reliability are 
+            the "Error Rate" and the "Mean Time To Failure" (MTTF). The MTTF 
+            can be defined as the average time that occurs between two system 
+            failures. Error Rate is the average number of failures suffered by 
+            the system during a given amount of time. Both metrics are related 
+            with the following formula:
+            </p>
+            <math style="color: red">
+              <mrow><mi>Error Rate</mi> <mo>=</mo>
+              <mfrac><mrow>1</mrow><mrow>MTTF</mrow></mfrac>
+              </mrow>
+            </math>
+            <p>
+            Unless detailed statistics/models are available, the best estimate 
+            of the short-term future behavior is the current behavior. For 
+            instance, if a system suffers 24 failures during one day, the best 
+            estimate for the next day is that 24 failures will occur (24 
+            errors/day) that correspond to a 1hour MTTF.
+            </p>
+            <p>
+            The relationship between the error rate and the reliability depends 
+            on the statistical distribution of the errors.
+            </p>
+            <p>
+            If the system failures follow an exponential distribution the follow 
+            relationship is true:
+            </p>
+            <math style="color: red">
+              <mrow><mi>R(t)</mi><mo> = </mo><msup> <mi>e</mi> <mn>&minus;&lambda;t</mn> </msup></mrow>
+            </math>
+            <p>
+            Where &lambda; is the Error Rate and t is the amount of time for which the 
+            system reliability is calculated.
+            </p>
+            <p>
+              You can find a lot of information about reliability and how maths is 
+              used for calculating it at [[RELIABILITY-MATHS]]
+            <p>
+            <p>
+              Although exponential distribution may be a good compromise that 
+              could be applied to any software system, there are other 
+              distributions that may describe in a more accurate way the error 
+              arrival pattern. For instance, the Weibull distribution is 
+              frequently used in reliability analysis [[WEIBULL-BASICS]].
+            </p>
+            <p>
+              If we take into account Software Upgrades, there are some interesting
+              analysis about how a sawteeth pattern is observed [[SOFTWARE-RELIABILITY]].
+            </p>
+            <p>
+              In a software system, during two days only one failure has 
+              occurred, what is the probability that the system will not fail 
+              in 1, 2, 3, and 4 days?
+              Consider that errors follow an exponential distribution.
+            </p>
+            </p>
+            </section>
+            <section>
+            <h4>Defect Density</h4>
+              <p>
+              Defect Density is the number of confirmed defects detected in 
+              software/component during a defined period of 
+              development/operation divided by the size of the software/component.
+              </p>
+              <p>
+              <math style="color: red">
+              <mrow><mi>Defect Density</mi> <mo>=</mo>
+              <mfrac><mrow>Number of Confimed Defects</mrow><mrow>Software Size</mrow></mfrac>
+              </mrow>
+              </math>
+              </p>
+              <p>
+              The "defects" are usually counted as confirmed and agreed defects 
+              (not just reported). For instance, dropped defects are not counted.
+              </p>
+              <p>
+              The "period" or metrics time frame, might be for one of the following:
+              </p>
+              <ul>
+                <li>
+                for a duration (say, the first month, the quarter, or the year).
+                </li>
+                <li>
+                for each phase of the software life cycle.
+                </li>
+                <li>
+                for the whole of the software life cycle, usually known as Life 
+                Of Product (LOF) and may comprise time after the software
+                product's release to the market.
+                </li>
+              </ul>
+              <p>
+              The "opportunities for error" (OFE) or sofware "size" is measured 
+              in one of the following:
+              </p>
+              <ul>
+                <li>
+                Source Lines of Code that are usually counted as thousands of 
+                Lines Of Code (KLOC)
+                </li>
+                <li>
+                Function Points (FP)
+                </li>
+              </ul>
+              <p>
+              In the following chapters both ways of measuring OFE will be 
+              studied separately.
+              </p>
+              <section>
+                <h5>Lines of Code</h5>
+                <p>
+                Counting the lines of code (LOC) is way more complex that what 
+                it could be initially considered. The major problem for couting 
+                lines of code comes from the ambiguity of the operational 
+                definition, the actual counting. In the early days of Assembler 
+                programming, in which one physical line was the same as one 
+                instruction, the LOC definition was clear. With the availability 
+                of high-level languages the one-to- one correspondence broke 
+                down. Differences between physical lines and instruction 
+                statements (or logical lines of code) and differences among 
+                languages contribute to the huge variations in counting LOCs. 
+                Even within the same language, the methods and algorithms used 
+                by different counting tools can cause significant differences 
+                in the final counts. Multiple variations were already described 
+                by Jones in 1986 such as:
+                </p>
+                <ul>
+                  <li>
+                  Count only executable lines.
+                  </li>
+                  <li>
+                  Count executable lines plus data definitions.
+                  </li>
+                  <li>
+                  Count executable lines, data definitions, and comments.
+                  </li>
+                  <li>
+                  Count executable lines, data definitions, comments, and job control language.
+                  </li>
+                  <li>
+                  Count lines as physical lines on an input screen.
+                  </li>
+                  <li>
+                  Count lines as terminated by logical delimiters.
+                  </li>
+                </ul>
+                <p>
+                For instance, next example includes two approaches for 
+                coding the same functionality. As the functionality is the 
+                same, and it is writing in the same manner, the opportunities 
+                for error should be the same, however, the lines of code 
+                differ. For instance, if we count all the lines (job control 
+                language, comments...), in the first case only one line of 
+                code is used whereas in the second case 5 lines of code have 
+                been used.
+                </p>
+                <div class="example">
+                  <pre class="example highlight prettyprint">
+for (i=0; i<100; ++i) printf("I love compact coding"); /* what is the number of lines of code in this case? */
+
+/* How many lines of code is this? */
+for (i=0; i<100; ++i)
+{
+  printf("I am the most productive developer"); 
+}
+/* end of for */
+                  </pre>
+                </div>
+                <p>
+                Some authors have considered LOC not only a less useful way to 
+                measure software size but also a harmful thing for sofware 
+                economics and productivity. For instance, the paper written by 
+                Capers Jones called "A Short History of Lines of Code (LOC) 
+                Metrics" offers a very interesting historical view about the 
+                evolution of Software Programming Languages and LOC metrics.
+                </p>
+                <p>
+                Regardless of the LOC measurements used, when a software product 
+                is released to the market for the first time, and when a certain 
+                way to measure lines of code is specified, it is relatively easy 
+                to state its quality level (projected or actual). However, when 
+                enhancements are made and subsequent versions of the product are 
+                released, the measurement is more complicated. In order to have 
+                a good insight on the product quality is important to follow a 
+                two-fold approach:
+                </p>
+                <ul>
+                  <li>
+                  Measure the quality of the entire product.
+                  </li>
+                  <li>
+                  Measure the quality of the new/changed parts of the product.
+                  </li>
+                </ul>
+                <p>
+                The first measure may improve over releases due to aging and 
+                defect removal, but that improvement in the overall defect 
+                rate may hide problems on the developement/quality process 
+                (e.g. new code contains a higher defect density that the "old" 
+                code which indicates a problem in the process). In order to be 
+                able to calculate defect rate for the new and changed code, 
+                the following must be available:
+                </p>
+                <ul>
+                  <li>
+                    LOC count: The entire software product as well as the 
+                    new and changed code of the release must be available.
+                  </li>
+                  <li>
+                    Defect tracking: Defects must be tracked to the release 
+                    origin, i.e. the portion of the code that contains the 
+                    defects and at what release the portion was added, 
+                    changed, or enhanced. When calculating the defect rate 
+                    of the entire product, all defects are used; when 
+                    calculating the defect rate for the new and changed 
+                    code, only defects of the release origin of the new and 
+                    changed code are included.
+                  </li>
+                </ul>
+                <p>
+                These tasks are enabled by the practice of change flagging. 
+                Specifically, when a new function is added or an enhancement 
+                is made to an existing function, the new and changed lines of 
+                code are flagged. The change-flagging practice is also important 
+                to the developers who deal with problem determination and 
+                maintenance. When a defect is reported and the fault zone 
+                determined, the developer can determine in which function or 
+                enhancement pertaining to what requirements at what release 
+                origin the defect was injected. The following is an example on 
+                how the overall defect rate and the defect rate for new code is 
+                mesaured at IBM according to the book "Metrics and models in 
+                software quality engineering" by Stephen H. Kan.
+                </p>
+                <div class="example">
+<p>
+At IBM Rochester, lines of code data are based on instruction statements (logical LOC) and include executable code and data definitions but exclude comments. LOC counts are obtained for the total product and for the new and changed code of the new release. Because the LOC count is based on source instructions, the two size metrics are called shipped source instructions (SSI) and new and changed source instructions (CSI), respectively. The relationship between the SSI count and the CSI count can be expressed with the following formula:
+</p>
+<pre>
+SSI (current release) =
+  SSI (previous release)
+  + CSI (new and changed code instructions for current release) 
+  - deleted code (usually very small) 
+  - changed code (to avoid double count in both SSI and CSI)
+</pre>
+<p>
+Defects after the release of the product are tracked. Defects can be field defects, which are found by customers, or internal defects, which are found internally. The several post release defect rate metrics per thousand SSI (KSSI) or per thousand CSI (KCSI) are:
+</p>
+<ul>
+  <li>
+(1) Total defects per KSSI (a measure of code quality of the total product) 
+  </li>
+  <li>
+(2) Field defects per KSSI (a measure of defect rate in the field)
+  </li>
+  <li>
+(3) Release-origin defects (field and internal) per KCSI (a measure of development quality)
+  </li>
+  <li>
+(4) Release-origin field defects per KCSI (a measure of development quality per defects found by customers)
+  </li>
+</ul>
+<p>
+Metric (1) measures the total release code quality, and metric (3) measures 
+the quality of the new and changed code. For the initial release where the 
+entire product is new, the two metrics are the same. Thereafter, metric (1) 
+is affected by aging and the improvement (or deterioration) of metric (3). 
+Metrics (1) and (3) are process measures; their field counterparts, metrics 
+(2) and (4) represent the customer's perspective. Given an estimated defect 
+rate (KCSI or KSSI), software developers can minimize the impact to customers 
+by finding and fixing the defects before customers encounter them.0
+</p>
+                </div>
+                <p>
+                It is important to think how useful is this metric from two points of view:
+                </p>
+                <ul>
+                  <li>
+                  Drive Quality Improvement: Very important for the development team.
+                  </li>
+                  <li>
+                  Meet customer expectations.
+                  </li>
+                </ul>
+                <p>
+                From the customer's point of view, the defect rate is not as 
+                relevant as the total number of defects that might affect their 
+                business. Therefore, a good defect rate target should lead to a 
+                release-to-release reduction in the total number of defects, 
+                regardless of size. I.e. Not only the defect rate should be 
+                reduced but also the total number of defects. If a new release 
+                is larger than its predecessors, it means the defect rate goal 
+                for the new and changed code has to be significantly better than 
+                that of the previous release in order to reduce the total number 
+                of defects.
+                </p>
+                <p>
+                For instance, an hypothetical example of this situation is 
+                described in the following example.
+                <p>
+
+                <div class="example">
+                  <pre>
+Initial Release of Product Y
+KCSI = KSSI = 50 KLOC
+Defects/KCSI = 2.0
+Total number of defects = 2.0 x 50 = 100
+
+Second Release
+KCSI = 20
+KSSI = 50 + 20 (new and changed LOC) - 4 (assuming 20% are changed LOC) 
+     = 66 Defect/KCSI = 1.8 (assuming 10% improvement over the first release)
+Total number of additional defects = 1.8 x 20 = 36
+
+Third Release
+KCSI = 30
+KSSI = 66 + 30 (new and changed LOC) - 6 (assuming 20% are changed LOC) = 90
+
+Targeted number of additional defects (no more than previous release) = 36 
+Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
+                  </pre>
+                </div>
+                <p>
+                From the initial release to the second release the defect rate 
+                improved by 10%. However, customers experienced a 64% reduction 
+                [(100 - 36)/100] in the number of defects because the second 
+                release is smaller. The size factor works against the third 
+                release because it is much larger than the second release. Its 
+                defect rate has to be one third (1.2/1.8) better than that of 
+                the second release for the number of new defects not to exceed 
+                that of the second release. Of course, sometimes the difference 
+                between the two defect rate targets is very large and the new 
+                defect rate target is deemed not achievable. In those 
+                situations, other actions should be planned to improve the 
+                quality of the base code or to reduce the volume of postrelease 
+                field defects (i.e. by finding them internally).
+                </p>
+              </section>
+              <section>
+                <h5>Function Points</h5>
+              </section>
+            </section>
+          </section> <!-- intrinsic -->
+          <section>
+          <h3>Customer satisfaction metrics</h3>
+            <section>
+            <h4>Customer Problem Metrics</h4>
+            </section>
+            <section>
+            <h4>Customer Satisfaction Metrics</h4>
+            </section>
+          </section> <!-- customer satisfaction -->
+        </section> <!-- product quality-->
+        <section>
+        <h2>In process Quality Metrics </h2>
+          <section>
+          <h3>Defect Density During Integration Testing</h3>
+          </section>
+          <section>
+          <h3>Defect Arrival Pattern During Machine Testing</h3>
+          </section>
+          <section>
+          <h3>Phase-Based Defect Removal Pattern</h3>
+          </section>
+          <section>
+          <h3>Defect Removal Effectiveness</h3>
+          </section>
+        </section> <!-- process quality-->
+        <section>
+        <h2>Software Metrics VS. Quality Metrics</h2>
+        </section> <!-- product quality-->
+  </section>
+  <section class='appendix'>
+    <h2>Acknowledgements</h2>
+    <p>
+      Many thanks to Robin Berjon for making our lives so much easier with his 
+      cool tool.
+    </p>
+  </section>
+  </body>
+</html>
