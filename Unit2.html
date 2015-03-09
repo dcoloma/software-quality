@@ -92,14 +92,11 @@
 
     <section>
       <h1> Software Quality Metrics </h1>
-      <section>
-
         <p>"Quality metrics let you know when to laugh and when to cry", Tom Gilb</p>
         <p>"If you can't measure it, you can0t manage it", Deming</p>
         <p>"Count what is countable, measure what is measurable. What is not measurable, make measurable", Galileo</p>
         <p>"Not everything that can be counted counts, and not everything that counts can be counted.", Albert Einstein</p>
-
-
+      <section>
       <h2>Introduction</h2>
         <p>
           Measurement is the process by which numbers or symbols are assigned 
@@ -245,7 +242,7 @@
             the system during a given amount of time. Both metrics are related 
             with the following formula:
             </p>
-            <math style="color: red">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow><mi>Error Rate</mi> <mo>=</mo>
               <mfrac><mrow>1</mrow><mrow>MTTF</mrow></mfrac>
               </mrow>
@@ -265,7 +262,7 @@
             If the system failures follow an exponential distribution the follow 
             relationship is true:
             </p>
-            <math style="color: red">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow><mi>R(t)</mi><mo> = </mo><msup> <mi>e</mi> <mn>&minus;&lambda;t</mn> </msup></mrow>
             </math>
             <p>
@@ -303,7 +300,7 @@
               development/operation divided by the size of the software/component.
               </p>
               <p>
-              <math style="color: red">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow><mi>Defect Density</mi> <mo>=</mo>
               <mfrac><mrow>Number of Confimed Defects</mrow><mrow>Software Size</mrow></mfrac>
               </mrow>
@@ -577,6 +574,358 @@ Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
               </section>
               <section>
                 <h5>Function Points</h5>
+                <p>
+                As explained in the previous chapter, measuring the opportunities for error through the lines of code has some problems. Counting lines of code is but one way to measure size. Another alternative is the using the function point. In recent years the function point has been gaining acceptance in application development in terms of both productivity (e.g., function points per person-year) and quality (e.g., defects per function point)
+                </p>
+                <p>
+                A function can be defined as a collection of executable statements that performs a certain task, together with declarations of the formal parameters and local variables manipulated by those statements. The ultimate measure of software productivity is the number of functions a development team can produce given a certain amount of resource, regardless of the size of the software in lines of code. The defect rate metric, ideally, is indexed to the number of functions a software provides. If defects per unit of functions is low, then the software should have better quality even though the defects per KLOC value could be higher — when the functions were implemented by fewer lines of code. Although this approach seems very powerful and promising, from a practical point of view it is very difficult to be used.
+                </p>
+                <p>
+                The function point metric was originated by Albrecht and his colleagues at IBM in the mid-1970s. The name could be a bit misleading as the technique itself does not count the functions. Instead it tries to measures some aspects that determine the software complexity withouth taking into the differences between programming languages and development styles that change the LOC metric. In order to do so, it takes into account five major components that comprise a software product:
+                </p>
+                <ul>
+                  <li>
+                    <b>External Inputs (EIs):</b> Elementary process in which data crosses the boundary from outside to inside. This data may come from a data input screen or another application. The data may be used to maintain one or more internal logical files. The data can be either control information or business information. If the data is control information it does not have to update an internal logical file.
+                  </li>
+                  <li>
+                    <b>External Outputs (EOs):</b> Elementary process in which derived data passes across the boundary from inside to outside. Additionally, an EO may update an ILF. The data creates reports or output files sent to other applications. These reports and files are created from one or more internal logical files and external interface file.
+                  </li>
+                  <li>
+                    <b>External Inquiries (EQs):</b> Elementary process with both input and output components that result in data retrieval from one or more internal logical files and external interface files. The input process does not update any Internal Logical Files, and the output side does not contain derived data.
+                  </li>
+                  <li>
+                    <b>Internal Logical Files (ILFs):</b> A user identifiable group of logically related data that resides entirely within the applications boundary and is maintained through external inputs.
+                  </li>
+                  <li>
+                    <b>External Interface Files (EIFs):</b> A user identifiable group of logically related data that is used for reference purposes only. The data resides entirely outside the application and is maintained by another application. The external interface file is an internal logical file for another application.
+                  </li>
+                </ul>
+                <p>
+                  Following figure provides a graphical example on how all these components work together and how they interact with the end-users.
+                </p>
+                <figure>
+                <img src='images/unit2-fig0-fp.png'>
+                <figcaption>Function Points Overview</figcaption>
+                </figure>
+                <p>
+                  Apart from being technology independent, this way of identifying the key software functions is very interesting as it is focused on the end-user point view: most of the components are thought from the user’s perspective (not the developers one), hence it works well with use cases.
+                </p>
+                <p>
+                The number of function points is obtained by the addition of the number of occurrences of those components (each of them weighted by a different factor) multiplied by an adjustment factor chosen based on the software characteristics:
+                </p>
+                <p>
+                FP = FC x VAF 
+                </p>
+                <p>
+                Where:
+                </p>
+                <ul>
+                  <li>
+                  FP: Is the Function Points
+                  </li>
+                  <li>
+                  FC: Is the weighted function count
+                  </li>
+                  <li>
+                  VAF: Is the adjustment factor that depends on software characteristics
+                  </li>
+                </ul>
+                <p>
+                  In order to calculate the Function Points, every component is classified in three categories according to its complexity (low/medium/high). A different weight factor is assigned to every component type and category. The following weights are defined for every component and complexity:
+                </p>
+                <ul>
+                  <li>
+                  Number of external inputs: 3-4-6.
+                  </li>
+                  <li>
+                  Number of external outputs: 4-5-7. 
+                  </li>
+                  <li>
+                  Number of external inquiries: 3-4-6.
+                  </li>
+                  <li>
+                  Number of logical internal files: 7-10-15.
+                  </li>
+                  <li>
+                  Number of external interface files: 5-7-10.
+                  </li>
+                </ul>
+                <p>
+                  When the number of components (classified by complexity) is available, given the previous weighting factors, the Function Counts (FCs) can be calculated based on the following formula:
+                </p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                    <mi>FC</mi>
+                    <mo>=</mo>
+                    </mrow>
+                    <mrow>
+                      <munderover>
+                        <mo>&Sum;</mo>
+                        <mrow>
+                        <mi>j</mi>
+                        <mo>=</mo>
+                        <mn>1,</mn>
+                        <mi>n</mi>
+                        <mo>=</mo>
+                        <mn>1,</mn>
+                        </mrow>
+                        <mrow>
+                        <mn>3,5</mn>
+                        </mrow>
+                      </munderover>
+                      <mrow>
+                        <msub>
+                         <mrow>
+                         <mi>w</mi>
+                         </mrow>
+                         <mrow>
+                         <mn>ij</mn>
+                         </mrow>
+                        </msub>
+                        <msub>
+                         <mrow>
+                         <mi>x</mi>
+                         </mrow>
+                         <mrow>
+                         <mn>ij</mn>
+                         </mrow>
+                        </msub>
+                      </mrow>
+                    </mrow>
+                    </math>
+                <p>
+                  Where wij are the weighting factors and xij the number of ocurrences of each component in the software. i denotes complexity and j denotes the component type. The following table shows graphically how can this function be calculated easily.
+                </p>
+                <table>
+                  <caption>FC Calculation</caption>
+                  <thead>
+                  <tr>
+                    <th>Type </th>
+                    <th>Low Complexity </th>
+                    <th>Mid Complexity </th>
+                    <th>High Complexity </th>
+                    <th>Total </th>
+                  </tr>￼
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>EI </td>
+                    <td>_ x 3 + </td>
+                    <td>_ x 4 + </td>
+                    <td>_ x 6 + </td>
+                    <td>= </td>
+                  </tr>￼
+                  <tr>
+                    <td>EO </td>
+                    <td>_ x 4 + </td>
+                    <td>_ x 5 + </td>
+                    <td>_ x 7 + </td>
+                    <td>= </td>
+                  </tr>
+                  <tr>
+                    <td>EQ </td>
+                    <td>_ x 3 + </td>
+                    <td>_ x 4 + </td>
+                    <td>_ x 6 + </td>
+                    <td>= </td>
+                  </tr>
+                  <tr>
+                    <td>ILF </td>
+                    <td>_ x 7 + </td>
+                    <td>_ x 10 + </td>
+                    <td>_ x 15 + </td>
+                    <td>= </td>
+                  </tr>
+                  <tr>
+                    <td>EIF </td>
+                    <td>_ x 5 + </td>
+                    <td>_ x 7 + </td>
+                    <td>_ x 10 + </td>
+                    <td>= </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <p>
+                  The complexity classification of each component is based on a set of standards that define complexity in terms of objective guidelines. For instance, for the external output component, if the number of data element types is 20 or more and the number of file types referenced is 2 or more, then complexity is high. If the number of data element types is 5 or fewer and the number of file types referenced is 2 or 3, then complexity is low. The following tables provide the standard categorization where:
+                </p>
+                <ul>
+                  <li>
+                  DETs are equivalent to non-repeated fields or attributes.
+                  </li>
+                  <li>
+                  RETs are equivalent to mandatory or optional sub-groups.
+                  </li>
+                  <li>
+                  FTRs are equivalent to ILFs or EIFs referenced by that transaction.
+                  </li>
+                </ul>
+                <p>
+                <table>
+                  <caption> ILF and EIF Complexity Matrix </caption>
+                  <thead>
+                  <tr>
+                    <th> RETs</th><th> 1-19 DETs</th><th> 20-50 DETs</th><th> 51+ DETs</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>2-5</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                  </tr>
+                  <tr>
+                    <td>6+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                  </tr>
+                  </tbody>
+                </table>
+                </p>
+
+                <p>
+                <table>
+                  <caption> EI Complexity Matrix </caption>
+                  <thead>
+                  <tr>
+                    <th> DETs</th><th> 1-4 DETs</th><th> 5-15 DETs</th><th> 16+ DETs</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>2</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                  </tr>
+                  <tr>
+                    <td>3+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                  </tr>
+                  </tbody>
+                </table>
+                </p>
+                <p>
+                <table>
+                  <caption> EO and EQ Complexity Matrix </caption>
+                  <thead>
+                  <tr>
+                    <th> DETs</th><th> 1-5 DETs</th><th> 6-19 DETs</th><th> 20+ DETs</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                  </tr>
+                  <tr>
+                    <td>2-3</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                  </tr>
+                  <tr>
+                    <td>4+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                  </tr>
+                  </tbody>
+                </table>
+                </p>
+                <p>
+                  In order to calculate the Value Adjustment Factor (VAF), 14 characteristics of the software system must be scored (in a scale from 0 to 5) in terms of their effect on the software. The list of characteristics is:
+                </p>
+                <ol>
+                  <li>
+                    <b>Data communications:</b>
+                    How many communication facilities are there to aid in the transfer or exchange of information with the application or system?
+                  </li>
+                  <li>
+                    <b>Distributed data processing: </b>
+                    How are distributed data and processing functions handled?
+                  </li>
+                  <li>
+                    <b>Performance: </b>
+                    Did the user require response time or throughput?
+                  </li>
+                  <li>
+                    <b>Heavily used configuration: </b>
+                    How heavily used is the current hardware platform where the application will be executed?
+                  </li>
+                  <li>
+                    <b>Transaction rate: </b>
+                    How frequently are transactions executed daily, weekly, monthly, etc.?
+                  </li>
+                  <li>
+                    <b>On-Line data entry: </b>
+                    What percentage of the information is entered On-Line?
+                  </li>
+                  <li>
+                    <b>End-user efficiency: </b>
+                    Was the application designed for end-user efficiency?
+                  </li>
+                  <li>
+                    <b>On-Line update: </b>
+                    How many ILF’s are updated by On-Line transaction?
+                  </li>
+                  <li>
+                    <b>Complex processing: </b>
+                    Does the application have extensive logical or mathematical processing?
+                  </li>
+                  <li>
+                    <b>Reusability: </b>
+                    Was the application developed to meet one or many user’s needs?
+                  </li>
+                  <li>
+                    <b>Installation ease: </b>
+                    How difficult is conversion and installation?
+                  </li>
+                  <li>
+                    <b>Operational ease: </b>
+                    How effective and/or automated are start-up, back-up, and recovery procedures?
+                  </li>
+                  <li>
+                    <b>Multiple sites: </b>
+                    Was the application specifically designed, developed, and supported to be installed at multiple sites for multiple organizations?
+                  </li>
+                  <li>
+                    <b>Facilitate change: </b>
+                    Was the application specifically designed, developed, and supported to facilitate change?
+                  </li>
+                  </ol>
+                  <p>
+                  Once all these characteristics are assessed, they are summed, based on the following formula, to arrive at the value adjustment factor (VAF):
+                  </p>
+
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                    <mi>VAF</mi>
+                    <mo>=</mo>
+                    <mi>0.65</mi>
+                    <mo>+</mo>
+                    <mi>0.01</mi>
+                    </mrow>
+                    <mrow>
+                      <munderover>
+                        <mo>&Sum;</mo>
+                        <mrow>
+                        <mi>i</mi>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        </mrow>
+                        <mrow>
+                        <mn>14</mn>
+                        </mrow>
+                      </munderover>
+                      <mrow>
+                        <msub>
+                         <mrow>
+                         <mi>c</mi>
+                         </mrow>
+                         <mrow>
+                         <mn>i</mn>
+                         </mrow>
+                        </msub>
+                      </mrow>
+                    </mrow>
+                    </math>
+                    <p>
+                      Where ci is the score for general system characteristic i.
+                    </p>
+                  <p>
+                    Over the years the function point metric has gained acceptance as a key productivity measure from a practical point of view. However, the meaning of function point and the derivation algorithm and its rationale may need more research and more theoretical groundwork. Furthemore, function point counting can be time-consuming and expensive, and accurate counting requires certified function point specialists.
+                  </p>
               </section>
             </section>
           </section> <!-- intrinsic -->
@@ -584,9 +933,113 @@ Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
           <h3>Customer satisfaction metrics</h3>
             <section>
             <h4>Customer Problem Metrics</h4>
+            <p>
+            Another product quality metric vastly used in the software industry measures the problems customers encounter when using the product.
+            </p>
+            <p>
+            For the defect denstity metric (section 1.2.1.2), the numerator was the number of valid defects. However, from the customers’ standpoint, all problems they encounter while using the software product, not just the valid defects, are problems with the software. Software problems suffered by end- users that are not valid defects may be:
+            </p>
+            <ul>
+              <li>Usability problems.</li>
+              <li>Unclear documentation or information.</li>
+              <li>Duplicates of valid defects (defects that were reported by other customers and fixes were available but the current customers did not know of them).</li>
+              <li>User errors.</li>
+            </ul>
+            <p>
+            These so-called non-defect-oriented problems, together with the defect problems, constitute the total problem space of the software from the customers’ perspective.
+            </p>
+            <p>
+            The problems metric is usually expressed in terms of problems per user month (PUM):
+            </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+              <mrow><mi>PUM</mi> <mo>=</mo>
+              <mfrac><mrow>Total number of problems that customers reported during a period of time</mrow><mrow>Total number of license months of the software during that period</mrow></mfrac>
+              </mrow>
+              </math>
+            <p>
+            Where the total number of license-months is the number of months all the users have been using the software and may be calculated multipling the Number of install licenses of the software by the Number of months in the calculation period.
+            </p>
+            <p>
+            PUM is usually calculated for each month after the software is released to the market, and also for monthly averages by year. Note that the denominator is the number of license-months instead of thousand lines of code or function point, and the numerator is all problems customers encountered. Basically, whereas the defect density focuses in the number of real problems with regards to the software complexity, this metric relates detected problems to software usage.
+            </p>
+            <p>
+            There are different approaches to minimize PUM:
+            </p>
+            <ul>
+              <li>
+              Improve the development process and reduce the product defects.
+              </li>
+              <li>
+              Reduce the non-defect-oriented problems by improving all aspects of the products (such as usability, documentation), customer education, and support.
+              </li>
+              <li>
+              Increase the sale (the number of installed licenses) of the product.
+              </li>
+            </ul>
+            <p>
+            The first two approaches reduce the numerator of the PUM metric, and the third increases the denominator. The result of any of these actions will be that the PUM metric has a lower value. All three approaches make good sense for quality improvement and business goals for any organization. The PUM metric, therefore, is a good metric. The only minor drawback is that when the business is in excellent condition and the number of software licenses is rapidly increasing, the PUM metric will look extraordinarily good (low value) and, hence, the need to continue to reduce the number of customers’ problems (the numerator of the metric) may be under- mined. Therefore, the total number of customer problems should also be monitored and aggressive year-to-year or release-to-release improvement goals set as the number of installed licenses increases. However, unlike valid code defects, customer problems are not totally under the control of the software development organization. Therefore, it may not be feasible to set a PUM goal that the total customer problems cannot increase from release to release, especially when the sales of the software are increasing.
+            </p>
+            <p>
+            The key points of the defect rate metric and the customer problems metric are briefly summarized in the following table. The two metrics represent two perspectives of product quality. For each metric the numerator and denominator match each other well: Defects relate to source instructions or the number of function points, and problems relate to usage of the product. If the numerator and denominator are mixed up, poor metrics will result. Such metrics could be counterproductive to an organization’s quality improvement effort because they will cause confusion and wasted resources.
+            </p>
+            <table>
+             <caption>DDR vs PUM</caption>
+             <thead>
+             <tr>
+               <th></th>
+               <th>Defect Density Rate</th>
+               <th>PUM</th>
+             </tr>
+             </thead>
+             <tbody>
+             <tr>
+               <td>Numerator</td>
+               <td>Valid and Unique defects</td>
+               <td>All customer problems</td>
+             </tr>
+             <tr>
+               <td>Denominator</td>
+               <td>Size of Product</td>
+               <td>Usage of Product</td>
+             </tr>
+             <tr>
+               <td>Measurement</td>
+               <td>Producer Perspective</td>
+               <td>Consumer Perspective</td>
+             </tr>
+             <tr>
+               <td>Scope</td>
+               <td>Intrinsic Product Quality</td>
+               <td>Intrinsic Product Quality + Other</td>
+             </tr>
+             </tbody>
+            </table>
+            <p>
+            The customer problems metric can be regarded as an intermediate measurement between defects measurement and customer satisfaction. To reduce customer problems, one has to reduce the functional defects in the products and, in addition, improve other factors (usability, documentation, problem rediscovery, etc.)
+            </p>
             </section>
             <section>
             <h4>Customer Satisfaction Metrics</h4>
+              <p>
+              Customer satisfaction is often measured by customer survey data in which the users are asked to qualify the software or characteristics of the software through a scale.
+              </p>
+              <p>
+              Based on the survey result data, several metrics with slight variations can be constructed and used, depending on the purpose of analysis. For example:
+              </p>
+              <ul>
+                <li>
+                Percent of completely satisfied customers.
+                <li>
+                Percent of satisfied customers (satisfied and completely satisfied)
+                <li>
+                Percent of dissatisfied customers (dissatisfied and completely dissatisfied)
+                <li>
+                Percent of nonsatisfied (neutral, dissatisfied, and completely dissatisfied)
+                </li>
+              </ul>
+              <p>
+              In addition to forming percentages for various satisfaction or dissatisfaction categories, the net satisfaction index (NSI) is also used to facilitate comparisons across product. NSI ranges from 0% (all customers are completely dissatisfied) to 100% (all customers are completely satisfied). If all customers are satisfied (but not completely satisfied), NSI will have a value of 75%. This weighting approach, however, may be masking the satisfaction profile of one’s customer set. For example, if half of the customers are completely satisfied and half are neutral, NSI’s value is also 75%, which is equivalent to the scenario that all customers are satisfied. If satisfaction is a good indicator of product loyalty, then half completely satisfied and half neutral is certainly less positive than all satisfied.
+              </p>
             </section>
           </section> <!-- customer satisfaction -->
         </section> <!-- product quality-->

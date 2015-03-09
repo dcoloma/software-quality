@@ -92,6 +92,28 @@ ul.toc, ol.toc {
   color: red;
 }
 
+
+table {
+  border-collapse: collapse;
+  border-style: hidden hidden none hidden;
+}
+
+table thead, table tbody {
+  border-bottom: solid;
+}
+
+table td, table th {
+  border-left: solid;
+  border-right: solid;
+  border-bottom: solid thin;
+  vertical-align: top;
+  padding: 0.2em;
+}
+
+th, td {
+  font-family: sans-serif;
+}
+
 .diff-new {
   background-color: yellow;
 }
