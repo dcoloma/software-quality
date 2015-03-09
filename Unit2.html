@@ -1047,12 +1047,68 @@ Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
         <h2>In process Quality Metrics </h2>
           <section>
           <h3>Defect Density During Integration Testing</h3>
+          <p>
+            Defect rate during formal integration testing is usually positively correlated with the defect rate in the field. Higher defect rates found during testing is an indicator that the software has experienced higher error injection during its development process, unless the higher testing defect rate is due to an extraordinary testing effort (for example, additional testing or a new testing approach that was deemed more effective in detecting defects). The rationale for the positive correlation is simple: Software defect density never follows the uniform distribution. If a piece of code or a product has higher testing defects, it is a result of more effective testing or it is because of higher latent defects in the code. Myers suggested a counterintuitive principle that the more defects found during testing, the more defects will be found later.
+          </p>
+          <p>
+          This simple metric of defects per KLOC or function point is especially useful to monitor subsequent releases of a product in the same development organization. The development team or the project manager can use the following scenarios to judge the release quality:
+          </p>
+          <ol>
+            <li>
+            If the defect rate during testing is the same or lower than that of the previous release (or a similar product), then ask: Does the testing for the current release deteriorate?
+            <ul>
+              <li>
+          If the answer is no, the quality perspective is positive.
+              </li>
+              <li>
+          If the answer is yes, you need to do extra testing (e.g., add test cases to increase
+          coverage, blitz test, customer testing, stress testing, etc.).
+              </li>
+            </ul>
+            </li>
+            <li>
+            If the defect rate during testing is substantially higher than that of the previous release (or a
+            similar product), then ask: Did we plan for and actually improve testing effectiveness?
+            <ul>
+              <li>
+              If the answer is no, the quality perspective is negative. Ironically, the only remedial approach that can be taken at this stage of the life cycle is to do more testing, which will yield even higher defect rates.
+              </li>
+              <li>
+              If the answer is yes, then the quality perspective is the same or positive.
+              </li>
+            </ul>
+            </li>
+            </ol>
+          
           </section>
           <section>
           <h3>Defect Arrival Pattern During Machine Testing</h3>
+          <p>Overall defect density during testing is a summary indicator. The pattern of defect arrivals (or for that matter, times between failures) gives more information. Even with the same overall defect rate during testing, different patterns of defect arrivals indicate different quality levels in the field.</p>
+          <p>Next figure shows two contrasting patterns for both the defect arrival rate and the cumulative defect rate. Data were plotted from 44 weeks before code-freeze until the week prior to code-freeze. The second pattern, represented by the charts on the right side, obviously indicates that testing started late, the test suite was not sufficient, and that the testing ended prematurely.</p>
+                <figure>
+                <img src='images/unit2-fig1.png'>
+                <figcaption>Two Contrasting Arrival Patterns during Testing</figcaption>
+                </figure>
+          <p>The objective is always to look for defect arrivals that stabilize at a very low level, or times between failures that are far apart, before ending the testing effort and releasing the software to the field. Such declining patterns of defect arrival during testing are indeed the basic assumption of many software reliability models. The time unit for observing the arrival pattern is usually weeks and occasionally months. For reliability models that require execution time data, the time interval is in units of CPU time.</p>
+          <p>When we talk about the defect arrival pattern during testing, there are actually three slightly different metrics, which should be looked at simultaneously:</p>
+          <ul>
+            <li>The defect arrivals (defects reported) during the testing phase by time interval (e.g., week). These are the raw number of arrivals, not all of which are valid defects.</li>
+              <li>The pattern of valid defect arrivals—when problem determination is done on the reported problems. This is the true defect pattern.</li>
+                <li>The pattern of defect backlog overtime. This metric is needed because development organizations cannot investigate and fix all reported problems immedi- ately. This metric is a workload statement as well as a quality statement. If the defect backlog is large at the end of the development cycle and a lot of fixes have yet to be integrated into the system, the stability of the system (hence its quality) will be affected. Retesting (regression test) is needed to ensure that targeted product quality levels are reached.</li>
+          <ul>
           </section>
           <section>
           <h3>Phase-Based Defect Removal Pattern</h3>
+          <p>
+            The phase-based defect removal pattern is an extension of the test defect density metric. In addition to testing, it requires the tracking of defects at all phases of the development cycle, including the design reviews, code inspections, and formal verifications before testing. Because a large percentage of programming defects is related to design problems, conducting formal reviews or functional verifications to enhance the defect removal capability of the process at the front end reduces error injection. The pattern of phase-based defect removal reflects the overall defect removal ability of the development process.
+          </p>
+          <p>
+            Following figure shows the patterns of defect removal of two development projects: project A was front-end loaded and project B was heavily testing-dependent for removing defects. In the figure, the various phases of defect removal are high-level design review (I0), low-level design review (I1), code inspection (I2), unit test (UT), component test (CT), and system test (ST). As expected, the field quality of project A outperformed project B significantly.
+          </p>
+                <figure>
+                <img src='images/unit2-fig2.png'>
+                <figcaption>Defect Removal by Phase for two products</figcaption>
+                </figure>
           </section>
           <section>
           <h3>Defect Removal Effectiveness</h3>
@@ -1060,6 +1116,46 @@ Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
         </section> <!-- process quality-->
         <section>
         <h2>Software Metrics VS. Quality Metrics</h2>
+        <p>
+This chapter has been addresing so far metrics that are related with a direct measurement of the software quality. However, it is also critical to consider that those metrics usually have a direct relationship with some software characteristics that could not be considered as directly related with the software quality.
+</p>
+        <p>
+Some intrinsic characteristics of the software that usually affect the software quality (either internal or external) are:
+</p>
+<ul>
+  <li>Size: Obviously, the bigger a software is, either measured in KLOCs or in Function Points, more opportunities for error there will be.
+    <li>Control Flow Complexity: When the software has several decision paths, many conditions to assess with different responses to them, the likelyhood of defects is also higher.</li>
+      <li>Intermodule coupling: When different software modules have too many dependencies, the likelyhood of defects is also higher because of the cross-module error propagation.</li>
+  <li>Complexity: Code that has been designed in a complex manner is usually also more
+    exposed to defects than code designed using simple patterns.</li>
+<li>Understandability: If the code cannot be easily understood, whenever an error is
+  detected, it will be more difficutl to find the defect and fix it.</li>
+  <li>Testability: Obviously, software difficult to be tested is obviously more exposed to</li>
+<li>Size: Obviously, the bigger a software is, either measured in KLOCs or in Function Points, more opportunities for error there will be
+defects than the software that can be easily tested.</li>
+</ul>
+<p>Different metrics exist to take into account all those aspects in early phases of the software development process and take preventive measures. E.g. if the code is extremely complex a refactoring of the software should be done in order to minimize the likelyhood of defects.</p>
+<p>Some example of metrics used (in Object Oriented Programming) are:</p>
+<ul>
+  <li>Average Method Size: Ideally this parameter should be under 24 LOC in C++ or Java.</li>
+  <li>Average Number of Methods per class: Should be less than 20. Bigger averages indicate too
+    much responsibility in too few classes</li>
+  <li>Average Number of instance Variables per class: Should be less than 6. More instance variables
+    indicate that one class is doing more than what is should.</li>
+    <li>Class Hierarchy Nesting Level (Depth of Inheritance Tree, DIT): Too deep inheritance tree
+      means that hierarchy is more complicated that it should. Ideally it should be less than 6.</li>
+    <li>Number of classes and class relationships in a subsystem/module: Should be relatively high. This item relates to high cohesion of classes in the same subsystem. If one or more classes in a subsystem don't interact with many of the other classes, they might be better placed in another
+      subsystem.</li>
+      <li>Number of Subsystem and Subsystem Relationships: Should be less than the number in the
+        previous metric.</li>
+        <li>Average Number of comment lines (per method): It is important this metric is high enough to
+          ensure the code is maintainable (1 at the very minimum).</li>
+          <li>Number of times class is reused: If a class is not being reused in different applications (especially
+            an abstract class), it might need to be redesigned.</li>
+            <li>Number of classes and methods thrown away: Should occur at a steady rate throughout most
+              of the development process. If this is not occurring, it may be due because the software development process is following an incremental development instead of an iterative one.</li>
+</ul>
+
         </section> <!-- product quality-->
   </section>
   <section class='appendix'>
