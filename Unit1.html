@@ -9,33 +9,25 @@
       var respecConfig = {
           specStatus: "unofficial",
           overrideCopyright: "<p class='copyright'> This document is licensed under a <a class='subfoot' href='http://creativecommons.org/licenses/by/3.0/' rel='license'>Creative Commons Attribution 3.0 License</a>. </p>",
-
           // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
           // the specification's short name, as in http://www.w3.org/TR/short-name/
           shortName:            "xxx-xxx",
-
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
           // subtitle   :  "an excellent document",
-
           // if you wish the publication date to be other than the last modification, set this
           // publishDate:  "2009-08-06",
-
           // if the specification's copyright date is a range of years, specify
           // the start date here:
           // copyrightStart: "2005"
-
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
           // previousPublishDate:  "1977-03-15",
           // previousMaturity:  "WD",
-
           // if there a publicly available Editor's Draft, this is the link
           // edDraftURI:           "http://berjon.com/",
-
           // if this is a LCWD, uncomment and set the end of its review period
           // lcEnd: "2009-08-05",
-
           // editors, add as many as you like
           // only "name" is required
           editors:  [
@@ -56,7 +48,6 @@
           
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "spec-writers-anonymous",
-
           localBiblio:  {
             "MANAGEMENT-VS-QUALITY": {
             title:    "Management Can Make Quality (Im)possible"
@@ -117,7 +108,7 @@
             ]
             },
             "COST-OF-QUALITY": {
-            title:    "Cost of Quality – Not only failure costs"
+            title:    "Cost of Quality � Not only failure costs"
             ,   href:     "http://www.isixsigma.com/index.php?option=com_k2&view=item&id=937:cost-of-quality-not-only-failure-costs&Itemid=187"
             },
           },
@@ -154,24 +145,24 @@
           Software History, the bug that AT&T suffered in 1990.
         </p>
         <section>
-        <h3>An example of the onsequences of Poor Quality Software</h3>
+        <h3>An example of the sequences of Poor Quality Software</h3>
         <section>
         <h4>What happened?</h4>
         <p>
           At 2:25pm on Monday, January 15th, network managers at AT&T's Network 
-          Operations Center began noticing an alarming number of red warning 
+          Operations Centre began noticing an alarming number of red warning 
           signals coming from various parts of their network. Within seconds, 
           the network warnings were rapidly spreading from one computer-operated 
-          switching center to another. The managers tried to bring the network 
+          switching Centre to another. The managers tried to bring the network 
           back up to speed for nine hours, while engineers raced to stabilize 
           the network, almost 50% of the calls placed through AT&T failed to go 
-          through until at 11:30pm, when network laods were low enough to allow 
+          through until at 11:30pm, when network loads were low enough to allow 
           the system to stabilize.
         </p>
         <p>
           AT&T alone lost more than $60 million in unconnected calls. 
           Of course, there were many additional consequences difficult to be 
-          measured such as business taht could be done because relied on
+          measured such as business that could be done because relied on
           network connectivity.
         </p>
         </section>
@@ -187,7 +178,7 @@
           computer-operated electronic switches (4ESS) distributed across the 
           United States. These switches, each capable of handling up to 
           700,000 calls an hour, were linked via a cascading network known 
-          as Common Channel Signaling System No. 7 (SS7). When a telephone call 
+          as Common Channel Signalling System No. 7 (SS7). When a telephone call 
           was received by the network from a local exchange, the switch would 
           asses 14 different possible routes to complete the call. At the same 
           time, it passed the telephone number to a parallel signalling network 
@@ -236,11 +227,11 @@
           The cause of the problem had come months before. In early December, 
           technicians had upgraded the software to speed processing of 
           certain types of messages. Although the upgraded code had been 
-          rigorously tested, a one-line bug was inadvertantly added to the 
+          rigorously tested, a one-line bug was inadvertently added to the 
           recovery software of each of the 114 switches in the network. 
           The defect was a C program that featured a break statement located 
           within an if clause, that was nested within a switch clause.
-          In pseudocode, the program read as follows:
+          In pseudo-code, the program read as follows:
         </p>
         <div class="example">
           <pre class="example highlight prettyprint">
@@ -277,7 +268,7 @@
           the program dropped out of the case statement entirely and 
           began doing optional parameter work which overwrote the data 
           (line 13). Error correction software detected the overwrite 
-          and shut the switch down while it couls reset. Because every 
+          and shut the switch down while it could reset. Because every 
           switch contained the same software, the resets cascaded down 
           the network, incapacitating the system.
         </p>
@@ -288,7 +279,7 @@
           Unfortunately, it is not difficult for a simple software error 
           to remain undetected, to later bring down even the most reliable 
           systems. The software update loaded in the 4ESSs had already passed 
-          through layers of testing adn had remained unnoticed through the busy 
+          through layers of testing and had remained unnoticed through the busy 
           Christmas season. AT&T was fanatical about it's reliability. The entire 
           network was designed such that no single switch could bring down the 
           system. The software contained self-healing features that isolated 
@@ -305,7 +296,7 @@
         <section>
         <h3>Software Crisis</h3>
         <p>
-          But we could think that this bug occured a while ago and that nowadays
+          But we could think that this bug occurred a while ago and that nowadays
           we have more advanced technologies, methodologies, training systems and
           developers.
         </p>
@@ -316,7 +307,7 @@
           via software.
         </p>
         <p>
-        The “Software Crisis” term was coined by USA Department of Defence years 
+        The �Software Crisis� term was coined by USA Department of Defence years 
         ago in order to describe that the complexity of the problems addressed of 
         software has outpaced the improvements in the software creation process 
         <a href="#fig-the-software-complexity-evolution"></a>.
@@ -358,7 +349,7 @@
           has increased exponentially, because more software is needed as software 
           is used in nearly every product with a minimum of complexity.  Whereas 
           the need of developers has increased exponentially, the availability of 
-          developers has unfortunately not growed at the same pace, i.e. there are 
+          developers has unfortunately not grown at the same pace, i.e. there are 
           less developers than what is needed. Due to that, people without the right 
           skills have started developing software, with the believe that developing 
           software is an easy task that nearly everybody could do. Developing 
@@ -374,14 +365,14 @@
         <h3>Legal Warranties</h3>
         <p>
          Mortenson, a construction contractor purchased software from Timberline 
-         Software Corporation, which Timberline installed in Mortenson’s computers. 
+         Software Corporation, which Timberline installed in Mortenson�s computers. 
          Mortenson, relying on the software, placed a bid which was $1.95 million 
          too low because a bug in the software of which Timberline was aware. The 
-         State of Washington Supreme Court ruled in favor of Timberline Software. 
+         State of Washington Supreme Court ruled in favour of Timberline Software. 
          However, a simple bug in the software lead to multiple problems to both 
          companies. In the US Warranty Laws, the Article 2 of the Uniform 
-         Commercial Code includes the “Uniform Computer Information Transaction 
-         Act” (UCITA) that allows software manufacturers to: 
+         Commercial Code includes the �Uniform Computer Information Transaction 
+         Act� (UCITA) that allows software manufacturers to: 
         </p>
         <ul>
           <li>Disclaim all liability for defects </li>
@@ -429,16 +420,16 @@
           Many people have tried to define what does Software Quality mean.
           However, it is not an easy task. Quality in general (not only in 
           Software) is such a subjective topic that trying to define it 
-          formally is extremelly challenging.
+          formally is extremely challenging.
         </p>
         <p>
         There is a very interesting book called "Zen and the Art of 
         Motorcycle Maintenance" <b>link</b> in which the narrator talks about
-        the proces of creative writing, and specially about quality. The 
+        the process of creative writing, and specially about quality. The 
         quality of a written text is difficult to define. If you ask people 
         to rank essays (or programs) from best to worst it is very likely 
-        they reach a consensus – they have an intuitive understanding that 
-        one essay has more quality than another – but it’s much more difficult
+        they reach a consensus � they have an intuitive understanding that 
+        one essay has more quality than another � but it�s much more difficult
         to identify the parts of the essay that give it quality. 
         </p>
         <p>
@@ -454,7 +445,7 @@
           the quality. For instance, a master chef has prepared an exquisite 
           meal and invited a group of friends to share it at her restaurant 
           on a lovely summer evening. Unfortunately the air conditioning 
-          isn’t working at the restaurant, the waiters are surly, and two of 
+          isn�t working at the restaurant, the waiters are surly, and two of 
           the friends have had a nasty argument on the way to the restaurant 
           that dominates the dinner conversation. The meal itself is of the 
           highest quality but the experiences of the diners are not.
@@ -498,7 +489,7 @@
           relatively easy to check objectively the conformance to them, for the 
           second one, it is going to be more complicated and depends on how 
           documented those standards are, for the implicit characteristics 
-          expected, it is going to be even tougher, as measuring conformace to
+          expected, it is going to be even tougher, as measuring conformance to
           something that is implicit, is, by definition, impossible.
           </p>
         </section>
@@ -513,14 +504,14 @@
             to look for another point of view.
           </p>
           <p>
-          “A product's quality is a function of how much it changes the world 
-          for the better." [[MANAGEMENT-VS-QUALITY]] or “Quality is value to 
+          �A product's quality is a function of how much it changes the world 
+          for the better." [[MANAGEMENT-VS-QUALITY]] or �Quality is value to 
           some person" [[QUALITY-SOFTWARE-MANAGEMENT]]. Both definitions 
           stress that the quality may be subjective. I.e. different people 
           are going to perceive different quality in the same software. 
           The software developers should also think about end users and asking 
-          themselves questions such as “How are users going to use the 
-          software?”.
+          themselves questions such as �How are users going to use the 
+          software?�.
           </p>
           <p>
           In order to provide a more complete picture, IEEE standard 
@@ -626,7 +617,7 @@
             work.
           </p>
           <p>
-            When developing software (for instance in Univeristy assignments 
+            When developing software (for instance in University assignments 
             :-D) the first draft is often finished when it meets the general 
             requirements of the task. So, after that, there is an immediate 
             need to refactor the work into a better state without breaking the 
@@ -661,18 +652,18 @@
             Generality: Specific solutions are only used if they are really needed. 
             </li>
             <li>
-            Clarity: the code enjoys a good autodocumentation level so that it is 
+            Clarity: the code enjoys a good auto-documentation level so that it is 
             easy to be maintained. 
             </li>
           </ul>
           <p>
-            The external quality is sometimes compared with “Doing the right 
-            things” as opposed to “Doing the things right” which should define 
+            The external quality is sometimes compared with �Doing the right 
+            things� as opposed to �Doing the things right� which should define 
             what internal quality is.
           </p>
           <p>
             Usually, the problems with the external quality characteristics 
-            (correctness, reliability...) are simply visible symptons about 
+            (correctness, reliability...) are simply visible symptoms about 
             software problems, that usually are related with internal quality 
             attributes:  program structure, complexity, coupling, testability, 
             reusability, readability, maintainability... Sometimes, when 
@@ -703,13 +694,13 @@
           </p>
           <ul>
             <li>
-            Quality of the process of constructing software – process quality
+            Quality of the process of constructing software � process quality
             </li>
             <li>
-            Quality of software product in itself – internal and external quality
+            Quality of software product in itself � internal and external quality
             </li>
             <li>
-            Quality of software product in use – quality in use
+            Quality of software product in use � quality in use
             </li>
           </ul>
           <figure>
@@ -762,9 +753,9 @@
             <figcaption>ISO 9126 Quality Characteristics</figcaption>
           </figure>
           <p>
-          Quality in use is defined by ISO as “the extent to which a product used 
+          Quality in use is defined by ISO as �the extent to which a product used 
           by specified users meets their needs to achieve specified goals with 
-          effectiveness, productivity, and satisfaction in specified contexts of use”. 
+          effectiveness, productivity, and satisfaction in specified contexts of use�. 
           The quality in use hence depends on the context in which the product is 
           used and its intrinsic quality.
           </p>
@@ -795,8 +786,8 @@
       </p>
       <ul>
         <li>
-        Failure: Any deviation of the observed behavior from the specified 
-        behavior.
+        Failure: Any deviation of the observed behaviour from the specified 
+        behaviour.
         </li>
         <li>
         Error: System state where any further processing by the system will 
@@ -857,7 +848,7 @@ public static int numZero (int[] x) {
     </p>
     <ul>
       <li>
-      For a given fault, not all the inputs to the software will “trigger” the 
+      For a given fault, not all the inputs to the software will �trigger� the 
       fault to create a failure. In some situations, the failure will not 
       appear to the end-user, despite the fault is in the code.
       </li>
@@ -999,7 +990,7 @@ public static int numZero (int[] x) {
           If imprecise designs & implementations: Lack of formal methods.
           </li>
           <li>
-          If non-conformace to standards: No standard enforcement.
+          If non-conformance to standards: No standard enforcement.
           </li>
           <li>
           If lack of tools and techniques: No technique or tool adoption.
@@ -1020,7 +1011,7 @@ public static int numZero (int[] x) {
               Product and domain specific knowledge.
             </li>
             <li>
-              Sofware development knowledge and expertise.
+              Software development knowledge and expertise.
             </li>
             <li>
               Knowledge about Development methodology, technology, and tools.
@@ -1043,7 +1034,7 @@ public static int numZero (int[] x) {
             Formal specification is concerned with producing an unambiguous 
             set of product specifications. An unclear specification implies 
             that the software target and behaviour may depend on the 
-            interpretation of the developer, due to that the likelyhood of 
+            interpretation of the developer, due to that the likelihood of 
             defects in errors is higher. 
             </li>
             <li>
@@ -1092,20 +1083,20 @@ public static int numZero (int[] x) {
           <p>
           Code inspections should check for technical accuracy and 
           completeness of the code, verify that it implements the planned 
-          design, and ensure good coding practices  and standards are used. 
+          design, and ensure good coding practices ?and standards are used. 
           Code inspections should be done after the code has been compiled 
           and all syntax errors removed, but before it has been unit tested. 
           </p>
           <p>
           There are different kind of inspections depending on factors such 
           as the formality (formal vs informal) the size of the team (peer 
-          review, team review), whether it is guided or not… The type of 
+          review, team review), whether it is guided or not� The type of 
           inspection to be done depends on the software to be reviewed, the 
           team involved and the target of the review.
           </p>
           <p>
           Regardless of the inspection type used, there are clear benefits 
-          when inspections are used. For instance, according th Bell-Northen 
+          when inspections are used. For instance, according to Bell-Northen 
           Researh, the cost of detecting a defect is much lower in case of 
           inspections (1 hour per defect) than in the case of testing (2-4 
           hours per defect).
@@ -1170,7 +1161,7 @@ public static int numZero (int[] x) {
         to a fairly low level, but not completely eliminate them. For 
         instance, in many situations, the combination of possible situations 
         is so big, that it is impossible to test all those situations, 
-        especially those linked to rare conditions or unsual dynamic scenarios.
+        especially those linked to rare conditions or unusual dynamic scenarios.
         </p>
         <p>
         Depending on the purpose of the software, these remaining faults, and 
@@ -1197,23 +1188,23 @@ I         </p>
           <p>
           All fault tolerance systems must be based on the provision of useful 
           redundancy that allows to switch between components when one of they 
-          fail (due to software or hardware faults). That impliest that there 
+          fail (due to software or hardware faults). That implies that there 
           has to be some extra components, which ideally should have a 
           different design to avoid the same error to happen twice. Based on 
-          how those redundant componentes structured are used (e.g. when to 
+          how those redundant components structured are used (e.g. when to 
           switch from one to another) there are different kind of systems:
           </p>
           <ol type="A">
             <li>
             Recovery blocks: Use repeated executions (or redundancy over time) 
             as the basic mechanism for fault tolerance. The software includes 
-            a set of “recovery points” in which the status is recorded so that 
+            a set of �recovery points� in which the status is recorded so that 
             they could be used as fallbacks in case something goes wrong. When 
-            a piece of code is executed, a “test acceptance” is internally 
-            executed, if the result is OK, a new “recovery point” is set-up, 
+            a piece of code is executed, a �test acceptance� is internally 
+            executed, if the result is OK, a new �recovery point� is set-up, 
             if the result is not acceptable, then the software returns to the 
-            previous “recovery point” and an alternative to the faulty code is 
-            enacted. This process continues until the “acceptance test” is 
+            previous �recovery point� and an alternative to the faulty code is 
+            enacted. This process continues until the �acceptance test� is 
             passed or no more alternatives are available, which leads to a 
             failure. Some key characteristics about this scheme that is 
             depicted in <a href='#fig-recovery-blocks'></a>:
@@ -1224,12 +1215,12 @@ I         </p>
               is taken.
               </li>
               <li>
-              It is a “serial technique” in which the same functionality (the 
+              It is a �serial technique� in which the same functionality (the 
               recovery block) is never executed in parallel.
               </li>
               <li>
-              The “acceptance test” algorithm is the critical part to success 
-              as well as the avaialability of recovery blocks designed in 
+              The �acceptance test� algorithm is the critical part to success 
+              as well as the availability of recovery blocks designed in 
               different ways to the original code.
               </li>
             </ul>
@@ -1261,13 +1252,13 @@ I         </p>
               executed multiple times.
               </li>
               <li>
-              It is a “parallel technique” in which the same functionality 
+              It is a �parallel technique� in which the same functionality 
               is always executed in parallel by different versions of the same 
               functionality.
               </li>
               <li>
-              The “decision unit” algorithm is the critical part to success as 
-              well as the avaialability of different versions of the same code 
+              The �decision unit� algorithm is the critical part to success as 
+              well as the availability of different versions of the same code 
               designed in different ways.
               </li>
             </ul>
@@ -1276,7 +1267,7 @@ I         </p>
               <figcaption>N version programming</figcaption>
             </figure>
             <p>
-            Obviously a wide range of different variants of those sytems have 
+            Obviously a wide range of different variants of those systems have 
             been proposed based in multiple combinations of them 
             [[COST-EFFECTIVE-FAULT-TOLERANCE]] and multiple comparisons between 
             the performance are also available [[PERFORMANCE-RB-NVP-SCOP]].
@@ -1285,13 +1276,13 @@ I         </p>
             <p>
             What do you think are the key advantages and disadvantages of the 
             two fault tolerance techniques described (Recovery Blocks & 
-            N-Version)? Exercise 3 – Recovery Blocks vs. N-Version
+            N-Version)? Exercise 3 � Recovery Blocks vs. N-Version
             </p>
           </section>
           <section>
             <h5>Failure Containment</h5>
             <p>
-            There is software that is used in safey critical systems, that 
+            There is software that is used in safety critical systems, that 
             have severe consequences in case a failure occurs. In those 
             situations it is very important to avoid some of the potential 
             accidents or at lt
@@ -1306,8 +1297,8 @@ I         </p>
               Hazard Elimination through substitution, simplification, 
               decoupling, elimination of specific human errors and reduction 
               of hazardous materials or conditions. These techniques reduce 
-              certain defect injections or substitue non-hazardous ones for 
-              hazardous ones. The general approach is ismialr to the defect 
+              certain defect injections or substitute non-hazardous ones for 
+              hazardous ones. The general approach is similar to the defect 
               prevention and defect reduction techniques surveyed earlier, but 
               with a focus on those problems involved in hazardous situations.
               </li>
@@ -1325,20 +1316,20 @@ I         </p>
               environment), protection systems (active protection activated in 
               case of hazard), and fail-safe design (passive protection, fail 
               in a safe state without causing further damages). These techniques 
-              reduce the severity of failures, therefore weakeining the link 
-              between failures and accidentes.
+              reduce the severity of failures, therefore weakening the link 
+              between failures and accidents.
               </li>
               <li>
               Damage control through escape routes, safe abandonment of 
               products and materials, and devices for limiting physical damages 
               to equipment or people. These techniques reduce the severity of 
-              accidents, thus limiting the damages cause by these accidentes 
+              accidents, thus limiting the damages cause by these accidents 
               and related software failures.
               </li>
             </ul>
             <p>
             Notice that both hazard control and damage control above are 
-            post-failure activities that attempt to “contain” the failures so 
+            post-failure activities that attempt to �contain� the failures so 
             that they will not lead to accidents or the accident damage can be 
             controlled or minimized. All these techniques are usually very 
             expensive and process/technology intensive, hence they should be 
@@ -1389,7 +1380,7 @@ I         </p>
         Before doing any QA activity, it is important to consider some aspects 
         such as the target quality, the most appropriate QA activities to be 
         done and when should be done, how are the quality going to be 
-        measured… All those activities are usually called Pre-QA or Quality 
+        measured� All those activities are usually called Pre-QA or Quality 
         Planning Activities.
         </p>
         <p>
@@ -1460,7 +1451,7 @@ I         </p>
         </p>
         <p>
         All these activities are usually carried out after normal QA 
-        activities have started but as part of these “normal” QA activities. 
+        activities have started but as part of these �normal� QA activities. 
         Their goal is to provide feedback so that decisions can be made and 
         improvements can be suggested. The key activities include:
         </p>
@@ -1468,12 +1459,16 @@ I         </p>
           <li>
           Measurement: Besides the direct measure of tracking the defects 
           during the in-QA activities, various other measurements are needed 
+<<<<<<< HEAD
           inorder to the track the QA activities and for project management 
+=======
+          in order to the track the QA activities and for project management 
+>>>>>>> gh-pages
           purposes. The data resulting from this analysis is important to 
           manage software project and quality.
           </li>
           <li>
-          Analysis and Modeling: These activities analyze measurement data 
+          Analysis and Modelling: These activities analyse measurement data 
           from software projects and fit them to analytical models that 
           provide quantitative assessment of selected quality characteristics 
           and sub-characteristics. This is key to obtain an objective 
@@ -1484,7 +1479,7 @@ I         </p>
           Providing feedback and identifying improvement potentials: The 
           results of the previous activities can lead to some suggestions to 
           improve the process followed with the software being assessed (e.g. 
-          more testing resources are needed, test cases are not sufficient…) 
+          more testing resources are needed, test cases are not sufficient�) 
           or the general SQE methodology.
           </li>
           <li>
@@ -1528,7 +1523,7 @@ I         </p>
         <h3>The Deming Quality Cycle</h3>
         <p>
         W. Edwards Deming in the 1950's proposed that business processes 
-        should be analyzed and measured to identify sources of variations 
+        should be analysed and measured to identify sources of variations 
         that cause products to deviate from customer requirements. He 
         recommended that business processes be placed in a continuous 
         feedback loop so that managers can identify and change the parts 
@@ -1566,9 +1561,9 @@ I         </p>
           <figcaption>PDCA Circle</figcaption>
         </figure>
         <p>
-        By going around the PDCA circle, the working methods are continously 
+        By going around the PDCA circle, the working methods are continuously 
         improved as well as the results obtained. However, it is important to 
-        take care avoid a situation called “spiral death”. It happens when an 
+        take care avoid a situation called �spiral death�. It happens when an 
         organization goes around and around the quadrants, never actually 
         bringing a system into production.
         </p>
@@ -1578,9 +1573,9 @@ I         </p>
       <h2>QE in Software Development Process</h2>
       <p>
       The quality engineering process cannot be considered in an isolated 
-      manner, but as parat for the overall software engineering process. For 
+      manner, but as part for the overall software engineering process. For 
       instance, most of the SQE Activities should be included as part of the 
-      Software Develpoment activities 
+      Software Development activities 
       (<a href='#fig-sqe-and-software-development'></a>):
       </p>
       <ul>
@@ -1603,7 +1598,7 @@ I         </p>
       However, it should be considered that SQE activities have different 
       timing requirements, activities and focus. For instance, 
       <a href='#fig-focus-of-sqe-activities-during-the-development-process'></a> 
-      represents the typcial effort spent in the different quality activities 
+      represents the typical effort spent in the different quality activities 
       during the software development time.
       </p>  
       <figure>
@@ -1627,7 +1622,7 @@ I         </p>
       <p>
       Another important aspect to be considered is that some of the QA 
       activities cannot be done until it is already too late. For example, 
-      for safey critical systems, post-accident measurements provide a direct 
+      for safety critical systems, post-accident measurements provide a direct 
       measure of safety, but due to the damage linked to those accidents, they 
       should be avoided by all means. In order to take early measures, 
       appropriate models that link some of the quality measures during the 
@@ -1643,10 +1638,10 @@ I         </p>
       <p>
       In section 1.1, some of the implications of bad quality software have 
       been introduced. The cost of poor quality (COPQ) is not the only cost 
-      that Sofware Quality Engineering should take into account. The cost 
+      that Software Quality Engineering should take into account. The cost 
       of having good quality (COGQ) that may be linked to SQA activities 
-      (e.g testing or code inspections) should not be understimated and 
-      considered whent the total quality cost is assessed. 
+      (e.g testing or code inspections) should not be underestimated and 
+      considered when the total quality cost is assessed. 
       </p>
       <p>
       As in the case of the external and internal quality, the different 
@@ -1667,7 +1662,7 @@ I         </p>
     <h2>Acknowledgements</h2>
     <p>
       Many thanks to Robin Berjon for making our lives so much easier with his 
-      cool tool.
+      cool tool..
     </p>
   </section>
   </body>
