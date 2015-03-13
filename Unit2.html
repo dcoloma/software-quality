@@ -4,7 +4,7 @@
     <title>Software Quality - Unit 2</title>
     <meta charset='utf-8'>
     <script src='js/respec-w3c-common.js'
-            async class='remove'></script>
+      async class='remove'></script>
     <script class='remove'>
       var respecConfig = {
           specStatus: "unofficial",
@@ -39,13 +39,13 @@
               ,   companyURL: "http://www.usj.es/"
               },
           ],
-          
+
           // name of the WG
           wg:           "In Charge Of This Document Working Group",
-          
+
           // URI of the public WG page
           wgURI:        "http://example.org/really-cool-wg",
-          
+
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "spec-writers-anonymous",
           localBiblio:  {
@@ -66,7 +66,7 @@
             ,   href:     "http://namcookanalytics.com/wp-content/uploads/2013/07/LinesofCode2013.pdf"
             }
           },
-          
+
           // URI of the patent status for this WG, for Rec-track documents
           // !!!! IMPORTANT !!!!
           // This is important for Rec-track documents, do not copy a patent URI from a random
@@ -83,7 +83,7 @@
         These are the notes for Sofware Quality at USJ
       </p>
     </section>
-    
+
     <section id='sotd'>
       <p>
         Early Draft
@@ -92,12 +92,12 @@
 
     <section>
       <h1> Software Quality Metrics </h1>
-        <p>"Quality metrics let you know when to laugh and when to cry", Tom Gilb</p>
-        <p>"If you can't measure it, you can0t manage it", Deming</p>
-        <p>"Count what is countable, measure what is measurable. What is not measurable, make measurable", Galileo</p>
-        <p>"Not everything that can be counted counts, and not everything that counts can be counted.", Albert Einstein</p>
+      <p>"Quality metrics let you know when to laugh and when to cry", Tom Gilb</p>
+      <p>"If you can't measure it, you can0t manage it", Deming</p>
+      <p>"Count what is countable, measure what is measurable. What is not measurable, make measurable", Galileo</p>
+      <p>"Not everything that can be counted counts, and not everything that counts can be counted.", Albert Einstein</p>
       <section>
-      <h2>Introduction</h2>
+        <h2>Introduction</h2>
         <p>
           Measurement is the process by which numbers or symbols are assigned 
           to attributes of entities of a software product, process, or project, 
@@ -108,16 +108,16 @@
         </p>
         <ul>
           <li>
-          Creating indicators.
+            Creating indicators.
           </li>
           <li>
-          Building models for simulation.
+            Building models for simulation.
           </li>
           <li>
-          Building models for decision making;
+            Building models for decision making;
           </li>
           <li>
-          Aiding goal setting and deployment;
+            Aiding goal setting and deployment;
           </li>
         </ul>
         <p>
@@ -130,19 +130,19 @@
         </p>
         <ul>
           <li>
-          Product Metrics: describe the characteristics of the product such 
-          as: size, complexity, design features, performance, and quality 
-          level, etc.
+            Product Metrics: describe the characteristics of the product such 
+            as: size, complexity, design features, performance, and quality 
+            level, etc.
           </li>
           <li>
-          Process Metrics: These can be used to improve software processes 
-          such as: ffectiveness of defect removal during development, the 
-          pattern of testing defect arrival, the response time of the 
-          fix process, etc.
+            Process Metrics: These can be used to improve software processes 
+            such as: ffectiveness of defect removal during development, the 
+            pattern of testing defect arrival, the response time of the 
+            fix process, etc.
           </li>
           <li>
-          Project Metrics: Describe the project characteristics and execution: 
-          number of software developers, cost, schedule, and productivity, etc.
+            Project Metrics: Describe the project characteristics and execution: 
+            number of software developers, cost, schedule, and productivity, etc.
           </li>
         </ul>
         <p>
@@ -152,95 +152,95 @@
         </p>
         <ul>
           <li>
-          End-product quality metrics: Metrics related to the software product 
-          once it has been finalized and delivered. The following type of 
-          metrics are in this group:
-          <ul>
-            <li>
-            Intrinsic Product Quality Metrics: These are the metrics that are 
-            related with the quality of the product itself, without the need to 
-            involve customers.
-            </li>
-            <li>
-            Customer Satisfaction Metrics: These are the metrics that are 
-            related to the view customers have of the product quality.
-            </li>
-          </ul>
+            End-product quality metrics: Metrics related to the software product 
+            once it has been finalized and delivered. The following type of 
+            metrics are in this group:
+            <ul>
+              <li>
+                Intrinsic Product Quality Metrics: These are the metrics that are 
+                related with the quality of the product itself, without the need to 
+                involve customers.
+              </li>
+              <li>
+                Customer Satisfaction Metrics: These are the metrics that are 
+                related to the view customers have of the product quality.
+              </li>
+            </ul>
           </li>
           <li>
-          In-process quality metrics: Metrics related to the software while it 
-          is under development. As the goal of a software development team is 
-          use the methodologies that provide the best possible quality, it is 
-          important to pay attention to those metrics. In general, they are 
-          less formally defined that the end-product metrics.
+            In-process quality metrics: Metrics related to the software while it 
+            is under development. As the goal of a software development team is 
+            use the methodologies that provide the best possible quality, it is 
+            important to pay attention to those metrics. In general, they are 
+            less formally defined that the end-product metrics.
           </li>
         </ul>
         <p>
-        In general, the quality of a developed product (end-product metrics) 
-        is influenced by the quality of the production process (in-process 
-        metrics). Identifying the link between those two type of metrics is 
-        essential for software development as the end-product metrics, most of 
-        the times, can be only discovered when it is too late (i.e. the product 
-        is alreay in the market). However, the link between both type of 
-        metrics is hard and complex as in the most of the times its 
-        relationship is poorly understood.
+          In general, the quality of a developed product (end-product metrics) 
+          is influenced by the quality of the production process (in-process 
+          metrics). Identifying the link between those two type of metrics is 
+          essential for software development as the end-product metrics, most of 
+          the times, can be only discovered when it is too late (i.e. the product 
+          is alreay in the market). However, the link between both type of 
+          metrics is hard and complex as in the most of the times its 
+          relationship is poorly understood.
         </p>
         <p>
-        The link model between a process and a product for manufacturer goods 
-        is in most of the cases simple. However, for software, this model is 
-        in general more complex because:
+          The link model between a process and a product for manufacturer goods 
+          is in most of the cases simple. However, for software, this model is 
+          in general more complex because:
         </p>
         <ul>
           <li>
-          The developer individual skills and experience is extremely 
-          important for the results of software development.
+            The developer individual skills and experience is extremely 
+            important for the results of software development.
           </li>
           <li>
-          External factors such as the novelty of an application or the need 
-          for an accelerated development schedule may impair product quality.
+            External factors such as the novelty of an application or the need 
+            for an accelerated development schedule may impair product quality.
           </li>
         </ul>
         <p>
-        The ultimate goal of software quality engineering is to investigate 
-        the relationships among in-process metrics, project characteristics, 
-        and end-product quality, and based on these findings to engineer 
-        improvements in both process and product quality.
+          The ultimate goal of software quality engineering is to investigate 
+          the relationships among in-process metrics, project characteristics, 
+          and end-product quality, and based on these findings to engineer 
+          improvements in both process and product quality.
         </p>
-        </section>
-        <section>
+      </section>
+      <section>
         <h2>Product quality metrics</h2>
-          <section>
+        <section>
           <h3>Intrinsic Product Quality Metrics</h3>
-            <section>
+          <section>
             <h4>Reliability, Error Rate and Mean Time To Failure</h4>
             <p>
-            Software reliability is a measure of how often the software 
-            encounters an error that leads to a failure. From a formal point 
-            view, Reliability can be defined as the probability of not 
-            failing in a specified length of time:
+              Software reliability is a measure of how often the software 
+              encounters an error that leads to a failure. From a formal point 
+              view, Reliability can be defined as the probability of not 
+              failing in a specified length of time:
             </p>
             <p style="color: red">
-            R(n) (where n is the number of time units) 
+              R(n) (where n is the number of time units) 
             </p>
             <p>
-            The probability of failing in a specified length of time is 1 
-            minus the reliability for that length of time:
+              The probability of failing in a specified length of time is 1 
+              minus the reliability for that length of time:
             </p>
             <p style="color: red">
-            F(n) = 1 - R(n)
+              F(n) = 1 - R(n)
             </p>
             <p>
-            If time is measured in days, R(1) is the probability of the 
-            software system having zero failures during one day (i.e. the 
-            probability of not failing in 1 day)
+              If time is measured in days, R(1) is the probability of the 
+              software system having zero failures during one day (i.e. the 
+              probability of not failing in 1 day)
             </p>
             <p>
-            A couple of metrics related with the software reliability are 
-            the "Error Rate" and the "Mean Time To Failure" (MTTF). The MTTF 
-            can be defined as the average time that occurs between two system 
-            failures. Error Rate is the average number of failures suffered by 
-            the system during a given amount of time. Both metrics are related 
-            with the following formula:
+              A couple of metrics related with the software reliability are 
+              the "Error Rate" and the "Mean Time To Failure" (MTTF). The MTTF 
+              can be defined as the average time that occurs between two system 
+              failures. Error Rate is the average number of failures suffered by 
+              the system during a given amount of time. Both metrics are related 
+              with the following formula:
             </p>
             <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow><mi>Error Rate</mi> <mo>=</mo>
@@ -248,148 +248,148 @@
               </mrow>
             </math>
             <p>
-            Unless detailed statistics/models are available, the best estimate 
-            of the short-term future behavior is the current behavior. For 
-            instance, if a system suffers 24 failures during one day, the best 
-            estimate for the next day is that 24 failures will occur (24 
-            errors/day) that correspond to a 1hour MTTF.
+              Unless detailed statistics/models are available, the best estimate 
+              of the short-term future behavior is the current behavior. For 
+              instance, if a system suffers 24 failures during one day, the best 
+              estimate for the next day is that 24 failures will occur (24 
+              errors/day) that correspond to a 1hour MTTF.
             </p>
             <p>
-            The relationship between the error rate and the reliability depends 
-            on the statistical distribution of the errors.
+              The relationship between the error rate and the reliability depends 
+              on the statistical distribution of the errors.
             </p>
             <p>
-            If the system failures follow an exponential distribution the follow 
-            relationship is true:
+              If the system failures follow an exponential distribution the follow 
+              relationship is true:
             </p>
             <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow><mi>R(t)</mi><mo> = </mo><msup> <mi>e</mi> <mn>&minus;&lambda;t</mn> </msup></mrow>
             </math>
             <p>
-            Where &lambda; is the Error Rate and t is the amount of time for which the 
-            system reliability is calculated.
+              Where &lambda; is the Error Rate and t is the amount of time for which the 
+              system reliability is calculated.
             </p>
             <p>
               You can find a lot of information about reliability and how maths is 
               used for calculating it at [[RELIABILITY-MATHS]]
-            <p>
-            <p>
-              Although exponential distribution may be a good compromise that 
-              could be applied to any software system, there are other 
-              distributions that may describe in a more accurate way the error 
-              arrival pattern. For instance, the Weibull distribution is 
-              frequently used in reliability analysis [[WEIBULL-BASICS]].
-            </p>
-            <p>
-              If we take into account Software Upgrades, there are some interesting
-              analysis about how a sawteeth pattern is observed [[SOFTWARE-RELIABILITY]].
-            </p>
-            <p>
-              In a software system, during two days only one failure has 
-              occurred, what is the probability that the system will not fail 
-              in 1, 2, 3, and 4 days?
-              Consider that errors follow an exponential distribution.
-            </p>
-            </p>
+              <p>
+                <p>
+                  Although exponential distribution may be a good compromise that 
+                  could be applied to any software system, there are other 
+                  distributions that may describe in a more accurate way the error 
+                  arrival pattern. For instance, the Weibull distribution is 
+                  frequently used in reliability analysis [[WEIBULL-BASICS]].
+                </p>
+                <p>
+                  If we take into account Software Upgrades, there are some interesting
+                  analysis about how a sawteeth pattern is observed [[SOFTWARE-RELIABILITY]].
+                </p>
+                <p>
+                  In a software system, during two days only one failure has 
+                  occurred, what is the probability that the system will not fail 
+                  in 1, 2, 3, and 4 days?
+                  Consider that errors follow an exponential distribution.
+                </p>
+              </p>
             </section>
             <section>
-            <h4>Defect Density</h4>
+              <h4>Defect Density</h4>
               <p>
-              Defect Density is the number of confirmed defects detected in 
-              software/component during a defined period of 
-              development/operation divided by the size of the software/component.
+                Defect Density is the number of confirmed defects detected in 
+                software/component during a defined period of 
+                development/operation divided by the size of the software/component.
               </p>
               <p>
-              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
-              <mrow><mi>Defect Density</mi> <mo>=</mo>
-              <mfrac><mrow>Number of Confimed Defects</mrow><mrow>Software Size</mrow></mfrac>
-              </mrow>
-              </math>
+                <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                  <mrow><mi>Defect Density</mi> <mo>=</mo>
+                  <mfrac><mrow>Number of Confimed Defects</mrow><mrow>Software Size</mrow></mfrac>
+                  </mrow>
+                </math>
               </p>
               <p>
-              The "defects" are usually counted as confirmed and agreed defects 
-              (not just reported). For instance, dropped defects are not counted.
+                The "defects" are usually counted as confirmed and agreed defects 
+                (not just reported). For instance, dropped defects are not counted.
               </p>
               <p>
-              The "period" or metrics time frame, might be for one of the following:
-              </p>
-              <ul>
-                <li>
-                for a duration (say, the first month, the quarter, or the year).
-                </li>
-                <li>
-                for each phase of the software life cycle.
-                </li>
-                <li>
-                for the whole of the software life cycle, usually known as Life 
-                Of Product (LOF) and may comprise time after the software
-                product's release to the market.
-                </li>
-              </ul>
-              <p>
-              The "opportunities for error" (OFE) or sofware "size" is measured 
-              in one of the following:
+                The "period" or metrics time frame, might be for one of the following:
               </p>
               <ul>
                 <li>
-                Source Lines of Code that are usually counted as thousands of 
-                Lines Of Code (KLOC)
+                  for a duration (say, the first month, the quarter, or the year).
                 </li>
                 <li>
-                Function Points (FP)
+                  for each phase of the software life cycle.
+                </li>
+                <li>
+                  for the whole of the software life cycle, usually known as Life 
+                  Of Product (LOF) and may comprise time after the software
+                  product's release to the market.
                 </li>
               </ul>
               <p>
-              In the following chapters both ways of measuring OFE will be 
-              studied separately.
+                The "opportunities for error" (OFE) or sofware "size" is measured 
+                in one of the following:
+              </p>
+              <ul>
+                <li>
+                  Source Lines of Code that are usually counted as thousands of 
+                  Lines Of Code (KLOC)
+                </li>
+                <li>
+                  Function Points (FP)
+                </li>
+              </ul>
+              <p>
+                In the following chapters both ways of measuring OFE will be 
+                studied separately.
               </p>
               <section>
                 <h5>Lines of Code</h5>
                 <p>
-                Counting the lines of code (LOC) is way more complex that what 
-                it could be initially considered. The major problem for couting 
-                lines of code comes from the ambiguity of the operational 
-                definition, the actual counting. In the early days of Assembler 
-                programming, in which one physical line was the same as one 
-                instruction, the LOC definition was clear. With the availability 
-                of high-level languages the one-to- one correspondence broke 
-                down. Differences between physical lines and instruction 
-                statements (or logical lines of code) and differences among 
-                languages contribute to the huge variations in counting LOCs. 
-                Even within the same language, the methods and algorithms used 
-                by different counting tools can cause significant differences 
-                in the final counts. Multiple variations were already described 
-                by Jones in 1986 such as:
+                  Counting the lines of code (LOC) is way more complex that what 
+                  it could be initially considered. The major problem for couting 
+                  lines of code comes from the ambiguity of the operational 
+                  definition, the actual counting. In the early days of Assembler 
+                  programming, in which one physical line was the same as one 
+                  instruction, the LOC definition was clear. With the availability 
+                  of high-level languages the one-to- one correspondence broke 
+                  down. Differences between physical lines and instruction 
+                  statements (or logical lines of code) and differences among 
+                  languages contribute to the huge variations in counting LOCs. 
+                  Even within the same language, the methods and algorithms used 
+                  by different counting tools can cause significant differences 
+                  in the final counts. Multiple variations were already described 
+                  by Jones in 1986 such as:
                 </p>
                 <ul>
                   <li>
-                  Count only executable lines.
+                    Count only executable lines.
                   </li>
                   <li>
-                  Count executable lines plus data definitions.
+                    Count executable lines plus data definitions.
                   </li>
                   <li>
-                  Count executable lines, data definitions, and comments.
+                    Count executable lines, data definitions, and comments.
                   </li>
                   <li>
-                  Count executable lines, data definitions, comments, and job control language.
+                    Count executable lines, data definitions, comments, and job control language.
                   </li>
                   <li>
-                  Count lines as physical lines on an input screen.
+                    Count lines as physical lines on an input screen.
                   </li>
                   <li>
-                  Count lines as terminated by logical delimiters.
+                    Count lines as terminated by logical delimiters.
                   </li>
                 </ul>
                 <p>
-                For instance, next example includes two approaches for 
-                coding the same functionality. As the functionality is the 
-                same, and it is writing in the same manner, the opportunities 
-                for error should be the same, however, the lines of code 
-                differ. For instance, if we count all the lines (job control 
-                language, comments...), in the first case only one line of 
-                code is used whereas in the second case 5 lines of code have 
-                been used.
+                  For instance, next example includes two approaches for 
+                  coding the same functionality. As the functionality is the 
+                  same, and it is writing in the same manner, the opportunities 
+                  for error should be the same, however, the lines of code 
+                  differ. For instance, if we count all the lines (job control 
+                  language, comments...), in the first case only one line of 
+                  code is used whereas in the second case 5 lines of code have 
+                  been used.
                 </p>
                 <div class="example">
                   <pre class="example highlight prettyprint">
@@ -404,39 +404,39 @@ for (i=0; i<100; ++i)
                   </pre>
                 </div>
                 <p>
-                Some authors have considered LOC not only a less useful way to 
-                measure software size but also a harmful thing for sofware 
-                economics and productivity. For instance, the paper written by 
-                Capers Jones called "A Short History of Lines of Code (LOC) 
-                Metrics" [[LOC-HISTORY]] offers a very interesting historical view about the 
-                evolution of Software Programming Languages and LOC metrics.
+                  Some authors have considered LOC not only a less useful way to 
+                  measure software size but also a harmful thing for sofware 
+                  economics and productivity. For instance, the paper written by 
+                  Capers Jones called "A Short History of Lines of Code (LOC) 
+                  Metrics" [[LOC-HISTORY]] offers a very interesting historical view about the 
+                  evolution of Software Programming Languages and LOC metrics.
                 </p>
                 <p>
-                Regardless of the LOC measurements used, when a software product 
-                is released to the market for the first time, and when a certain 
-                way to measure lines of code is specified, it is relatively easy 
-                to state its quality level (projected or actual). However, when 
-                enhancements are made and subsequent versions of the product are 
-                released, the measurement is more complicated. In order to have 
-                a good insight on the product quality is important to follow a 
-                two-fold approach:
+                  Regardless of the LOC measurements used, when a software product 
+                  is released to the market for the first time, and when a certain 
+                  way to measure lines of code is specified, it is relatively easy 
+                  to state its quality level (projected or actual). However, when 
+                  enhancements are made and subsequent versions of the product are 
+                  released, the measurement is more complicated. In order to have 
+                  a good insight on the product quality is important to follow a 
+                  two-fold approach:
                 </p>
                 <ul>
                   <li>
-                  Measure the quality of the entire product.
+                    Measure the quality of the entire product.
                   </li>
                   <li>
-                  Measure the quality of the new/changed parts of the product.
+                    Measure the quality of the new/changed parts of the product.
                   </li>
                 </ul>
                 <p>
-                The first measure may improve over releases due to aging and 
-                defect removal, but that improvement in the overall defect 
-                rate may hide problems on the developement/quality process 
-                (e.g. new code contains a higher defect density that the "old" 
-                code which indicates a problem in the process). In order to be 
-                able to calculate defect rate for the new and changed code, 
-                the following must be available:
+                  The first measure may improve over releases due to aging and 
+                  defect removal, but that improvement in the overall defect 
+                  rate may hide problems on the developement/quality process 
+                  (e.g. new code contains a higher defect density that the "old" 
+                  code which indicates a problem in the process). In order to be 
+                  able to calculate defect rate for the new and changed code, 
+                  the following must be available:
                 </p>
                 <ul>
                   <li>
@@ -455,88 +455,88 @@ for (i=0; i<100; ++i)
                   </li>
                 </ul>
                 <p>
-                These tasks are enabled by the practice of change flagging. 
-                Specifically, when a new function is added or an enhancement 
-                is made to an existing function, the new and changed lines of 
-                code are flagged. The change-flagging practice is also important 
-                to the developers who deal with problem determination and 
-                maintenance. When a defect is reported and the fault zone 
-                determined, the developer can determine in which function or 
-                enhancement pertaining to what requirements at what release 
-                origin the defect was injected. The following is an example on 
-                how the overall defect rate and the defect rate for new code is 
-                mesaured at IBM according to the book "Metrics and models in 
-                software quality engineering" by Stephen H. Kan.
+                  These tasks are enabled by the practice of change flagging. 
+                  Specifically, when a new function is added or an enhancement 
+                  is made to an existing function, the new and changed lines of 
+                  code are flagged. The change-flagging practice is also important 
+                  to the developers who deal with problem determination and 
+                  maintenance. When a defect is reported and the fault zone 
+                  determined, the developer can determine in which function or 
+                  enhancement pertaining to what requirements at what release 
+                  origin the defect was injected. The following is an example on 
+                  how the overall defect rate and the defect rate for new code is 
+                  mesaured at IBM according to the book "Metrics and models in 
+                  software quality engineering" by Stephen H. Kan.
                 </p>
                 <div class="example">
-<p>
-At IBM Rochester, lines of code data are based on instruction statements (logical LOC) and include executable code and data definitions but exclude comments. LOC counts are obtained for the total product and for the new and changed code of the new release. Because the LOC count is based on source instructions, the two size metrics are called shipped source instructions (SSI) and new and changed source instructions (CSI), respectively. The relationship between the SSI count and the CSI count can be expressed with the following formula:
-</p>
-<pre>
+                  <p>
+                    At IBM Rochester, lines of code data are based on instruction statements (logical LOC) and include executable code and data definitions but exclude comments. LOC counts are obtained for the total product and for the new and changed code of the new release. Because the LOC count is based on source instructions, the two size metrics are called shipped source instructions (SSI) and new and changed source instructions (CSI), respectively. The relationship between the SSI count and the CSI count can be expressed with the following formula:
+                  </p>
+                  <pre>
 SSI (current release) =
   SSI (previous release)
   + CSI (new and changed code instructions for current release) 
   - deleted code (usually very small) 
   - changed code (to avoid double count in both SSI and CSI)
-</pre>
-<p>
-Defects after the release of the product are tracked. Defects can be field defects, which are found by customers, or internal defects, which are found internally. The several post release defect rate metrics per thousand SSI (KSSI) or per thousand CSI (KCSI) are:
-</p>
-<ul>
-  <li>
-(1) Total defects per KSSI (a measure of code quality of the total product) 
-  </li>
-  <li>
-(2) Field defects per KSSI (a measure of defect rate in the field)
-  </li>
-  <li>
-(3) Release-origin defects (field and internal) per KCSI (a measure of development quality)
-  </li>
-  <li>
-(4) Release-origin field defects per KCSI (a measure of development quality per defects found by customers)
-  </li>
-</ul>
-<p>
-Metric (1) measures the total release code quality, and metric (3) measures 
-the quality of the new and changed code. For the initial release where the 
-entire product is new, the two metrics are the same. Thereafter, metric (1) 
-is affected by aging and the improvement (or deterioration) of metric (3). 
-Metrics (1) and (3) are process measures; their field counterparts, metrics 
-(2) and (4) represent the customer's perspective. Given an estimated defect 
-rate (KCSI or KSSI), software developers can minimize the impact to customers 
-by finding and fixing the defects before customers encounter them.0
-</p>
+                  </pre>
+                  <p>
+                    Defects after the release of the product are tracked. Defects can be field defects, which are found by customers, or internal defects, which are found internally. The several post release defect rate metrics per thousand SSI (KSSI) or per thousand CSI (KCSI) are:
+                  </p>
+                  <ul>
+                    <li>
+                      (1) Total defects per KSSI (a measure of code quality of the total product) 
+                    </li>
+                    <li>
+                      (2) Field defects per KSSI (a measure of defect rate in the field)
+                    </li>
+                    <li>
+                      (3) Release-origin defects (field and internal) per KCSI (a measure of development quality)
+                    </li>
+                    <li>
+                      (4) Release-origin field defects per KCSI (a measure of development quality per defects found by customers)
+                    </li>
+                  </ul>
+                  <p>
+                    Metric (1) measures the total release code quality, and metric (3) measures 
+                    the quality of the new and changed code. For the initial release where the 
+                    entire product is new, the two metrics are the same. Thereafter, metric (1) 
+                    is affected by aging and the improvement (or deterioration) of metric (3). 
+                    Metrics (1) and (3) are process measures; their field counterparts, metrics 
+                    (2) and (4) represent the customer's perspective. Given an estimated defect 
+                    rate (KCSI or KSSI), software developers can minimize the impact to customers 
+                    by finding and fixing the defects before customers encounter them.0
+                  </p>
                 </div>
                 <p>
-                It is important to think how useful is this metric from two points of view:
+                  It is important to think how useful is this metric from two points of view:
                 </p>
                 <ul>
                   <li>
-                  Drive Quality Improvement: Very important for the development team.
+                    Drive Quality Improvement: Very important for the development team.
                   </li>
                   <li>
-                  Meet customer expectations.
+                    Meet customer expectations.
                   </li>
                 </ul>
                 <p>
-                From the customer's point of view, the defect rate is not as 
-                relevant as the total number of defects that might affect their 
-                business. Therefore, a good defect rate target should lead to a 
-                release-to-release reduction in the total number of defects, 
-                regardless of size. I.e. Not only the defect rate should be 
-                reduced but also the total number of defects. If a new release 
-                is larger than its predecessors, it means the defect rate goal 
-                for the new and changed code has to be significantly better than 
-                that of the previous release in order to reduce the total number 
-                of defects.
+                  From the customer's point of view, the defect rate is not as 
+                  relevant as the total number of defects that might affect their 
+                  business. Therefore, a good defect rate target should lead to a 
+                  release-to-release reduction in the total number of defects, 
+                  regardless of size. I.e. Not only the defect rate should be 
+                  reduced but also the total number of defects. If a new release 
+                  is larger than its predecessors, it means the defect rate goal 
+                  for the new and changed code has to be significantly better than 
+                  that of the previous release in order to reduce the total number 
+                  of defects.
                 </p>
                 <p>
-                For instance, an hypothetical example of this situation is 
-                described in the following example.
-                <p>
+                  For instance, an hypothetical example of this situation is 
+                  described in the following example.
+                  <p>
 
-                <div class="example">
-                  <pre>
+                    <div class="example">
+                      <pre>
 Initial Release of Product Y
 KCSI = KSSI = 50 KLOC
 Defects/KCSI = 2.0
@@ -554,616 +554,995 @@ KSSI = 66 + 30 (new and changed LOC) - 6 (assuming 20% are changed LOC) = 90
 
 Targeted number of additional defects (no more than previous release) = 36 
 Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
-                  </pre>
-                </div>
-                <p>
-                From the initial release to the second release the defect rate 
-                improved by 10%. However, customers experienced a 64% reduction 
-                [(100 - 36)/100] in the number of defects because the second 
-                release is smaller. The size factor works against the third 
-                release because it is much larger than the second release. Its 
-                defect rate has to be one third (1.2/1.8) better than that of 
-                the second release for the number of new defects not to exceed 
-                that of the second release. Of course, sometimes the difference 
-                between the two defect rate targets is very large and the new 
-                defect rate target is deemed not achievable. In those 
-                situations, other actions should be planned to improve the 
-                quality of the base code or to reduce the volume of postrelease 
-                field defects (i.e. by finding them internally).
-                </p>
-              </section>
-              <section>
-                <h5>Function Points</h5>
-                <p>
-                As explained in the previous chapter, measuring the opportunities for error through the lines of code has some problems. Counting lines of code is but one way to measure size. Another alternative is the using the function point. In recent years the function point has been gaining acceptance in application development in terms of both productivity (e.g., function points per person-year) and quality (e.g., defects per function point)
-                </p>
-                <p>
-                A function can be defined as a collection of executable statements that performs a certain task, together with declarations of the formal parameters and local variables manipulated by those statements. The ultimate measure of software productivity is the number of functions a development team can produce given a certain amount of resource, regardless of the size of the software in lines of code. The defect rate metric, ideally, is indexed to the number of functions a software provides. If defects per unit of functions is low, then the software should have better quality even though the defects per KLOC value could be higher — when the functions were implemented by fewer lines of code. Although this approach seems very powerful and promising, from a practical point of view it is very difficult to be used.
-                </p>
-                <p>
-                The function point metric was originated by Albrecht and his colleagues at IBM in the mid-1970s. The name could be a bit misleading as the technique itself does not count the functions. Instead it tries to measures some aspects that determine the software complexity withouth taking into the differences between programming languages and development styles that change the LOC metric. In order to do so, it takes into account five major components that comprise a software product:
-                </p>
-                <ul>
-                  <li>
-                    <b>External Inputs (EIs):</b> Elementary process in which data crosses the boundary from outside to inside. This data may come from a data input screen or another application. The data may be used to maintain one or more internal logical files. The data can be either control information or business information. If the data is control information it does not have to update an internal logical file.
-                  </li>
-                  <li>
-                    <b>External Outputs (EOs):</b> Elementary process in which derived data passes across the boundary from inside to outside. Additionally, an EO may update an ILF. The data creates reports or output files sent to other applications. These reports and files are created from one or more internal logical files and external interface file.
-                  </li>
-                  <li>
-                    <b>External Inquiries (EQs):</b> Elementary process with both input and output components that result in data retrieval from one or more internal logical files and external interface files. The input process does not update any Internal Logical Files, and the output side does not contain derived data.
-                  </li>
-                  <li>
-                    <b>Internal Logical Files (ILFs):</b> A user identifiable group of logically related data that resides entirely within the applications boundary and is maintained through external inputs.
-                  </li>
-                  <li>
-                    <b>External Interface Files (EIFs):</b> A user identifiable group of logically related data that is used for reference purposes only. The data resides entirely outside the application and is maintained by another application. The external interface file is an internal logical file for another application.
-                  </li>
-                </ul>
-                <p>
-                  Following figure provides a graphical example on how all these components work together and how they interact with the end-users.
-                </p>
-                <figure>
-                <img src='images/unit2-fig0-fp.png'>
-                <figcaption>Function Points Overview</figcaption>
-                </figure>
-                <p>
-                  Apart from being technology independent, this way of identifying the key software functions is very interesting as it is focused on the end-user point view: most of the components are thought from the user’s perspective (not the developers one), hence it works well with use cases.
-                </p>
-                <p>
-                The number of function points is obtained by the addition of the number of occurrences of those components (each of them weighted by a different factor) multiplied by an adjustment factor chosen based on the software characteristics:
-                </p>
-                <p>
-                FP = FC x VAF 
-                </p>
-                <p>
-                Where:
-                </p>
-                <ul>
-                  <li>
-                  FP: Is the Function Points
-                  </li>
-                  <li>
-                  FC: Is the weighted function count
-                  </li>
-                  <li>
-                  VAF: Is the adjustment factor that depends on software characteristics
-                  </li>
-                </ul>
-                <p>
-                  In order to calculate the Function Points, every component is classified in three categories according to its complexity (low/medium/high). A different weight factor is assigned to every component type and category. The following weights are defined for every component and complexity:
-                </p>
-                <ul>
-                  <li>
-                  Number of external inputs: 3-4-6.
-                  </li>
-                  <li>
-                  Number of external outputs: 4-5-7. 
-                  </li>
-                  <li>
-                  Number of external inquiries: 3-4-6.
-                  </li>
-                  <li>
-                  Number of logical internal files: 7-10-15.
-                  </li>
-                  <li>
-                  Number of external interface files: 5-7-10.
-                  </li>
-                </ul>
-                <p>
-                  When the number of components (classified by complexity) is available, given the previous weighting factors, the Function Counts (FCs) can be calculated based on the following formula:
-                </p>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mrow>
-                    <mi>FC</mi>
-                    <mo>=</mo>
-                    </mrow>
-                    <mrow>
+                      </pre>
+                    </div>
+                    <p>
+                      From the initial release to the second release the defect rate 
+                      improved by 10%. However, customers experienced a 64% reduction 
+                      [(100 - 36)/100] in the number of defects because the second 
+                      release is smaller. The size factor works against the third 
+                      release because it is much larger than the second release. Its 
+                      defect rate has to be one third (1.2/1.8) better than that of 
+                      the second release for the number of new defects not to exceed 
+                      that of the second release. Of course, sometimes the difference 
+                      between the two defect rate targets is very large and the new 
+                      defect rate target is deemed not achievable. In those 
+                      situations, other actions should be planned to improve the 
+                      quality of the base code or to reduce the volume of postrelease 
+                      field defects (i.e. by finding them internally).
+                    </p>
+                  </section>
+                  <section>
+                    <h5>Function Points</h5>
+                    <p>
+                      As explained in the previous chapter, measuring the opportunities 
+                      for error through the lines of code has some problems. Counting 
+                      lines of code is but one way to measure size. Another alternative 
+                      is the using the function point. In recent years the function point 
+                      has been gaining acceptance in application development in terms of 
+                      both productivity (e.g., function points per person-year) and 
+                      quality (e.g., defects per function point)
+                    </p>
+                    <p>
+                      A function can be defined as a collection of executable statements 
+                      that performs a certain task, together with declarations of the 
+                      formal parameters and local variables manipulated by those statements. 
+                      The ultimate measure of software productivity is the number of 
+                      functions a development team can produce given a certain amount of 
+                      resource, regardless of the size of the software in lines of code. 
+                      The defect rate metric, ideally, is indexed to the number of functions 
+                      a software provides. If defects per unit of functions is low, then the 
+                      software should have better quality even though the defects per KLOC 
+                      value could be higher — when the functions were implemented by fewer 
+                      lines of code. Although this approach seems very powerful and promising, 
+                      from a practical point of view it is very difficult to be used.
+                    </p>
+                    <p>
+                      The function point metric was originated by Albrecht and his colleagues at IBM in the mid-1970s. The name could be a bit misleading as the technique itself does not count the functions. Instead it tries to measures some aspects that determine the software complexity withouth taking into the differences between programming languages and development styles that change the LOC metric. In order to do so, it takes into account five major components that comprise a software product:
+                    </p>
+                    <ul>
+                      <li>
+                        <b>External Inputs (EIs):</b> Elementary process in which data crosses the boundary from outside to inside. This data may come from a data input screen or another application. The data may be used to maintain one or more internal logical files. The data can be either control information or business information. If the data is control information it does not have to update an internal logical file.
+                      </li>
+                      <li>
+                        <b>External Outputs (EOs):</b> Elementary process in which derived data passes across the boundary from inside to outside. Additionally, an EO may update an ILF. The data creates reports or output files sent to other applications. These reports and files are created from one or more internal logical files and external interface file.
+                      </li>
+                      <li>
+                        <b>External Inquiries (EQs):</b> Elementary process with both input and output components that result in data retrieval from one or more internal logical files and external interface files. The input process does not update any Internal Logical Files, and the output side does not contain derived data.
+                      </li>
+                      <li>
+                        <b>Internal Logical Files (ILFs):</b> A user identifiable group of logically related data that resides entirely within the applications boundary and is maintained through external inputs.
+                      </li>
+                      <li>
+                        <b>External Interface Files (EIFs):</b> A user identifiable group of logically related data that is used for reference purposes only. The data resides entirely outside the application and is maintained by another application. The external interface file is an internal logical file for another application.
+                      </li>
+                    </ul>
+                    <p>
+                      Following figure provides a graphical example on how all these components work together and how they interact with the end-users.
+                    </p>
+                    <figure>
+                      <img src='images/unit2-fig0-fp.png'>
+                      <figcaption>Function Points Overview</figcaption>
+                    </figure>
+                    <p>
+                      Apart from being technology independent, this way of identifying the key software functions is very interesting as it is focused on the end-user point view: most of the components are thought from the user’s perspective (not the developers one), hence it works well with use cases.
+                    </p>
+                    <p>
+                      The number of function points is obtained by the addition of the number of occurrences of those components (each of them weighted by a different factor) multiplied by an adjustment factor chosen based on the software characteristics:
+                    </p>
+                    <p>
+                      FP = FC x VAF 
+                    </p>
+                    <p>
+                      Where:
+                    </p>
+                    <ul>
+                      <li>
+                        FP: Is the Function Points
+                      </li>
+                      <li>
+                        FC: Is the weighted function count
+                      </li>
+                      <li>
+                        VAF: Is the adjustment factor that depends on software characteristics
+                      </li>
+                    </ul>
+                    <p>
+                      In order to calculate the Function Points, every component is 
+                      classified in three categories according to its complexity 
+                      (low/medium/high). A different weight factor is assigned to every 
+                      component type and category. The following weights are defined 
+                      for every component and complexity:
+                    </p>
+                    <ul>
+                      <li>
+                        Number of external inputs: 3-4-6.
+                      </li>
+                      <li>
+                        Number of external outputs: 4-5-7. 
+                      </li>
+                      <li>
+                        Number of external inquiries: 3-4-6.
+                      </li>
+                      <li>
+                        Number of logical internal files: 7-10-15.
+                      </li>
+                      <li>
+                        Number of external interface files: 5-7-10.
+                      </li>
+                    </ul>
+                    <p>
+                      When the number of components (classified by complexity) 
+                      is available, given the previous weighting factors, the 
+                      Function Counts (FCs) can be calculated based on the 
+                      following formula:
+                    </p>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mrow>
+                      <mi>FC</mi>
+                      <mo>=</mo>
+                      </mrow>
+                      <mrow>
                       <munderover>
-                        <mo>&Sum;</mo>
-                        <mrow>
-                        <mi>j</mi>
-                        <mo>=</mo>
-                        <mn>1,</mn>
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mn>1,</mn>
-                        </mrow>
-                        <mrow>
-                        <mn>3,5</mn>
-                        </mrow>
+                      <mo>&Sum;</mo>
+                      <mrow>
+                      <mi>j</mi>
+                      <mo>=</mo>
+                      <mn>1,</mn>
+                      <mi>n</mi>
+                      <mo>=</mo>
+                      <mn>1,</mn>
+                      </mrow>
+                      <mrow>
+                      <mn>3,5</mn>
+                      </mrow>
                       </munderover>
                       <mrow>
-                        <msub>
-                         <mrow>
-                         <mi>w</mi>
-                         </mrow>
-                         <mrow>
-                         <mn>ij</mn>
-                         </mrow>
-                        </msub>
-                        <msub>
-                         <mrow>
-                         <mi>x</mi>
-                         </mrow>
-                         <mrow>
-                         <mn>ij</mn>
-                         </mrow>
-                        </msub>
+                      <msub>
+                      <mrow>
+                      <mi>w</mi>
                       </mrow>
-                    </mrow>
+                      <mrow>
+                      <mn>ij</mn>
+                      </mrow>
+                      </msub>
+                      <msub>
+                      <mrow>
+                      <mi>x</mi>
+                      </mrow>
+                      <mrow>
+                      <mn>ij</mn>
+                      </mrow>
+                      </msub>
+                      </mrow>
+                      </mrow>
                     </math>
-                <p>
-                  Where wij are the weighting factors and xij the number of ocurrences of each component in the software. i denotes complexity and j denotes the component type. The following table shows graphically how can this function be calculated easily.
-                </p>
-                <table>
-                  <caption>FC Calculation</caption>
-                  <thead>
-                  <tr>
-                    <th>Type </th>
-                    <th>Low Complexity </th>
-                    <th>Mid Complexity </th>
-                    <th>High Complexity </th>
-                    <th>Total </th>
-                  </tr>￼
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>EI </td>
-                    <td>_ x 3 + </td>
-                    <td>_ x 4 + </td>
-                    <td>_ x 6 + </td>
-                    <td>= </td>
-                  </tr>￼
-                  <tr>
-                    <td>EO </td>
-                    <td>_ x 4 + </td>
-                    <td>_ x 5 + </td>
-                    <td>_ x 7 + </td>
-                    <td>= </td>
-                  </tr>
-                  <tr>
-                    <td>EQ </td>
-                    <td>_ x 3 + </td>
-                    <td>_ x 4 + </td>
-                    <td>_ x 6 + </td>
-                    <td>= </td>
-                  </tr>
-                  <tr>
-                    <td>ILF </td>
-                    <td>_ x 7 + </td>
-                    <td>_ x 10 + </td>
-                    <td>_ x 15 + </td>
-                    <td>= </td>
-                  </tr>
-                  <tr>
-                    <td>EIF </td>
-                    <td>_ x 5 + </td>
-                    <td>_ x 7 + </td>
-                    <td>_ x 10 + </td>
-                    <td>= </td>
-                  </tr>
-                  </tbody>
-                </table>
-                <p>
-                  The complexity classification of each component is based on a set of standards that define complexity in terms of objective guidelines. For instance, for the external output component, if the number of data element types is 20 or more and the number of file types referenced is 2 or more, then complexity is high. If the number of data element types is 5 or fewer and the number of file types referenced is 2 or 3, then complexity is low. The following tables provide the standard categorization where:
-                </p>
-                <ul>
-                  <li>
-                  DETs are equivalent to non-repeated fields or attributes.
-                  </li>
-                  <li>
-                  RETs are equivalent to mandatory or optional sub-groups.
-                  </li>
-                  <li>
-                  FTRs are equivalent to ILFs or EIFs referenced by that transaction.
-                  </li>
-                </ul>
-                <p>
-                <table>
-                  <caption> ILF and EIF Complexity Matrix </caption>
-                  <thead>
-                  <tr>
-                    <th> RETs</th><th> 1-19 DETs</th><th> 20-50 DETs</th><th> 51+ DETs</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
-                  </tr>
-                  <tr>
-                    <td>2-5</td> <td>Low</td> <td>Medium</td> <td>High</td>
-                  </tr>
-                  <tr>
-                    <td>6+</td> <td>Medium</td> <td>High</td> <td>High</td>
-                  </tr>
-                  </tbody>
-                </table>
-                </p>
+                    <p>
+                      Where wij are the weighting factors and xij the number 
+                      of ocurrences of each component in the software. i 
+                      denotes complexity and j denotes the component type. 
+                      The following table shows graphically how can this 
+                      function be calculated easily.
+                    </p>
+                    <table>
+                      <caption>FC Calculation</caption>
+                      <thead>
+                        <tr>
+                          <th>Type </th>
+                          <th>Low Complexity </th>
+                          <th>Mid Complexity </th>
+                          <th>High Complexity </th>
+                          <th>Total </th>
+                        </tr>￼
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>EI </td>
+                          <td>_ x 3 + </td>
+                          <td>_ x 4 + </td>
+                          <td>_ x 6 + </td>
+                          <td>= </td>
+                        </tr>￼
+                        <tr>
+                          <td>EO </td>
+                          <td>_ x 4 + </td>
+                          <td>_ x 5 + </td>
+                          <td>_ x 7 + </td>
+                          <td>= </td>
+                        </tr>
+                        <tr>
+                          <td>EQ </td>
+                          <td>_ x 3 + </td>
+                          <td>_ x 4 + </td>
+                          <td>_ x 6 + </td>
+                          <td>= </td>
+                        </tr>
+                        <tr>
+                          <td>ILF </td>
+                          <td>_ x 7 + </td>
+                          <td>_ x 10 + </td>
+                          <td>_ x 15 + </td>
+                          <td>= </td>
+                        </tr>
+                        <tr>
+                          <td>EIF </td>
+                          <td>_ x 5 + </td>
+                          <td>_ x 7 + </td>
+                          <td>_ x 10 + </td>
+                          <td>= </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>
+                      The complexity classification of each component is based 
+                      on a set of standards that define complexity in terms of 
+                      objective guidelines. For instance, for the external 
+                      output component, if the number of data element types is 
+                      20 or more and the number of file types referenced is 2 
+                      or more, then complexity is high. If the number of data 
+                      element types is 5 or fewer and the number of file types 
+                      referenced is 2 or 3, then complexity is low. The following 
+                      tables provide the standard categorization where:
+                    </p>
+                    <ul>
+                      <li>
+                        DETs are equivalent to non-repeated fields or attributes.
+                      </li>
+                      <li>
+                        RETs are equivalent to mandatory or optional sub-groups.
+                      </li>
+                      <li>
+                        FTRs are equivalent to ILFs or EIFs referenced by that transaction.
+                      </li>
+                    </ul>
+                    <p>
+                      <table>
+                        <caption> ILF and EIF Complexity Matrix </caption>
+                        <thead>
+                          <tr>
+                            <th> RETs</th><th> 1-19 DETs</th><th> 20-50 DETs</th><th> 51+ DETs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                          </tr>
+                          <tr>
+                            <td>2-5</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                          </tr>
+                          <tr>
+                            <td>6+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
 
-                <p>
-                <table>
-                  <caption> EI Complexity Matrix </caption>
-                  <thead>
-                  <tr>
-                    <th> DETs</th><th> 1-4 DETs</th><th> 5-15 DETs</th><th> 16+ DETs</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
-                  </tr>
-                  <tr>
-                    <td>2</td> <td>Low</td> <td>Medium</td> <td>High</td>
-                  </tr>
-                  <tr>
-                    <td>3+</td> <td>Medium</td> <td>High</td> <td>High</td>
-                  </tr>
-                  </tbody>
-                </table>
-                </p>
-                <p>
-                <table>
-                  <caption> EO and EQ Complexity Matrix </caption>
-                  <thead>
-                  <tr>
-                    <th> DETs</th><th> 1-5 DETs</th><th> 6-19 DETs</th><th> 20+ DETs</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
-                  </tr>
-                  <tr>
-                    <td>2-3</td> <td>Low</td> <td>Medium</td> <td>High</td>
-                  </tr>
-                  <tr>
-                    <td>4+</td> <td>Medium</td> <td>High</td> <td>High</td>
-                  </tr>
-                  </tbody>
-                </table>
-                </p>
-                <p>
-                  In order to calculate the Value Adjustment Factor (VAF), 14 characteristics of the software system must be scored (in a scale from 0 to 5) in terms of their effect on the software. The list of characteristics is:
-                </p>
-                <ol>
-                  <li>
-                    <b>Data communications:</b>
-                    How many communication facilities are there to aid in the transfer or exchange of information with the application or system?
-                  </li>
-                  <li>
-                    <b>Distributed data processing: </b>
-                    How are distributed data and processing functions handled?
-                  </li>
-                  <li>
-                    <b>Performance: </b>
-                    Did the user require response time or throughput?
-                  </li>
-                  <li>
-                    <b>Heavily used configuration: </b>
-                    How heavily used is the current hardware platform where the application will be executed?
-                  </li>
-                  <li>
-                    <b>Transaction rate: </b>
-                    How frequently are transactions executed daily, weekly, monthly, etc.?
-                  </li>
-                  <li>
-                    <b>On-Line data entry: </b>
-                    What percentage of the information is entered On-Line?
-                  </li>
-                  <li>
-                    <b>End-user efficiency: </b>
-                    Was the application designed for end-user efficiency?
-                  </li>
-                  <li>
-                    <b>On-Line update: </b>
-                    How many ILF’s are updated by On-Line transaction?
-                  </li>
-                  <li>
-                    <b>Complex processing: </b>
-                    Does the application have extensive logical or mathematical processing?
-                  </li>
-                  <li>
-                    <b>Reusability: </b>
-                    Was the application developed to meet one or many user’s needs?
-                  </li>
-                  <li>
-                    <b>Installation ease: </b>
-                    How difficult is conversion and installation?
-                  </li>
-                  <li>
-                    <b>Operational ease: </b>
-                    How effective and/or automated are start-up, back-up, and recovery procedures?
-                  </li>
-                  <li>
-                    <b>Multiple sites: </b>
-                    Was the application specifically designed, developed, and supported to be installed at multiple sites for multiple organizations?
-                  </li>
-                  <li>
-                    <b>Facilitate change: </b>
-                    Was the application specifically designed, developed, and supported to facilitate change?
-                  </li>
-                  </ol>
-                  <p>
-                  Once all these characteristics are assessed, they are summed, based on the following formula, to arrive at the value adjustment factor (VAF):
-                  </p>
+                    <p>
+                      <table>
+                        <caption> EI Complexity Matrix </caption>
+                        <thead>
+                          <tr>
+                            <th> DETs</th><th> 1-4 DETs</th><th> 5-15 DETs</th><th> 16+ DETs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                          </tr>
+                          <tr>
+                            <td>2</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                          </tr>
+                          <tr>
+                            <td>3+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
+                    <p>
+                      <table>
+                        <caption> EO and EQ Complexity Matrix </caption>
+                        <thead>
+                          <tr>
+                            <th> DETs</th><th> 1-5 DETs</th><th> 6-19 DETs</th><th> 20+ DETs</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>0-1</td> <td>Low</td> <td>Low</td> <td>Medium</td>
+                          </tr>
+                          <tr>
+                            <td>2-3</td> <td>Low</td> <td>Medium</td> <td>High</td>
+                          </tr>
+                          <tr>
+                            <td>4+</td> <td>Medium</td> <td>High</td> <td>High</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </p>
+                    <p>
+                      In order to calculate the Value Adjustment Factor (VAF), 14 characteristics of the software system must be scored (in a scale from 0 to 5) in terms of their effect on the software. The list of characteristics is:
+                    </p>
+                    <ol>
+                      <li>
+                        <b>Data communications:</b>
+                        How many communication facilities are there to aid in the transfer or exchange of information with the application or system?
+                      </li>
+                      <li>
+                        <b>Distributed data processing: </b>
+                        How are distributed data and processing functions handled?
+                      </li>
+                      <li>
+                        <b>Performance: </b>
+                        Did the user require response time or throughput?
+                      </li>
+                      <li>
+                        <b>Heavily used configuration: </b>
+                        How heavily used is the current hardware platform where the application will be executed?
+                      </li>
+                      <li>
+                        <b>Transaction rate: </b>
+                        How frequently are transactions executed daily, weekly, monthly, etc.?
+                      </li>
+                      <li>
+                        <b>On-Line data entry: </b>
+                        What percentage of the information is entered On-Line?
+                      </li>
+                      <li>
+                        <b>End-user efficiency: </b>
+                        Was the application designed for end-user efficiency?
+                      </li>
+                      <li>
+                        <b>On-Line update: </b>
+                        How many ILF’s are updated by On-Line transaction?
+                      </li>
+                      <li>
+                        <b>Complex processing: </b>
+                        Does the application have extensive logical or mathematical processing?
+                      </li>
+                      <li>
+                        <b>Reusability: </b>
+                        Was the application developed to meet one or many user’s needs?
+                      </li>
+                      <li>
+                        <b>Installation ease: </b>
+                        How difficult is conversion and installation?
+                      </li>
+                      <li>
+                        <b>Operational ease: </b>
+                        How effective and/or automated are start-up, back-up, and recovery procedures?
+                      </li>
+                      <li>
+                        <b>Multiple sites: </b>
+                        Was the application specifically designed, developed, and supported to be installed at multiple sites for multiple organizations?
+                      </li>
+                      <li>
+                        <b>Facilitate change: </b>
+                        Was the application specifically designed, developed, and supported to facilitate change?
+                      </li>
+                    </ol>
+                    <p>
+                      Once all these characteristics are assessed, they are summed, based on the following formula, to arrive at the value adjustment factor (VAF):
+                    </p>
 
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mrow>
-                    <mi>VAF</mi>
-                    <mo>=</mo>
-                    <mi>0.65</mi>
-                    <mo>+</mo>
-                    <mi>0.01</mi>
-                    </mrow>
-                    <mrow>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <mrow>
+                      <mi>VAF</mi>
+                      <mo>=</mo>
+                      <mi>0.65</mi>
+                      <mo>+</mo>
+                      <mi>0.01</mi>
+                      </mrow>
+                      <mrow>
                       <munderover>
-                        <mo>&Sum;</mo>
-                        <mrow>
-                        <mi>i</mi>
-                        <mo>=</mo>
-                        <mn>1</mn>
-                        </mrow>
-                        <mrow>
-                        <mn>14</mn>
-                        </mrow>
+                      <mo>&Sum;</mo>
+                      <mrow>
+                      <mi>i</mi>
+                      <mo>=</mo>
+                      <mn>1</mn>
+                      </mrow>
+                      <mrow>
+                      <mn>14</mn>
+                      </mrow>
                       </munderover>
                       <mrow>
-                        <msub>
-                         <mrow>
-                         <mi>c</mi>
-                         </mrow>
-                         <mrow>
-                         <mn>i</mn>
-                         </mrow>
-                        </msub>
+                      <msub>
+                      <mrow>
+                      <mi>c</mi>
                       </mrow>
-                    </mrow>
+                      <mrow>
+                      <mn>i</mn>
+                      </mrow>
+                      </msub>
+                      </mrow>
+                      </mrow>
                     </math>
                     <p>
                       Where ci is the score for general system characteristic i.
                     </p>
+                    <p>
+                      Over the years the function point metric has gained acceptance as a key productivity measure from a practical point of view. However, the meaning of function point and the derivation algorithm and its rationale may need more research and more theoretical groundwork. Furthemore, function point counting can be time-consuming and expensive, and accurate counting requires certified function point specialists.
+                    </p>
+                  </section>
+                </section>
+              </section> <!-- intrinsic -->
+              <section>
+                <h3>Customer satisfaction metrics</h3>
+                <section>
+                  <h4>Customer Problem Metrics</h4>
                   <p>
-                    Over the years the function point metric has gained acceptance as a key productivity measure from a practical point of view. However, the meaning of function point and the derivation algorithm and its rationale may need more research and more theoretical groundwork. Furthemore, function point counting can be time-consuming and expensive, and accurate counting requires certified function point specialists.
+                    Another product quality metric vastly used in the software industry measures the problems customers encounter when using the product.
                   </p>
-              </section>
-            </section>
-          </section> <!-- intrinsic -->
-          <section>
-          <h3>Customer satisfaction metrics</h3>
-            <section>
-            <h4>Customer Problem Metrics</h4>
-            <p>
-            Another product quality metric vastly used in the software industry measures the problems customers encounter when using the product.
-            </p>
-            <p>
-            For the defect denstity metric (section 1.2.1.2), the numerator was the number of valid defects. However, from the customers’ standpoint, all problems they encounter while using the software product, not just the valid defects, are problems with the software. Software problems suffered by end- users that are not valid defects may be:
-            </p>
-            <ul>
-              <li>Usability problems.</li>
-              <li>Unclear documentation or information.</li>
-              <li>Duplicates of valid defects (defects that were reported by other customers and fixes were available but the current customers did not know of them).</li>
-              <li>User errors.</li>
-            </ul>
-            <p>
-            These so-called non-defect-oriented problems, together with the defect problems, constitute the total problem space of the software from the customers’ perspective.
-            </p>
-            <p>
-            The problems metric is usually expressed in terms of problems per user month (PUM):
-            </p>
-              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
-              <mrow><mi>PUM</mi> <mo>=</mo>
-              <mfrac><mrow>Total number of problems that customers reported during a period of time</mrow><mrow>Total number of license months of the software during that period</mrow></mfrac>
-              </mrow>
-              </math>
-            <p>
-            Where the total number of license-months is the number of months all the users have been using the software and may be calculated multipling the Number of install licenses of the software by the Number of months in the calculation period.
-            </p>
-            <p>
-            PUM is usually calculated for each month after the software is released to the market, and also for monthly averages by year. Note that the denominator is the number of license-months instead of thousand lines of code or function point, and the numerator is all problems customers encountered. Basically, whereas the defect density focuses in the number of real problems with regards to the software complexity, this metric relates detected problems to software usage.
-            </p>
-            <p>
-            There are different approaches to minimize PUM:
-            </p>
-            <ul>
-              <li>
-              Improve the development process and reduce the product defects.
-              </li>
-              <li>
-              Reduce the non-defect-oriented problems by improving all aspects of the products (such as usability, documentation), customer education, and support.
-              </li>
-              <li>
-              Increase the sale (the number of installed licenses) of the product.
-              </li>
-            </ul>
-            <p>
-            The first two approaches reduce the numerator of the PUM metric, and the third increases the denominator. The result of any of these actions will be that the PUM metric has a lower value. All three approaches make good sense for quality improvement and business goals for any organization. The PUM metric, therefore, is a good metric. The only minor drawback is that when the business is in excellent condition and the number of software licenses is rapidly increasing, the PUM metric will look extraordinarily good (low value) and, hence, the need to continue to reduce the number of customers’ problems (the numerator of the metric) may be under- mined. Therefore, the total number of customer problems should also be monitored and aggressive year-to-year or release-to-release improvement goals set as the number of installed licenses increases. However, unlike valid code defects, customer problems are not totally under the control of the software development organization. Therefore, it may not be feasible to set a PUM goal that the total customer problems cannot increase from release to release, especially when the sales of the software are increasing.
-            </p>
-            <p>
-            The key points of the defect rate metric and the customer problems metric are briefly summarized in the following table. The two metrics represent two perspectives of product quality. For each metric the numerator and denominator match each other well: Defects relate to source instructions or the number of function points, and problems relate to usage of the product. If the numerator and denominator are mixed up, poor metrics will result. Such metrics could be counterproductive to an organization’s quality improvement effort because they will cause confusion and wasted resources.
-            </p>
-            <table>
-             <caption>DDR vs PUM</caption>
-             <thead>
-             <tr>
-               <th></th>
-               <th>Defect Density Rate</th>
-               <th>PUM</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr>
-               <td>Numerator</td>
-               <td>Valid and Unique defects</td>
-               <td>All customer problems</td>
-             </tr>
-             <tr>
-               <td>Denominator</td>
-               <td>Size of Product</td>
-               <td>Usage of Product</td>
-             </tr>
-             <tr>
-               <td>Measurement</td>
-               <td>Producer Perspective</td>
-               <td>Consumer Perspective</td>
-             </tr>
-             <tr>
-               <td>Scope</td>
-               <td>Intrinsic Product Quality</td>
-               <td>Intrinsic Product Quality + Other</td>
-             </tr>
-             </tbody>
-            </table>
-            <p>
-            The customer problems metric can be regarded as an intermediate measurement between defects measurement and customer satisfaction. To reduce customer problems, one has to reduce the functional defects in the products and, in addition, improve other factors (usability, documentation, problem rediscovery, etc.)
-            </p>
-            </section>
-            <section>
-            <h4>Customer Satisfaction Metrics</h4>
-              <p>
-              Customer satisfaction is often measured by customer survey data in which the users are asked to qualify the software or characteristics of the software through a scale.
-              </p>
-              <p>
-              Based on the survey result data, several metrics with slight variations can be constructed and used, depending on the purpose of analysis. For example:
-              </p>
-              <ul>
-                <li>
-                Percent of completely satisfied customers.
-                <li>
-                Percent of satisfied customers (satisfied and completely satisfied)
-                <li>
-                Percent of dissatisfied customers (dissatisfied and completely dissatisfied)
-                <li>
-                Percent of nonsatisfied (neutral, dissatisfied, and completely dissatisfied)
-                </li>
-              </ul>
-              <p>
-              In addition to forming percentages for various satisfaction or dissatisfaction categories, the net satisfaction index (NSI) is also used to facilitate comparisons across product. NSI ranges from 0% (all customers are completely dissatisfied) to 100% (all customers are completely satisfied). If all customers are satisfied (but not completely satisfied), NSI will have a value of 75%. This weighting approach, however, may be masking the satisfaction profile of one’s customer set. For example, if half of the customers are completely satisfied and half are neutral, NSI’s value is also 75%, which is equivalent to the scenario that all customers are satisfied. If satisfaction is a good indicator of product loyalty, then half completely satisfied and half neutral is certainly less positive than all satisfied.
-              </p>
-            </section>
-          </section> <!-- customer satisfaction -->
-        </section> <!-- product quality-->
-        <section>
-        <h2>In process Quality Metrics </h2>
-          <section>
-          <h3>Defect Density During Integration Testing</h3>
-          <p>
-            Defect rate during formal integration testing is usually positively correlated with the defect rate in the field. Higher defect rates found during testing is an indicator that the software has experienced higher error injection during its development process, unless the higher testing defect rate is due to an extraordinary testing effort (for example, additional testing or a new testing approach that was deemed more effective in detecting defects). The rationale for the positive correlation is simple: Software defect density never follows the uniform distribution. If a piece of code or a product has higher testing defects, it is a result of more effective testing or it is because of higher latent defects in the code. Myers suggested a counterintuitive principle that the more defects found during testing, the more defects will be found later.
-          </p>
-          <p>
-          This simple metric of defects per KLOC or function point is especially useful to monitor subsequent releases of a product in the same development organization. The development team or the project manager can use the following scenarios to judge the release quality:
-          </p>
-          <ol>
-            <li>
-            If the defect rate during testing is the same or lower than that of the previous release (or a similar product), then ask: Does the testing for the current release deteriorate?
-            <ul>
-              <li>
-          If the answer is no, the quality perspective is positive.
-              </li>
-              <li>
-          If the answer is yes, you need to do extra testing (e.g., add test cases to increase
-          coverage, blitz test, customer testing, stress testing, etc.).
-              </li>
-            </ul>
-            </li>
-            <li>
-            If the defect rate during testing is substantially higher than that of the previous release (or a
-            similar product), then ask: Did we plan for and actually improve testing effectiveness?
-            <ul>
-              <li>
-              If the answer is no, the quality perspective is negative. Ironically, the only remedial approach that can be taken at this stage of the life cycle is to do more testing, which will yield even higher defect rates.
-              </li>
-              <li>
-              If the answer is yes, then the quality perspective is the same or positive.
-              </li>
-            </ul>
-            </li>
-            </ol>
-          
-          </section>
-          <section>
-          <h3>Defect Arrival Pattern During Machine Testing</h3>
-          <p>Overall defect density during testing is a summary indicator. The pattern of defect arrivals (or for that matter, times between failures) gives more information. Even with the same overall defect rate during testing, different patterns of defect arrivals indicate different quality levels in the field.</p>
-          <p>Next figure shows two contrasting patterns for both the defect arrival rate and the cumulative defect rate. Data were plotted from 44 weeks before code-freeze until the week prior to code-freeze. The second pattern, represented by the charts on the right side, obviously indicates that testing started late, the test suite was not sufficient, and that the testing ended prematurely.</p>
-                <figure>
-                <img src='images/unit2-fig1.png'>
-                <figcaption>Two Contrasting Arrival Patterns during Testing</figcaption>
-                </figure>
-          <p>The objective is always to look for defect arrivals that stabilize at a very low level, or times between failures that are far apart, before ending the testing effort and releasing the software to the field. Such declining patterns of defect arrival during testing are indeed the basic assumption of many software reliability models. The time unit for observing the arrival pattern is usually weeks and occasionally months. For reliability models that require execution time data, the time interval is in units of CPU time.</p>
-          <p>When we talk about the defect arrival pattern during testing, there are actually three slightly different metrics, which should be looked at simultaneously:</p>
-          <ul>
-            <li>The defect arrivals (defects reported) during the testing phase by time interval (e.g., week). These are the raw number of arrivals, not all of which are valid defects.</li>
-              <li>The pattern of valid defect arrivals—when problem determination is done on the reported problems. This is the true defect pattern.</li>
-                <li>The pattern of defect backlog overtime. This metric is needed because development organizations cannot investigate and fix all reported problems immedi- ately. This metric is a workload statement as well as a quality statement. If the defect backlog is large at the end of the development cycle and a lot of fixes have yet to be integrated into the system, the stability of the system (hence its quality) will be affected. Retesting (regression test) is needed to ensure that targeted product quality levels are reached.</li>
-          <ul>
-          </section>
-          <section>
-          <h3>Phase-Based Defect Removal Pattern</h3>
-          <p>
-            The phase-based defect removal pattern is an extension of the test defect density metric. In addition to testing, it requires the tracking of defects at all phases of the development cycle, including the design reviews, code inspections, and formal verifications before testing. Because a large percentage of programming defects is related to design problems, conducting formal reviews or functional verifications to enhance the defect removal capability of the process at the front end reduces error injection. The pattern of phase-based defect removal reflects the overall defect removal ability of the development process.
-          </p>
-          <p>
-            Following figure shows the patterns of defect removal of two development projects: project A was front-end loaded and project B was heavily testing-dependent for removing defects. In the figure, the various phases of defect removal are high-level design review (I0), low-level design review (I1), code inspection (I2), unit test (UT), component test (CT), and system test (ST). As expected, the field quality of project A outperformed project B significantly.
-          </p>
-                <figure>
-                <img src='images/unit2-fig2.png'>
-                <figcaption>Defect Removal by Phase for two products</figcaption>
-                </figure>
-          </section>
-          <section>
-          <h3>Defect Removal Effectiveness</h3>
-          </section>
-        </section> <!-- process quality-->
-        <section>
-        <h2>Software Metrics VS. Quality Metrics</h2>
-        <p>
-This chapter has been addresing so far metrics that are related with a direct measurement of the software quality. However, it is also critical to consider that those metrics usually have a direct relationship with some software characteristics that could not be considered as directly related with the software quality.
-</p>
-        <p>
-Some intrinsic characteristics of the software that usually affect the software quality (either internal or external) are:
-</p>
-<ul>
-  <li>Size: Obviously, the bigger a software is, either measured in KLOCs or in Function Points, more opportunities for error there will be.
-    <li>Control Flow Complexity: When the software has several decision paths, many conditions to assess with different responses to them, the likelyhood of defects is also higher.</li>
-      <li>Intermodule coupling: When different software modules have too many dependencies, the likelyhood of defects is also higher because of the cross-module error propagation.</li>
-  <li>Complexity: Code that has been designed in a complex manner is usually also more
-    exposed to defects than code designed using simple patterns.</li>
-<li>Understandability: If the code cannot be easily understood, whenever an error is
-  detected, it will be more difficutl to find the defect and fix it.</li>
-  <li>Testability: Obviously, software difficult to be tested is obviously more exposed to</li>
-<li>Size: Obviously, the bigger a software is, either measured in KLOCs or in Function Points, more opportunities for error there will be
-defects than the software that can be easily tested.</li>
-</ul>
-<p>Different metrics exist to take into account all those aspects in early phases of the software development process and take preventive measures. E.g. if the code is extremely complex a refactoring of the software should be done in order to minimize the likelyhood of defects.</p>
-<p>Some example of metrics used (in Object Oriented Programming) are:</p>
-<ul>
-  <li>Average Method Size: Ideally this parameter should be under 24 LOC in C++ or Java.</li>
-  <li>Average Number of Methods per class: Should be less than 20. Bigger averages indicate too
-    much responsibility in too few classes</li>
-  <li>Average Number of instance Variables per class: Should be less than 6. More instance variables
-    indicate that one class is doing more than what is should.</li>
-    <li>Class Hierarchy Nesting Level (Depth of Inheritance Tree, DIT): Too deep inheritance tree
-      means that hierarchy is more complicated that it should. Ideally it should be less than 6.</li>
-    <li>Number of classes and class relationships in a subsystem/module: Should be relatively high. This item relates to high cohesion of classes in the same subsystem. If one or more classes in a subsystem don't interact with many of the other classes, they might be better placed in another
-      subsystem.</li>
-      <li>Number of Subsystem and Subsystem Relationships: Should be less than the number in the
-        previous metric.</li>
-        <li>Average Number of comment lines (per method): It is important this metric is high enough to
-          ensure the code is maintainable (1 at the very minimum).</li>
-          <li>Number of times class is reused: If a class is not being reused in different applications (especially
-            an abstract class), it might need to be redesigned.</li>
-            <li>Number of classes and methods thrown away: Should occur at a steady rate throughout most
-              of the development process. If this is not occurring, it may be due because the software development process is following an incremental development instead of an iterative one.</li>
-</ul>
+                  <p>
+                    For the defect denstity metric (section 1.2.1.2), the numerator was the number of valid defects. However, from the customers’ standpoint, all problems they encounter while using the software product, not just the valid defects, are problems with the software. Software problems suffered by end- users that are not valid defects may be:
+                  </p>
+                  <ul>
+                    <li>Usability problems.</li>
+                    <li>Unclear documentation or information.</li>
+                    <li>Duplicates of valid defects (defects that were reported by other customers and fixes were available but the current customers did not know of them).</li>
+                    <li>User errors.</li>
+                  </ul>
+                  <p>
+                    These so-called non-defect-oriented problems, together with the defect problems, constitute the total problem space of the software from the customers’ perspective.
+                  </p>
+                  <p>
+                    The problems metric is usually expressed in terms of problems per user month (PUM):
+                  </p>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                    <mrow><mi>PUM</mi> <mo>=</mo>
+                    <mfrac><mrow>Total number of problems that customers reported during a period of time</mrow><mrow>Total number of license months of the software during that period</mrow></mfrac>
+                    </mrow>
+                  </math>
+                  <p>
+                    Where the total number of license-months is the number of months all the users have been using the software and may be calculated multipling the Number of install licenses of the software by the Number of months in the calculation period.
+                  </p>
+                  <p>
+                    PUM is usually calculated for each month after the software is released to the market, and also for monthly averages by year. Note that the denominator is the number of license-months instead of thousand lines of code or function point, and the numerator is all problems customers encountered. Basically, whereas the defect density focuses in the number of real problems with regards to the software complexity, this metric relates detected problems to software usage.
+                  </p>
+                  <p>
+                    There are different approaches to minimize PUM:
+                  </p>
+                  <ul>
+                    <li>
+                      Improve the development process and reduce the product defects.
+                    </li>
+                    <li>
+                      Reduce the non-defect-oriented problems by improving all aspects of the products (such as usability, documentation), customer education, and support.
+                    </li>
+                    <li>
+                      Increase the sale (the number of installed licenses) of the product.
+                    </li>
+                  </ul>
+                  <p>
+                    The first two approaches reduce the numerator of the PUM metric, and the third increases the denominator. The result of any of these actions will be that the PUM metric has a lower value. All three approaches make good sense for quality improvement and business goals for any organization. The PUM metric, therefore, is a good metric. The only minor drawback is that when the business is in excellent condition and the number of software licenses is rapidly increasing, the PUM metric will look extraordinarily good (low value) and, hence, the need to continue to reduce the number of customers’ problems (the numerator of the metric) may be under- mined. Therefore, the total number of customer problems should also be monitored and aggressive year-to-year or release-to-release improvement goals set as the number of installed licenses increases. However, unlike valid code defects, customer problems are not totally under the control of the software development organization. Therefore, it may not be feasible to set a PUM goal that the total customer problems cannot increase from release to release, especially when the sales of the software are increasing.
+                  </p>
+                  <p>
+                    The key points of the defect rate metric and the customer problems metric are briefly summarized in the following table. The two metrics represent two perspectives of product quality. For each metric the numerator and denominator match each other well: Defects relate to source instructions or the number of function points, and problems relate to usage of the product. If the numerator and denominator are mixed up, poor metrics will result. Such metrics could be counterproductive to an organization’s quality improvement effort because they will cause confusion and wasted resources.
+                  </p>
+                  <table>
+                    <caption>DDR vs PUM</caption>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Defect Density Rate</th>
+                        <th>PUM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Numerator</td>
+                        <td>Valid and Unique defects</td>
+                        <td>All customer problems</td>
+                      </tr>
+                      <tr>
+                        <td>Denominator</td>
+                        <td>Size of Product</td>
+                        <td>Usage of Product</td>
+                      </tr>
+                      <tr>
+                        <td>Measurement</td>
+                        <td>Producer Perspective</td>
+                        <td>Consumer Perspective</td>
+                      </tr>
+                      <tr>
+                        <td>Scope</td>
+                        <td>Intrinsic Product Quality</td>
+                        <td>Intrinsic Product Quality + Other</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    The customer problems metric can be regarded as an intermediate measurement between defects measurement and customer satisfaction. To reduce customer problems, one has to reduce the functional defects in the products and, in addition, improve other factors (usability, documentation, problem rediscovery, etc.)
+                  </p>
+                </section>
+                <section>
+                  <h4>Customer Satisfaction Metrics</h4>
+                  <p>
+                    Customer satisfaction is often measured by customer survey data in which the users are asked to qualify the software or characteristics of the software through a scale.
+                  </p>
+                  <p>
+                    Based on the survey result data, several metrics with slight variations can be constructed and used, depending on the purpose of analysis. For example:
+                  </p>
+                  <ul>
+                    <li>
+                      Percent of completely satisfied customers.
+                      <li>
+                        Percent of satisfied customers (satisfied and completely satisfied)
+                        <li>
+                          Percent of dissatisfied customers (dissatisfied and completely dissatisfied)
+                          <li>
+                            Percent of nonsatisfied (neutral, dissatisfied, and completely dissatisfied)
+                          </li>
+                        </ul>
+                        <p>
+                          In addition to forming percentages for various satisfaction or dissatisfaction categories, the net satisfaction index (NSI) is also used to facilitate comparisons across product. NSI ranges from 0% (all customers are completely dissatisfied) to 100% (all customers are completely satisfied). If all customers are satisfied (but not completely satisfied), NSI will have a value of 75%. This weighting approach, however, may be masking the satisfaction profile of one’s customer set. For example, if half of the customers are completely satisfied and half are neutral, NSI’s value is also 75%, which is equivalent to the scenario that all customers are satisfied. If satisfaction is a good indicator of product loyalty, then half completely satisfied and half neutral is certainly less positive than all satisfied.
+                        </p>
+                      </section>
+                    </section> <!-- customer satisfaction -->
+                  </section> <!-- product quality-->
+                  <section>
+                    <h2>In process Quality Metrics </h2>
+                    <section>
+                      <h3>Defect Density During Integration Testing</h3>
+                      <p>
+                        Defect rate during formal integration testing is usually positively correlated with the defect rate in the field. Higher defect rates found during testing is an indicator that the software has experienced higher error injection during its development process, unless the higher testing defect rate is due to an extraordinary testing effort (for example, additional testing or a new testing approach that was deemed more effective in detecting defects). The rationale for the positive correlation is simple: Software defect density never follows the uniform distribution. If a piece of code or a product has higher testing defects, it is a result of more effective testing or it is because of higher latent defects in the code. Myers suggested a counterintuitive principle that the more defects found during testing, the more defects will be found later.
+                      </p>
+                      <p>
+                        This simple metric of defects per KLOC or function point is especially useful to monitor subsequent releases of a product in the same development organization. The development team or the project manager can use the following scenarios to judge the release quality:
+                      </p>
+                      <ol>
+                        <li>
+                          If the defect rate during testing is the same or lower than that of the previous release (or a similar product), then ask: Does the testing for the current release deteriorate?
+                          <ul>
+                            <li>
+                              If the answer is no, the quality perspective is positive.
+                            </li>
+                            <li>
+                              If the answer is yes, you need to do extra testing (e.g., add test cases to increase
+                              coverage, blitz test, customer testing, stress testing, etc.).
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          If the defect rate during testing is substantially higher than that of the previous release (or a
+                          similar product), then ask: Did we plan for and actually improve testing effectiveness?
+                          <ul>
+                            <li>
+                              If the answer is no, the quality perspective is negative. Ironically, the only remedial approach that can be taken at this stage of the life cycle is to do more testing, which will yield even higher defect rates.
+                            </li>
+                            <li>
+                              If the answer is yes, then the quality perspective is the same or positive.
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>
 
-        </section> <!-- product quality-->
-  </section>
-  <section class='appendix'>
-    <h2>Acknowledgements</h2>
-    <p>
-      Many thanks to Robin Berjon for making our lives so much easier with his 
-      cool tool.
-    </p>
-  </section>
-  </body>
-</html>
+                    </section>
+                    <section>
+                      <h3>Defect Arrival Pattern During Machine Testing</h3>
+                      <p>Overall defect density during testing is a summary indicator. The pattern of defect arrivals (or for that matter, times between failures) gives more information. Even with the same overall defect rate during testing, different patterns of defect arrivals indicate different quality levels in the field.</p>
+                      <p>Next figure shows two contrasting patterns for both the defect arrival rate and the cumulative defect rate. Data were plotted from 44 weeks before code-freeze until the week prior to code-freeze. The second pattern, represented by the charts on the right side, obviously indicates that testing started late, the test suite was not sufficient, and that the testing ended prematurely.</p>
+                      <figure>
+                        <img src='images/unit2-fig1.png'>
+                        <figcaption>Two Contrasting Arrival Patterns during Testing</figcaption>
+                      </figure>
+                      <p>The objective is always to look for defect arrivals that stabilize at a very low level, or times between failures that are far apart, before ending the testing effort and releasing the software to the field. Such declining patterns of defect arrival during testing are indeed the basic assumption of many software reliability models. The time unit for observing the arrival pattern is usually weeks and occasionally months. For reliability models that require execution time data, the time interval is in units of CPU time.</p>
+                      <p>When we talk about the defect arrival pattern during testing, there are actually three slightly different metrics, which should be looked at simultaneously:</p>
+                      <ul>
+                        <li>The defect arrivals (defects reported) during the testing phase by time interval (e.g., week). These are the raw number of arrivals, not all of which are valid defects.</li>
+                        <li>The pattern of valid defect arrivals—when problem determination is done on the reported problems. This is the true defect pattern.</li>
+                        <li>The pattern of defect backlog overtime. This metric is needed because development organizations cannot investigate and fix all reported problems immedi- ately. This metric is a workload statement as well as a quality statement. If the defect backlog is large at the end of the development cycle and a lot of fixes have yet to be integrated into the system, the stability of the system (hence its quality) will be affected. Retesting (regression test) is needed to ensure that targeted product quality levels are reached.</li>
+                        <ul>
+                        </section>
+                        <section>
+                          <h3>Phase-Based Defect Removal Pattern</h3>
+                          <p>
+                            The phase-based defect removal pattern is an extension of the test defect density metric. In addition to testing, it requires the tracking of defects at all phases of the development cycle, including the design reviews, code inspections, and formal verifications before testing. Because a large percentage of programming defects is related to design problems, conducting formal reviews or functional verifications to enhance the defect removal capability of the process at the front end reduces error injection. The pattern of phase-based defect removal reflects the overall defect removal ability of the development process.
+                          </p>
+                          <p>
+                            Following figure shows the patterns of defect removal of two development projects: project A was front-end loaded and project B was heavily testing-dependent for removing defects. In the figure, the various phases of defect removal are high-level design review (I0), low-level design review (I1), code inspection (I2), unit test (UT), component test (CT), and system test (ST). As expected, the field quality of project A outperformed project B significantly.
+                          </p>
+                          <figure>
+                            <img src='images/unit2-fig2.png'>
+                            <figcaption>Defect Removal by Phase for two products</figcaption>
+                          </figure>
+                        </section>
+                        <section>
+                          <h3>Defect Removal Effectiveness</h3>
+                          <p>
+                            Defect removal effectiveness can be defined as follows:
+                          </p>
+                          <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                            <mrow><mi>DRE</mi> <mo>=</mo>
+                            <mi>Defects Removed in a Development Phase</mi><mo>*</mo><mi>100% Defects latent in the product</mi>
+                            </mrow>
+                          </math>
+                          <p>
+                            It provides a measure of the percentage of defects removed in one 
+                            phase with regards to the overall number of defects in the code when 
+                            entering into that phase. As the total number of latent defects in 
+                            the product at any given phase is not known, the denominator of the 
+                            metric can only be approximated which is usually done through:
+                          </p>
+                          <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                            <mi>Defects Found in a phase </mi><mo>+</mo><mi>Defects found later</mi>
+                            </mrow>
+                          </math>
+                          <p>
+                            The metric can be calculated for the entire development process, for 
+                            the front end (before code integration), and for each phase. It is 
+                            called early defect removal
+                          </p>
+                          <p>
+                            The higher the value of the metric, the more effective the 
+                            development process and the fewer the defects escape to the next 
+                            phase or to the field. This metric is a key concept of the defect 
+                            removal model for software development. Folowing figure shows the DRE by 
+                            phase for a real software project. 
+                          </p>
+                          <figure>
+                            <img src='images/unit2-fig3.png'>
+                            <figcaption>Phase Effectiveness of a Software Project</figcaption>
+                          </figure>
+                          <p>
+                            The weakest phases were unit 
+                            test (UT), code inspections (I2), and component test (CT). Based 
+                            on this metric, action plans to improve the effectiveness of these 
+                            phases were established and deployed. For instance, if during a 
+                            phase, the DRE is not reaching the DRE target, new people, processes 
+                            and tools should be used to increase it.
+                          </p>
+                          <p>
+                            Another view of this metric is depicted in the following Figure.
+                          </p>
+                          <figure>
+                            <img src='images/unit2-fig4.png'>
+                            <figcaption>Defect Removal and Injection</figcaption>
+                          </figure>
+                          <p>
+                            It shows how are defects injected, detected and repair during a 
+                            project phase. Based on it, another way to calculate the defect 
+                            removal efficiency can be found:
+                          </p>
+                          <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                            <mrow><mi>DRE</mi> <mo>=</mo>
+                            <mfrac><mrow>Defects Removed (at the step)</mrow><mrow><mi>Defects existing on step entry</mi><mo>+</mo>Defects Injected during this step</mrow></mfrac><mo>*</mo><mi>100</mi> </mrow>
+                          </math>
+                          <p>
+                            The following table is an example in which the data about when 
+                            are errrors injected and detected in a software project is provided.
+                          </p>
+                          <table>
+                            <theader>
+                            <tr>
+                              <th rowspan=2 colspan=2></th>
+                              <th colspan=9>Origin of the defect</th>
+                            </tr>
+                            <tr>
+                              <th>RQ</th>
+                              <th>HL</th>
+                              <th>LL</th>
+                              <th>Code</th>
+                              <th>UT</th>
+                              <th>CT</th>
+                              <th>ST</th>
+                              <th>Field</th>
+                              <th>Total</th>
+                            </tr>
+                            </theader>
+                            <tbody>
+                            <tr>
+                              <th rowspan=9>Where Found?</th>
+                              <th>RQ</th>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                            </tr>
+                            <tr>
+                              <th>HL</th>
+                              <td>49</td>
+                              <td>681</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>730</td>
+                            </tr>
+                            <tr>
+                              <th>LL</th>
+                              <td>6</td>
+                              <td>42</td>
+                              <td>681</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>729</td>
+                            </tr>
+                            <tr>
+                              <th>CR</th>
+                              <td>12</td>
+                              <td>28</td>
+                              <td>114</td>
+                              <td>941</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>1095</td>
+                            </tr>
+                            <tr>
+                              <th>UT</th>
+                              <td>21</td>
+                              <td>43</td>
+                              <td>43</td>
+                              <td>223</td>
+                              <td>2</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>332</td>
+                            </tr>
+                            <tr>
+                              <th>CT</th>
+                              <td>20</td>
+                              <td>41</td>
+                              <td>61</td>
+                              <td>261</td>
+                              <td>-</td>
+                              <td>4</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>387</td>
+                            </tr>
+                            <tr>
+                              <th>ST</th>
+                              <td>6</td>
+                              <td>8</td>
+                              <td>24</td>
+                              <td>72</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>1</td>
+                              <td>-</td>
+                              <td>111</td>
+                            </tr>
+                            <tr>
+                              <th>Field</th>
+                              <td>8</td>
+                              <td>16</td>
+                              <td>16</td>
+                              <td>40</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>1</td>
+                              <td>61</td>
+                            </tr>
+                            <tr>
+                              <th>Total</th>
+                              <td>122</td>
+                              <td>859</td>
+                              <td>939</td>
+                              <td>1537</td>
+                              <td>2</td>
+                              <td>4</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td>3465</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                          <p>
+                            With that data, the DRE could be calculated for different phases 
+                            of the software development process. Some examples are shown below:
+                          </p>
+
+                    <div class="example">
+                      <pre>
+During the RQ phase the total figure of errors injected is 122. The meaning of 
+the 49 figure in the cell for column RQ and row HL means that 49 defects of 
+those 122 were detected during the High Level Design phase. The table also 
+shows that during the HL phase 859 additional errors were injected from which 
+681 were detected.
+That means that the total number of defets detected during the HL phase is:
+49 + 681 = 730 defects.
+The number of defects that potentially could had been detected during the HL 
+phase are the number of errors injected during the RQ and the HL phase as no 
+defects have been detected before: 122+859= 981 defects.
+With that data, the DRE is 730/981 = 74,44%
+For the Low Level (LL) design phase the DRE could be calculated in a very 
+similar manner: The defects removed during that phase are 729.
+The number of defects when the software got into the LL phase are the defects 
+injected so far (122+859 = 1081) minus the number of defects removed in previous 
+phases (729) which yields: 1081 – 729 = 251 defects when entrying in the LL phase.
+The number of potential defects that could had been fixed during that phase is 
+the number of defects when entrying the LL phase (251) plus the number of defects 
+injected during that phase (939): 251 + 939 = 1190.
+The DRE would be then 729 / 1190 = 61%￼￼
+                      </pre>
+                    </div>
+
+
+                          <p>
+                            The following table describes for each of the software development 
+                            process phases the most important sources of defect injection and 
+                            removal.
+                          </p>
+                          <table>
+
+                            <tr>
+                              <th>Delopment Phase</th>
+                              <th>Defect Injection</th>
+                              <th>Defect Removal</th>
+                            </tr>
+                            <tr>
+                              <td>Requirements</td>
+                              <td>Requirements Gathering Process and Specification Development</td>
+                              <td>Requirement Analysis and Review</<td></td>>
+                              </tr>
+                              <tr>
+                                <td>High Level Design</td>
+                                <td>Design</td>
+                                <td>High Level Design Inspections</td>
+                              </tr>
+                              <tr>
+                                <td>Low Level Design</td>
+                                <td>Design</td>
+                                <td>Low Level Design Inspections</td>
+                              </tr>￼
+                              <tr>
+                                <td>Code Implementation</td>
+                                <td>Coding</td>
+                                <td>Code Inspections Testing</td>
+                              </tr>￼
+                              <tr>
+                                <td>Integration Build</td>
+                                <td>Integration and Build Process</td>
+                                <td>Build Verification Testing</td>
+                              </tr>￼
+                              <tr>
+                                <td>Unit Test</td>
+                                <td>Bad Fixes</td>
+                                <td>Testing Itself</td>
+                              </tr>￼
+                              <tr>
+                                <td>Component Test</td>
+                                <td>Bad Fixes</td>
+                                <td>Testing Itself</td>
+                              </tr>￼
+                              <tr>
+                                <td>System Test</td>
+                                <td>Bad Fixes</td>
+                                <td>Testing Itself</td>
+                              </tr>￼
+
+                            </table>
+                          </section>
+                        </section> <!-- process quality-->
+                        <section>
+                          <h2>Software Metrics VS. Quality Metrics</h2>
+                          <p>
+                            This chapter has been addresing so far metrics that are related with a 
+                            direct measurement of the software quality. However, it is also 
+                            critical to consider that those metrics usually have a direct 
+                            relationship with some software characteristics that could not be 
+                            considered as directly related with the software quality.
+                          </p>
+                          <p>
+                            Some intrinsic characteristics of the software that usually affect 
+                            the software quality (either internal or external) are:
+                          </p>
+                          <ul>
+                            <li>
+                              Size: Obviously, the bigger a software is, either measured in 
+                              KLOCs or in Function Points, more opportunities for error there 
+                              will be.
+                            </li>
+                            <li>
+                              Control Flow Complexity: When the software has several decision 
+                              paths, many conditions to assess with different responses to them, 
+                              the likelyhood of defects is also higher.
+                            </li>
+                            <li>
+                              Intermodule coupling: When different software modules have too 
+                              many dependencies, the likelyhood of defects is also higher because 
+                              of the cross-module error propagation.
+                            </li>
+                            <li>
+                              Complexity: Code that has been designed in a complex manner is 
+                              usually also more exposed to defects than code designed using 
+                              simple patterns.
+                            </li>
+                            <li>
+                              Understandability: If the code cannot be easily understood, 
+                              whenever an error is detected, it will be more difficutl to find 
+                              the defect and fix it.
+                            </li>
+                            <li>
+                              Testability: Obviously, software difficult to be tested is 
+                              more exposed to bugs.
+                            </li>
+                            <li>
+                              Size: Obviously, the bigger a software is, either measured 
+                              in KLOCs or in Function Points, more opportunities for error 
+                              there will be defects than the software that can be easily tested.
+                            </li>
+                          </ul>
+                          <p>
+                            Different metrics exist to take into account all those aspects in 
+                            early phases of the software development process and take 
+                            preventive measures. E.g. if the code is extremely complex a 
+                            refactoring of the software should be done in order to minimize the 
+                            likelyhood of defects.
+                          </p>
+                          <p>
+                            Some example of metrics used (in Object Oriented Programming) are:
+                          </p>
+                          <ul>
+                            <li>
+                              Average Method Size: Ideally this parameter should be under 24 
+                              LOC in C++ or Java.
+                            </li>
+                            <li>
+                              Average Number of Methods per class: Should be less than 20. 
+                              Bigger averages indicate too much responsibility in too few 
+                              classes
+                            </li>
+                            <li>
+                              Average Number of instance Variables per class: Should be 
+                              less than 6. More instance variables indicate that one class 
+                              is doing more than what is should.
+                            </li>
+                            <li>
+                              Class Hierarchy Nesting Level (Depth of Inheritance Tree, DIT): Too 
+                              deep inheritance tree means that hierarchy is more complicated that 
+                              it should. Ideally it should be less than 6.
+                            </li>
+                            <li>
+                              Number of classes and class relationships in a subsystem/module: 
+                              Should be relatively high. This item relates to high cohesion of 
+                              classes in the same subsystem. If one or more classes in a 
+                              subsystem don't interact with many of the other classes, they 
+                              might be better placed in another subsystem.
+                            </li>
+                            <li>
+                              Number of Subsystem and Subsystem Relationships: Should be less 
+                              than the number in the previous metric.
+                            </li>
+                            <li>
+                              Average Number of comment lines (per method): It is important 
+                              this metric is high enough to ensure the code is maintainable 
+                              (1 at the very minimum).
+                            </li>
+                            <li>
+                              Number of times class is reused: If a class is not being reused 
+                              in different applications (especially an abstract class), it might 
+                              need to be redesigned.
+                            </li>
+                            <li>
+                              Number of classes and methods thrown away: Should occur at a steady 
+                              rate throughout most of the development process. If this is not 
+                              occurring, it may be due because the software development process 
+                              is following an incremental development instead of an iterative one.
+                            </li>
+                          </ul>
+                        </section> <!-- product quality-->
+                      </section>
+                      <section class='appendix'>
+                        <h2>Acknowledgements</h2>
+                        <p>
+                          Many thanks to Robin Berjon for making our lives so much easier with his 
+                          cool tool.
+                        </p>
+                      </section>
+                    </body>
+                  </html>
