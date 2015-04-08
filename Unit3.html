@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Software Quality - Unit 3</title>
+    <meta charset='utf-8'>
+    <script src='js/respec-w3c-common.js'
+      async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus: "unofficial",
+          overrideCopyright: "<p class='copyright'> This document is licensed under a <a class='subfoot' href='http://creativecommons.org/licenses/by/3.0/' rel='license'>Creative Commons Attribution 3.0 License</a>. </p>",
+          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "xxx-xxx",
+          // if your specification has a subtitle that goes below the main
+          // formal title, define it here
+          // subtitle   :  "an excellent document",
+          // if you wish the publication date to be other than the last modification, set this
+          // publishDate:  "2009-08-06",
+          // if the specification's copyright date is a range of years, specify
+          // the start date here:
+          // copyrightStart: "2005"
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+          // if there a publicly available Editor's Draft, this is the link
+          // edDraftURI:           "http://berjon.com/",
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+          // editors, add as many as you like
+          // only "name" is required
+          editors:  [
+              {
+                  name:       "Daniel Coloma"
+              ,   url:        "https://dcoloma.github.io/"
+              ,   mailto:     "danielcoloma@gmail.com"
+              ,   company:    "USJ"
+              ,   companyURL: "http://www.usj.es/"
+              },
+          ],
+
+          // name of the WG
+          wg:           "In Charge Of This Document Working Group",
+
+          // URI of the public WG page
+          wgURI:        "http://example.org/really-cool-wg",
+
+          // name (without the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "spec-writers-anonymous",
+          localBiblio:  {
+            "LINUS-SCM-GOOGLE": {
+            title:    "Linus Torvalds view on SCM"
+            ,   href:     "http://www.youtube.com/watch?v=4XpnKHJAok8"
+            ,   authors:  [
+              "Torvalds, L." 
+            ]
+            },
+            "SUCCESSFUL-GIT-BRANCHING": {
+            title:    "A successful Git branching model"
+            ,   href:     "http://nvie.com/posts/a-successful-git-branching-model/"
+            ,   authors:  [
+              "Vincent Driessen" 
+            ]
+            },
+            "TRAVIS-CI": {
+            title:    "Travis Continuous Integration System"
+            ,   href:     "https://travis-ci.org"
+            },
+            "SOFTWARE-ENGINEER-PRACTICIONER": {
+            title:    "Software Engineering: A Practitioner's Approach"
+            ,   href:     "http://highered.mheducation.com/sites/0078022126/information_center_view0/index.html"
+            ,   authors:  [
+              "Rogert S. Pressman"
+              , "Bruce R. Maxim"
+            ]
+            },
+            "INSPECTIONS-AND-REVIEWS": {
+            title:    "Inspections and Reviews"
+            ,   href:     "http://www.cs.toronto.edu/~sme/CSC444F/slides/L09-Inspections.pdf"
+            ,   publisher:  "University of Toronto"
+            },
+            "TRUTHS-PEER-REVIEWS": {
+            title:    "Seven Truths about peer reviews"
+            ,   href:     "http://www.processimpact.com/articles/seven_truths.html"
+            ,   authors:  [
+              "Karl E. Wiegers" 
+            ]
+            },
+            "REF7": {
+            title:    "Challenges in Building Fault Tolerant Flight Control System for a Civil Aircraft"
+            ,   href:     "http://www.iaeng.org/IJCS/issues_v35/issue_4/IJCS_35_4_07.pdf"
+            ,   authors:  [
+              "M. Sghairi" ,
+              "A. de Bonneval" ,
+              "Y. Crouzet",
+              "J.J. Aubert",
+              "P. Brot"
+            ]
+            },
+            "COST-EFFECTIVE-FAULT-TOLERANCE": {
+            title:    "A Cost-Effective and Flexible Scheme for Software Fault Tolerance"
+            ,   authors:  [
+              "Andrea Bondavalli et al" 
+            ]
+            },
+            "PERFORMANCE-RB-NVP-SCOP": {
+            title:    "Comparative Performability Evaluation of RB, NVP and SCOP"
+            ,   href:     "http://bonda.cnuce.cnr.it/Documentation/Papers/file-CBS94-C9402-104.pdf"
+            ,   authors:  [
+              "Silvano Chiaradonna1" ,
+              "Andrea Bondavalli" ,
+              "Lorenzo Strigini"
+            ]
+            },
+            "COST-OF-QUALITY": {
+            title:    "Cost of Quality – Not only failure costs"
+            ,   href:     "http://www.isixsigma.com/index.php?option=com_k2&view=item&id=937:cost-of-quality-not-only-failure-costs&Itemid=187"
+            },
+          },
+
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        These are the notes for Sofware Quality at USJ
+      </p>
+    </section>
+
+    <section id='sotd'>
+      <p>
+        Early Draft
+      </p>
+    </section>
+
+    <section>
+      <h1> Software Configuration Management </h1>
+      <section>
+        <h2>What is SCM?</h2>
+        <p>
+          Quality Assurance is only one part of the activities that are used 
+          to improve Software Quality. However QA is per-se not enough as it 
+          does not define how the software is managed, for instance:
+        </p>
+        <ul>
+          <li>How are new versions of the same software managed? </li>
+          <li>How are different versions of the same software maintained in parallel?</li>
+          <li>After bugs are detected, how are they tracked and fixed.</li>
+          <li>How can different people cooperate in the software development process?</li>
+        </ul>
+        <p style="background-color: yellow">
+          SCM could be defined as a framework for managing the evolution of 
+          software throughout all the stages of Software Development Process.
+        </p>
+        <p>
+          There are multiple definitions for SCM and in some cases the SCM 
+          acronym is used with different meanings (Software/Source Code 
+          Management, Software/Source Code Change Control Management, 
+          Software/Source Configuration Management...). Roger Pressman
+          states [[SOFTWARE-ENGINEER-PRACTICIONER]] that 
+          SCM is a "set of activities designed to control change by identifying 
+          the work products that are likely to change, establishing 
+          relationships among them, defining mechanisms for managing different 
+          versions of these work products, controlling the changes imposed, 
+          and auditing and reporting on the changes made."
+        </p>
+        <p>
+          In summary, SCM is a set of activities intended to guarantee:
+        </p>
+        <ul>
+          <li>Software Versions are properly managed even in parallel.</li>
+          <li>Different people can work in the same software project.</li>
+          <li>Issues are tracked.</li>
+          <li>Software changes are tracked and can be related to issues.</li>
+          <li>The software development process follows a set of rules.</li>
+          <li>Software releases and deliveries are properly managed.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Why SCM?</h2>
+        <p>
+          When used effectively during a product's whole life cycle, SCM 
+          identifies software items to be developed, avoids chaos when changes 
+          to software occur, provides needed information about the state of 
+          development, and assists the audit of both the software and the SCM 
+          processes. Therefore, its purposes are to support software 
+          development and to achieve better software quality. Additionally, a 
+          good SCM system should also help to reduce (or at least control) 
+          costs and effort involved in making changes to a system.
+        </p>
+      </section>
+      <section>
+        <h2>Key SCM Activities</h2>
+        <p>
+          IEEE's (IEEE Std. 828-1990) traditional definition of SCM included 
+          four key activities: configuration identification, configuration 
+          control, configuration status accounting and configuration audits. 
+          However, a successful implementation of SCM also requires careful 
+          planning and a good release management and processing.
+          Next figure represents all these activities graphically:
+        </p>
+        <figure>
+          <img src='images/unit3-fig1.png'>
+          <figcaption>SCM Activities</figcaption>
+        </figure>
+        <p>
+          The following figure provides a breakdown of all the SCM activities 
+          into more granular topics.
+        </p>
+        <figure>
+          <img src='images/unit3-fig2.png'>
+          <figcaption>SCM Activities breakdown</figcaption>
+        </figure>
+        <section>
+          <h3>Management and Planning</h3>
+          <p>
+            A successful SCM implementation requires careful planning and 
+            management. This, in turn, requires an understanding of the 
+            organizational context for, and the constraints placed on, the 
+            design and implementation of the SCM process.
+          </p>
+          <p>
+            Some aspects that should be decided during this activity are:
+          </p>
+          <ul>
+            <li>The types of documents to be managed and a document-naming scheme.</li>
+            <li>Who takes responsibility for the CM procedures and creation of baselines?</li>
+            <li>Policies for change control and version management.</li>
+            <li>Tools to be used and process linked to their usage.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Configuration Identification</h3>
+          <p>
+            The software configuration identification activity identifies items to 
+            be controlled, establishes identification schemes for the items and 
+            their versions, and establishes the tools and techniques to be used 
+            in acquiring and managing controlled items. These activities provide 
+            the basis for the other SCM activities.
+          </p>
+          <p>
+            <u>Configuration Item:</u> A configuration item is any possible part of 
+            the development or delivery of a system or product that it's 
+            necessary to identify, produce, store, use and change individually. 
+            Many people associate configuration item with a source code file, 
+            but configuration items are not limited to that, many other items 
+            could be identified and managed such as:
+          </p>
+          <ul>
+            <li>System data files</li>
+            <li>System build files and scripts</li>
+            <li>Requirements, Interface, Design specifications</li>
+            <li>Test plans, procedures, data sets and results</li>
+            <li>User documentation</li>
+            <li>Software development, Quality and Configuration Management plans</li>
+            <li>Compilers, Linkers, Debuggers</li>
+            <li>Shell scripts</li>
+            <li>Other related support tools</li>
+          </ul>
+          <p>
+            For each configuration item, additional information apart from the 
+            item itself is controlled by the SCM. As it is data about data, it 
+            is called metadata. Every configuration item must have a unique 
+            identification that is sometimes also called label. Additionally, 
+            metadata may include additional information such as:
+          </p>
+          <ul>
+            <li>Name</li>
+            <li>Version</li>
+            <li>Status</li>
+            <li>Date</li>
+            <li>Location</li>
+            <li>...</li>
+          </ul>
+          <p>
+            A first step in controlling change is to identify the software 
+            items to be controlled. This involves understanding the software 
+            configuration within the context of the system configuration, 
+            selecting software configuration items, developing a strategy 
+            for labelling software items and describing their relationships, 
+            and identifying the baselines to be used.
+          </p>
+          <p>
+            <u>Software Configuration:</u> A software configuration is the set 
+            of functional and physical characteristics of software as set forth 
+            in the technical documentation or achieved in a product.
+          </p>
+          <p>
+            Selecting Configuration Items: It is an important process in which 
+            a balance must be achieved between providing adequate visibility 
+            for project control purposes and providing a manageable number of 
+            controlled items. The items of a configuration should include all 
+            the items that are part of a given software release.
+          </p>
+          <p>
+            Defining relationships and interfaces between the various 
+            configuration items is key as it also affects other SCM activities 
+            such as software building or assessing the impact of suggested 
+            changes. The identification or labelling scheme used should support 
+            the need to evolve software items and their relationships (e.g. 
+            configuration item X requires version A of configuration item Y).
+          </p>
+          <p>
+            Identifying the baselines is another critical task of SCM 
+            Identification. A software baseline is a set of software 
+            configuration items formally designated and fixed at a specific 
+            time during the software life cycle. The term is also used to refer 
+            to a particular version of a software configuration item that has 
+            been agreed on. In either case, the baseline can only be changed 
+            through formal change control procedures. A baseline, together with 
+            all approved changes to the baseline, represents the current 
+            approved configuration.
+          </p>
+        </section>
+        <section>
+          <h3>Configuration Change Control</h3>
+          <p> 
+            The software is subject to continuous changes that are coming 
+            from different sources: 
+          </p>
+          <ul>
+            <li>Users that have new needs</li>
+            <li>Developers that identify issues on the software</li>
+            <li>Market forces that identify new business needs and opportunities</li>
+          </ul>
+          <p> 
+            Change Control takes care of keeping track of these changes and 
+            ensures that they are implemented in a controlled manner.
+          </p>
+          <p>
+            The most important activity from a Change Control point of view is 
+            the definition of how are changes made:
+          </p>
+          <ul>
+            <li>
+              Can any developer change any configuration items?
+            </li>
+            <li>
+              Do developers need to raise an issue or a Change Request before
+              changing a configuration item?
+            </li>
+            <li>
+              Which configurations or baselines developers can modify? E.g. 
+              some baselines should be read-only (tags), some others may be 
+              modifiable only after a Change Request has been made (branches) 
+              and some others may be modifiable with no restriction.
+            </li>
+            <li>
+              Do changes need a third-party approval before they are added 
+              to the SCM system?
+            </li>
+            <li>
+              How are other developers notified about changes?
+            </li>
+            <li>
+              What is the link to the Issue Tracker system?
+            </li>
+            <li>
+              Is there any need to test anything or build the system before 
+              accepting a change?
+            </li>
+          </ul>
+          <p>
+            In short, the key thing is having a clear working flow, you can
+            find an <a href="https://developer.mozilla.org/en-US/Firefox_OS/Developing_Gaia/Submitting_a_Gaia_patch">
+            example about the FirefoxOS flow</a>.
+            the process for making changes is clear, it is also important 
+            to specify how the revision history of configuration items is going 
+            to be kept, how other developers are going to be notified about 
+            those changes:
+          </p>
+          <ul>
+            <li>Maintaining baselines</li>
+            <li>Processing changes</li>
+            <li>Developing change report forms</li>
+            <li>Controlling release of the product</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Configuration Status Accounting</h3>
+          <p>
+            Configuration status accounting main target is recording and 
+            reporting of information needed for effective management of 
+            the software configuration.
+          </p>
+          <p>
+            The information that should be available is diverse:
+          </p>
+          <ul>
+            <li>Which are the different available baselines.</li>
+            <li>Which is the approved configuration.</li>
+            <li>Which are the issues raised for every configuration.</li>
+            <li>Which is the status of all the issues and changes.</li>
+          </ul>
+          <p>
+            In order to provide and control all this information a good tool 
+            support is needed. This could be part of the Configuration Item 
+            Management system or another independent tool that is integrated 
+            with it.
+          </p>
+          <p>
+            Reported information can be used by various organizational and 
+            project elements, including the development team, the maintenance 
+            team, project management, and software quality activities. 
+            Reporting can take the form of ad hoc queries to answer 
+            specific questions or the periodic production of predesigned 
+            reports. Some information produced by the status accounting 
+            activity during the course of the life cycle might become 
+            quality assurance records.
+          </p>
+          <p>
+            In addition to reporting the current status of the configuration, 
+            the information obtained by this system can serve as a basis for 
+            various measurements of interest to management, development, and 
+            SCM. Examples include the number of change requests per 
+            configuration item and the average time needed to implement a 
+            change request, defect arrival pattern per release/component...
+          </p>
+        </section>
+        <section>
+          <h3>Configuration Audting</h3>
+          <p>
+            The purpose of configuration audits is to ensure that the 
+            software product has been built according to specified requirements 
+            (Functional Configuration Audit, FCA), to determine whether all the 
+            items identified as a part of CI are present in the product 
+            baseline (Physical Configuration Audit, PCA), and whether defined 
+            SCM activities are being properly applied and controlled (SCM 
+            system audit or in-process audit). A representative from management, 
+            the QA department, or the customer usually performs such audits. The 
+            auditor should have competent knowledge of both SCM activities and 
+            the project.
+          </p>
+          <p>
+            The author should check the product is complete, consistent (e.g. 
+            "Are all the correct versions of files used in this current 
+            release?"), that no outstanding issues exist (e.g. "There are no 
+            critical defects or CRs") and that the product has passed all the 
+            required tests to ensure its quality.
+          </p>
+          <p>
+            The output of the audit should specify whether the product's 
+            performance requirements have been achieved by the product design 
+            and the product design has been accurately documented in the 
+            configuration documentation.
+          </p>
+          <p>
+            In order to properly perform this activity is important to:
+          </p>
+          <ul>
+            <li>Define the audit schedule and procedures.</li>
+            <li>Identify who will perform the audits.</li>
+            <li>Do the audits on the established baselines.</li>
+            <li>Generate audit reports.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Release Build, Management and Delivery</h3>
+          <p>
+            The term "release" is used to refer to a software configuration 
+            that is distributed outside of the development team. This includes 
+            internal releases as well as distribution to end-users. When 
+            different versions of software are available for different platform 
+            configurations it is frequently necessary to create multiple 
+            releases for delivery.
+          </p>
+          <p>
+            <u>Building the release:</u>
+          </p>
+          <p>
+            In order to release a software product, the configuration items 
+            must be combined, packaged with the right configuration and in 
+            most of the cases built into an executable program that can be 
+            installed by the customers. Build instructions ensure that the 
+            proper build steps are taken and in the correct sequence. In 
+            addition to building software for new releases, it is usually 
+            also necessary for SCM to have the capability to reproduce 
+            previous releases for recovery, testing, maintenance, or 
+            additional release purposes. 
+          </p>
+          <p>
+            Software is built using particular versions of supporting 
+            tools, such as compilers. It might be necessary to rebuild an 
+            exact copy of a previously built software configuration item. In 
+            this case, the supporting tools and associated build instructions 
+            need to be under SCM control to ensure availability of the correct 
+            versions of the tools (i.e. not only source code evolve, but also
+            the tools we use).
+          </p>
+          <p>
+            A tool capability is useful for selecting the correct versions of 
+            software items for a given target environment and for automating 
+            the process of building the software from the selected versions and 
+            appropriate configuration data. For large projects with parallel 
+            development or distributed development environments, this tool 
+            capability is necessary. Most software engineering environments 
+            provide this capability.
+          </p>
+          <p>
+            <u>Release Management:</u>
+          </p>
+          <p>
+            Software release management encompasses the identification, 
+            packaging, and delivery of the elements of a product, for example, 
+            executable program, documentation, release notes, and configuration 
+            data.
+          </p>
+          <p>
+            Given that product changes can occur on a continuing basis, one 
+            concern for release management is determining when to issue a 
+            release. Some aspects to take such a decision are the severity of 
+            the problems addressed by the release and the measurements of the 
+            fault densities of prior releases.
+          </p>
+          <p>
+            The packaging task must identify which product items are to be 
+            delivered, and then select the correct variants of those items, 
+            given the intended application of the product. The information 
+            documenting the physical contents of a release is known as a 
+            <b>version description</b> document. The <b>release notes</b> 
+            typically describe new capabilities, known problems, and 
+            platform requirements necessary for proper product operation. 
+            The package to be released also contains <b>installation or 
+            upgrading instructions</b>. The latter can be complicated because 
+            some current users might have versions that are several releases old. 
+          </p>
+          <p>
+            Finally, in some cases, the release management activity might need 
+            to track the distribution of the product to various customers or 
+            target systems. An example would be a case where the supplier was 
+            required to notify a customer of newly reported problems. A tool 
+            capability is needed for supporting these release management 
+            functions. It is useful to have a connection with the tool 
+            capability supporting the issue tracker in order to map release 
+            contents to the issues that have been received. This tool 
+            capability might also maintain information on various target 
+            platforms and on various customer environments.
+          </p>
+          </section>
+          <section>
+            <h3>Summary</h3>
+              <figure>
+              <img src='images/unit3-fig3.png'>
+              <figcaption>SCM Activities Relationships</figcaption>
+              </figure>
+          </section>
+        </section>
+        <section>
+          <h2>SCM In Practice</h2>
+          <section>
+            <h3>Introduction</h3>
+            <p>
+              This chapter provides a set of best practices or patterns that 
+              should be used in SCM. There are multiple tools that can be used 
+              for SCM. Some of them focus on the configuration identification 
+              and change control, some others pay special attention to the 
+              auditing and accounting and some others are focused on the build 
+              and release part. In most of the cases different tools are 
+              required and what is important is all the tools are properly 
+              integrated. For instance, a typical situation is using a tool for 
+              managing the source code (e.g. Subversion or git), another one 
+              for keeping track of the issues, defects or releases (e.g. 
+              Redmine or Bugzilla), another one for Agile Management (e.g 
+              Trello) and maybe another one for Continous Integration (e.g. 
+              Travis). In such a multi-tool environment it is important to 
+              ensure that the changes on the configuration items can be linked 
+              to the issues and releases in the issue tracker and the agile
+              manaagement tool.
+            </p>
+            <p>
+              It is important to stress that there are multiple different 
+              paradigms for managing the source code, being the most important 
+              distinction whether the system is centralized or distributed. 
+              Linus Torvalds (who was the creator of git) gave an interesting 
+              speech in the Google Tech Talk event in which he compared both 
+              approaches [[LINUS-SCM-GOOGLE]].
+            </p>
+            <p>
+              The patterns described in this chapter try to be generic enough so
+              they can be applied in centralized and distributed systems. However 
+              some of them may also apply to one of them. Additionally, it is 
+              important to stress that usually, a distributed system can be 
+              configured to work in a <a href="http://nvie.com/posts/a-successful-git-branching-model/#decentralized-but-centralized"> 
+                centralized way</a>.
+              Additinally, during the last years distributed systems have
+              proliferated and it seems they have become <a href="http://www.joelonsoftware.com/items/2010/03/17.html"> 
+              the de-facto standard </a> for SCM.
+            </p>
+          </section>
+          <section>
+            <h3>Configuration Identification</h3>
+            <section>
+              <h4>Baselines</h4>
+              <p>
+                In previous chapter the formal definition of baseline 
+                (according to IEEE) has been provided. From a more "practical" 
+                point of view, a baseline is a consistent set of Configuration 
+                Items (sometimes also called tagging or labelling). A baseline 
+                is a reference basis for evolution and releasing. 
+              </p>
+              <p>
+                The frequency of the baseline releasing, depends a lot on the 
+                software development methodology that is used:
+              </p>
+              <ul>
+                <li>
+                  Waterfall: Consists of performing the development process in 
+                  a single time. Simplistically: determine user needs, define 
+                  requirements, design the system, implement the system, test, 
+                  fix, and deliver.
+                </li>
+                <li>
+                  Incremental: The incremental strategy determines user needs 
+                  and defines the system requirements, then performs the rest 
+                  of the development in a sequence of builds. The first build 
+                  incorporates part of the planned features and subsequent 
+                  builds are released until the system is complete.
+                </li>
+                <li>
+                  Evolutionary: Similar to the incremental approach but 
+                  acknowledges that the end-user needs may not fully 
+                  understood and that all the requirements may not be 
+                  identified before starting the development. User needs and 
+                  requirements are partially defined at the beginning and are 
+                  further refined in every build.
+                </li>
+              </ul>
+              <p>
+                Obviously, working in an evolutionary manner, requires 
+                more frequent releases of the baselines than in a waterfall 
+                model. Hence, although the need of having an easy way to 
+                release is good in general, it's even more important in 
+                agile approaches.
+              </p>
+            </section>
+            <section>
+              <h4>Repositories</h4>
+              <p>
+                A <b>repository</b> is a system that stores the different 
+                versions of all the configuration items. The repository 
+                remembers every change ever written to it: every change to 
+                every configuration item and changes on the repository 
+                structure (such as the addition, deletion and rearrangement of 
+                files and directories).
+              </p>
+              <p>
+                Depending on the type of approach (centralized or distributed)
+                there may be a centralized repository that is considered as the
+                mastercopy of the project.
+                <ul>
+                  <li>
+                    In the case of centralized systems, such as SVN, there use
+                    to be only a unique repository that is the central one. 
+                    All the contributors to the project have working copies of
+                    that repository but they don't usually have their own 
+                    repositories as all the work is done in the central 
+                    repository.
+                  </li>
+                  <li>
+                    In distributed systems, any contributor to the project has
+                    a repository he/she works with. Contributors' repositories
+                    are continuously synchronized (via Pulls and Pull Requests) 
+                    by the users. However, in most of the cases, there is a 
+                    centralized repository, that is usually called upstream.
+                    The upstream could be the repository of the organization 
+                    or the repository of an individual with a very high 
+                    reputation. Sometimes, small projects start from an 
+                    individual repository and when they grow, they end-up in
+                    an organization repository.
+                  </li>
+                </ul>
+              </p>
+              <p>
+                A <b>workspace</b> is a copy of the repository that developers have in 
+                their machines and that is used to progress on the software 
+                development. The changes that developers make in their working 
+                copies are not available to other developers until they have 
+                transferred the data to the repository. A working copy does 
+                not have all the versions of the configuration items but just 
+                one. However, developers have the opportunity to retrieve from 
+                the repository any version of any configuration item they are 
+                interested in.
+              </p>
+            </section>
+            <section>
+              <h4>Synchronization</h4>
+              <p>
+                When a developer wants to create a working copy based on the 
+                content of the repository, he should perform a "checkout" or 
+                "clone" of the repository. A checkout is the operation that 
+                copies all the configuration items of a repository to create 
+                a new working copy. The checkout operation can be requested 
+                in any version of the repository, but by default, it requests 
+                the latest one (a.k.a HEAD). The checkout does not only 
+                retrieves the content of the configuration items but also all
+                their revisions, configuration information and branches.
+              </p>
+              <p>
+                When a developer makes some changes in his working copy that 
+                wants to submit to the repository (so that other developers 
+                can use it) he should perform a "commit" operation (a.k.a. 
+                check-in).  The commit operation allows developers to contribute 
+                to the repository new versions of one or multiple configuration 
+                items.
+                In some systems (e.g. SVN) the commit is directly submitted to 
+                the repository. However, in some others, such as distributed
+                systems (e.g git), a commit needs to be sent to the repository.
+                This could be achieved in different ways:
+                <ul>
+                  <li>
+                    By "pushing" the commit from the working copy to the 
+                    repository. This is mostly done for the repositories owned
+                    by the developer as it requires "push" permission.
+                  </li>
+                  <li>
+                    By sending a "Pull Request" from a repository to another
+                    one. This is useful when you don't have permissions to push
+                    directly to a repository on when you want other developers
+                    to review your commit before merging them (accepting and 
+                    including them in the repository).
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Once a developer has a working copy he can request at any time 
+                to synchronize with the latest version available in other 
+                repository. In centralized systems, the synchronization will 
+                be performed just with one repository, the central one. 
+                However, in disitributed systems, developers can (and usually 
+                do) synchronize with multiple repositories. For instance, a 
+                typical Git configuration is having a remote repository 
+                name upstream pointing out to the project upstream repository 
+                and another one named "origin" that points to the developer
+                repository. This operation is called "update" in centralized
+                systems and "pull" in distributed ones. When this operation is 
+                requested, the configuration items that have been changed in 
+                the repository are updated in the developer working copy.
+              </p>
+              <p>
+                SCMs will never incorporate other people's changes 
+                (update), nor make your own changes available to others 
+                (commit), until you explicitly tell it to do so.
+              </p>
+            </section>
+            <section>
+              <h4>Revisions</h4>
+              <p>
+                Different systems have different approaches with regards to 
+                configuration item versioning and identification. In 
+                Subversion or Git, every time a commit is performed in the repository 
+                a new revision of the repository is created. 
+              </p>
+              <ul>
+                <li>
+                In Subversion, a revision ID is a number that identifies a 
+                version of a repository in a given moment of time and that 
+                increases every time a new commit is performed. 
+                </li>
+                <li>
+                In Git, a revision ID is a Hash string that is calculated after 
+                the commit is performed, hence two consecutive revisions do not
+                have consequetive revision numbers.
+                </li>
+              </ul>
+              <p>
+                As revisions are always linked to a commit, they are also 
+                called "commit IDs". In Git, as they are hashes, they are also 
+                referred to as "Hash IDs". For instance, the revision 
+                identifier of the first commit in the repository of these 
+                notes is <code>53a3797f7f406f15220955f5f6883cbae36e826f</code> 
+                as you can see <a href="https://github.com/dcoloma/software-quality/commit/53a3797f7f406f15220955f5f6883cbae36e826f">
+                  here</a>.
+              </p>
+              <p>
+                A commit may include one or more configuration items with 
+                changes, due to that between two subsequent revisions, more 
+                than one item may differ from one to another.
+              <p>
+                For instance, this 
+                <a href="https://github.com/dcoloma/software-quality/commit/f6c4eb2899dea9ba109d243d12a322f395dad257">
+                commit </a> includes changes in one file and add 2 new ones and
+              it just adds a new revision on top of the <a href="https://github.com/dcoloma/software-quality/commit/7186bba611b2f06c7dc300cc6c8af5a5290fea1e"> 
+                previous one</a>.
+              </p>
+              <p>
+                It is important to stress than in modern SCM systems the configuration 
+                items are not identified individually but as part of a revision. 
+                This is an important change with regards to other old 
+                systems such as CVS (Concurrent Versioning System). In order to 
+                identify a particular version of a configuration item, the 
+                revision in which that configuration item version was available 
+                should be referred to.
+              </p>
+            </section>
+            <section>
+              <h4>Branches and Tags</h4>
+              <p>
+                The master or trunk is the main line of development of the 
+                workspace, that is the place where the evolution of the 
+                software product should be done. However, having a unique 
+                development point in the repository is not enough in most 
+                of the software products.
+              </p>
+              <p style="background-color: #EEEEDD">
+                <b>Branching: A non-software example.</b> Suppose your job 
+                is to maintain a document for a division in your company, 
+                a handbook of some sort. One day a different division asks 
+                you for the same handbook, but with a few parts "tweaked" 
+                for them, since they do things slightly differently. What 
+                do you do in this situation? You do the obvious thing: you 
+                make a second copy of your document, and begin maintaining 
+                the two copies separately. As each department asks you to 
+                make small changes, you incorporate them into one copy or 
+                the other. You often want to make the same change to both 
+                copies. For example, if you discover a typo in the first 
+                copy, it's very likely that the same typo exists in the 
+                second copy. The two documents are almost the same, after 
+                all; they only differ in small, specific ways. Maintaining
+                the two branches is an extra burden.
+              </p>
+              <p>
+                As you have seen, maintaining extra branches is expensive,
+                hence before creating long-life parallel branches you need 
+                to think if there are altenartives to that: configuration 
+                parameters, specific modules, different runtime behaviours...
+              </p>
+              <p>
+                When a developer wants to create another development line in 
+                the repository he creates a branch. A branch is a line 
+                of development that exists independently of another line but 
+                shares a common history if you look far enough back in time. 
+                A branch always begins life as a copy of something, and moves 
+                on from there, generating its own history. However, branches
+                that started from a common point and diverged later on can
+                merge eventually again.
+              </p>
+              <p>
+                In the Software Development process it is sometimes convenient 
+                to identify a particular version, release or baseline of the 
+                software. This is achieved by tags. A tag is a snahpshot of 
+                the repository at a specific point in history. Typically people 
+                use this functionality to mark release points (v1.0, and so on).
+                Tags are intended not to change by any means. Different SCMs 
+                have different strategies for implementing tags, but most of
+                them implement this feature as a specific branch that does not
+                change with the time.
+              </p>
+            </section>
+            </section>
+              <section>
+                <h3>Best Practices and Patterns</h3>
+                <section>
+                  <h4>Tips for branching</h4>
+                  <p>
+                    Before Git was used, branches were used with a lot of care 
+                    care since merging in other SCM systems such as SVN was 
+                    very difficult. Merging is the process by which two 
+                    configuration items are combined into a new one. Depending 
+                    on the amount of configuration items to be combined and on 
+                    the type of changes done in them, and on the SCM system 
+                    used, merging can be a very difficult operation.
+                  </p>
+                  <p>
+                    Branches are created to save some work by allowing 
+                    developers to work in independent features in an independent 
+                    manner. However, that may end up in some times in spending 
+                    extra time doing a difficult merge task. The reason why Git 
+                    is so successful nowadays is that it has simplified the way 
+                    merges are done and hence has enabled developers to create 
+                    and work on separate branches.
+                  </p>
+                  <p>
+                    However, easy merging, does not mean branches should be used
+                    without care. For instance, in general, overcomplicated 
+                    structures where branches are created from branches 
+                    different to master continuously (arborescent approach) 
+                    should be avoided.
+                  </p>
+                  <p>
+                    Branching works better when you integrate with the origin of 
+                    the branch as quickly as possible.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 1: Simplify the branching model.
+                    </b>
+                  </p>
+                  <p>
+                    Althoug branching is cheap in systems such as Git that 
+                    should not be an excuse for creating too complex tree 
+                    structures diverging from the master branch. Ask 
+                    developers to branch from the master branch that is the 
+                    "home codeline" in which you merge all of your development 
+                    on, except in special circumstances. Branching always from
+                    master reduces merging and synchronization effort by 
+                    requiring fewer transitive change propagations.
+                  </p>
+                  <p>
+                    It is also important that the expected branches are 
+                    planned in advance and that a branch diagram is used. 
+                    Having a diagram is of huge help to the development 
+                    as it allows at a glance to have a clear understanding of 
+                    the different branches available and the relationship 
+                    across them. There are many tools for getting such a 
+                    diagram automatically.
+                  </p>
+                  <p>
+                    You can see below an example of such a diagram:
+                  </p>
+                    <figure>
+                      <img src='images/unit3-fig4.png'>
+                      <figcaption>Branch Diagram Example</figcaption>
+                    </figure>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 2: Create specific development branches for every 
+                    feature you implement
+                    </b>
+                  </p>
+                  <p>
+                    Like shown in the previous diagram (branches Story A and 
+                    Story B), for every feature to be added or for every bug 
+                    you fix you should create a separate branch so you can work 
+                    in a isolated and independent manner.
+                  </p>
+                  <p>
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 3: Development branches should be short-lived.
+                    </b>
+                  </p>
+                  <p>
+                    More information about when should a development branch be
+                    merged will be provided in the following sections, but by
+                    having a look at the diagram is easy understand than the
+                    later we merge, the more difficult it will be as branches
+                    will have diverged more.
+                  </p>
+                  <p>
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 4: When development branches must live for a long time, 
+                    relatively frequent intermediate merges should be done.
+                    </b>
+                  </p>
+                  <p>
+                    When you create a develop branch and it's going to take a 
+                    long time before you can merge your changes to master 
+                    branch, try to sync with master frequently so you can 
+                    avoid your working branch to diverge from master. The more 
+                    time you wait, the more difficult the merge would be.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 5: Branch Customer Releases.
+                    </b>
+                  </p>
+                  <p>
+                    When a new software version to users, the "usual" situation 
+                    is that the team must work at least in two versions in 
+                    parallel:
+                  </p>
+                  <ul>
+                    <li>
+                      A new version with new features (that is developed in the
+                      master branch)
+                    </li>
+                    <li>
+                      The released version, where typically only bugfixes
+                      should be added. This is usually done in a "release" 
+                      branch. Please note that this bugfixes should also land
+                      on the master branch if that branch is also affected.
+                    </li>
+                  </ul>
+                  <p>
+                    Due to that, when a version is released to customers a 
+                    release branch should be created. In this way bugfixing 
+                    can be done on the release branch without exposing the 
+                    customer to new feature work in progress on the mainline.
+                  </p>
+                  <p>
+                    The typical workflow for customer releases is:
+                  </p>
+                  <ul>
+                    <li>
+                      A release branch (e.g. v1.0) is created based on the
+                      master branch when the team thinks the software is ready 
+                      for release (say, a 1.0 release). In that mmoment the 
+                      content and history of both branches (v1.0 and master) 
+                      will be the same.
+                    </li>
+                    <li>
+                      The team continues to work in both branches in parallel.
+                      Depending on the release strategy the product could be
+                      release at this moment to all the users, maybe to some
+                      early/beta users or maybe just for another testing round.
+                    </li>
+                    <li>
+                      In any case, if bugs are discovered in either version, 
+                      fixes are ported back and forth as necessary. Usually, 
+                      as time passes, only critical fixes will be landed in 
+                      the release branch, that eventually will be frozen as
+                      new releases supersede it.
+                    </li>
+                    <li>
+                      Fixing bugs that affect both branches might be done
+                      using different strategies. A recommended one is to
+                      land all the code always in the master branch and then
+                      uplift or cherrypick those changes that affect the
+                      release to the release branch. Obviously, as time passes
+                      and branches diverge there might be some bugs that
+                      affect only the release branch, in that case, a direct
+                      merge on the release branch could be done.
+                    </li>
+                  </ul>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 6: Branch long-lived parallel efforts.
+                    </b>
+                  </p>
+                  <p>
+                    Long lived parallel efforts that multiple people will be 
+                    working on should be done in independent branches. Imagine
+                    you want to experiment with a new feature and you know that
+                    before having something that can be merged in the master
+                    branch a lot of time is going to be needed. In that case, it
+                    makes sense to create a specific branch (similar to the 
+                    release branch) so that the team can work in that feature
+                    while others can check your progress.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 7: Be always flexible, there may be some 
+                    very strong reasons for breaking these "rules".
+                    </b>
+                  </p>
+                  <p>
+                    These are just a set of recommendations, but there are 
+                    different ways to work with branches and all of them are
+                    right and wrong at the same time as it is impossible to 
+                    have a perfect framework.
+                    For instance, some authors [[SUCCESSFUL-GIT-BRANCHING]] 
+                    promote the idea of having an <i>integration</i> branch 
+                    called <code>develop </code> and with an infinite 
+                    lifetime (as master) as shown in the following figure:
+                    <figure>
+                      <img src='http://nvie.com/img/git-model@2x.png' width="600px" height="700px">
+                      <figcaption>Use of integration branches</figcaption>
+                    </figure>
+                  </p>
+                </section>
+                <section>
+                  <h4>Merging</h4>
+                  <p>
+                    When working in multiple branches, the task of combining 
+                    them into a single line of code (merging) is of endeavour 
+                    importance.
+                  </p>
+                  <p>
+                    When the work in the two branches to merge has no 
+                    overlapping configuration items (no configuration item has 
+                    been modified in both), the merging task is easier. However,
+                    although no conflicts should occur during the merging, it 
+                    does not mean that the result of the merge is going to be 
+                    good enough. Let's have a look at a non-software example:
+                  </p>
+                  <p style="background-color: #EEEEDD">
+                    Imagine you are Dr. Frankenstein and you want to build a 
+                    human being. You have a development team composed by two 
+                    developers, in order to avoid problems when merging their 
+                    contributions you ask one to develop the legs and another 
+                    one to develop the arms. When both have finished their 
+                    task the merging is done with no problem, i.e. 2 arms and 
+                    2 legs are assembled in the body. However, imagine what 
+                    happens if the left legs are twice longer than the righ 
+                    leg: the merge worked OK but the result is a monster. 
+                  <p> 
+                    In conclusion, a merge without conflicts can also be a bad 
+                    merge.
+                  </p>
+                  <p>
+                    When some configuration items are modified in both 
+                    branches, the merging task is not immediate as manual
+                    intervention is required to suggest how to solve the 
+                    conflicts that result of modiying separately the same file.
+                    A conflict in a merge is said to occur when two 
+                    configuration items have been modified with divergent 
+                    changes.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 8: Developers making the changes should be
+                    the ones responsible to fix the conflicts.
+                    </b>
+                  </p>
+                  <p>
+                    They are the ones who know better the code they have 
+                    modified so the best way to prevent a Frankestein to be 
+                    created is asking them to ensure the merge work leads to 
+                    a fully functional result.
+                  </p>
+                </section>
+                <section>
+                  <h4>Working Copies vs. Repository</h4>
+                  <p>
+                    Software is developed in teams because concurrent work is 
+                    needed. Nonetheless, the more people in your team, the more
+                    potential for conflicting changes.
+                  </p>
+                  <p>
+                    In order to minimize the number of conflicts and facilitate 
+                    the work of the team it is important to encourage team 
+                    members to:
+                  </p>
+                  <ul>
+                    <li>
+                      Work in features as small as possible.
+                    </li>
+                    <li>
+                      Create the Pull Request as soon as possible but only if 
+                      they work properly to avoid others to suffer chained 
+                      problems.
+                    </li>
+                  </ul>
+                  <p>
+                    But finding the right balance for this last issue (check 
+                    stable code but soon) is usually difficult.
+                  </p>
+                  <p>
+                    Working from a highly tested stable line is not always an 
+                    option when new features are being developed, otherwise the 
+                    frequency of the commits would not be as high as it is 
+                    needed. However, although not being highly tested, at least
+                    it is expected that the code that is retrieved from the 
+                    repository has a reasonable quality. In order to get to a 
+                    good trade-off it is important to require developers to 
+                    perform simple procedures before submitting code to the 
+                    codeline, such as a preliminary build, and some level of 
+                    testing
+                  </p>
+                  <p>
+                    The good trade-off is having a development line stable 
+                    enough for the work it needs to do. Do not aim for a 
+                    perfect active development line, but rather for a mainline 
+                    that is usable and active enough for your needs.
+                  </p>
+                  <p>
+                    An active development line will have frequent changes, some 
+                    well tested checkpoints that are guaranteed to be "good", 
+                    and other points in the codeline are likely to be good 
+                    enough for someone to do development on the tip of the 
+                    line.
+                  </p>
+                  <p>
+                    Some aspects that should be considered by developers are:
+                  </p>
+                  <ul>
+                    <li>
+                      Work in your development branch and test your changes on 
+                      it.
+                    </li>
+                    <li>
+                      Before creating a Pull Request run Regression Test to 
+                      make sure that you have not broken anything.
+                    </li>
+                    <li>
+                      Ask for a code review if needed and repeat the previous 
+                      steps iteratively depending on the review feedback.
+                    </li>
+                    <li>
+                      After the review has been positively completed.
+                    </li>
+                    <li>
+                      An Automated Integration Build should be done before 
+                      accepting the Pull Request or righ after accepting it.
+                    </li>
+                  </ul>
+                  <p>
+                    Many of the concepts we have just described are very
+                    related with the concept of Continuous Integration and
+                    will be explained in the next chapter.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 9: Before pushing a contribution (Pull 
+                    Request or Direct Push), ensure that the latest version 
+                    of the repository is available in the working copy.
+                    </b>
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 10: Think globally by building locally. 
+                    Ensure the system builds before pushing.
+                    </b>
+                  </p>
+                  <p>
+                    The only way to truly test that any change is 100% 
+                    compatible with the system is through the centralized 
+                    integration build. 
+                    However, if we do not test it in our working copy, it 
+                    is highly likely our changes break the build and disturbs 
+                    the work of other developers. Before making a submission 
+                    to source control, developers should build the system using
+                    a Private System Build that is similar to the centralized 
+                    build. A private system build does take time, but this is 
+                    time spent by only one person rather than each member of 
+                    the team should there be a problem.
+                  </p>
+                  <p>
+                    <b style="color: green">
+                    Best Practice 11: Code can be committed with bugs if
+                    they are known and do not introduce regressions.
+                    </b>
+                  </p>
+                  <p>
+                    Do not wait to have the final version of your software.
+                    Sometimes it's better to have the code available in the
+                    master branch soon (even with known bugs) than waiting 
+                    extra time to fix and land the code later (when more
+                    conflicts can happen and less time will be spent in testing
+                    by other developers)
+                  </p>
+                </section>
+              </section>
+              <section>
+                <h3>Continuous Integration and Building</h3>
+                <p>
+                Since many people are making changes in the repository, it is 
+                impossible for a developer to be 100% sure that the entire 
+                system builds correctly after they integrate their changes in 
+                the repository even if they create a local build before and
+                extensively test it.
+                </p>
+                <p>
+                  Continuous Integration 
+                  (CI) is a software development practice where members of a 
+                  team commit their work frequently, leading to multiple 
+                  integrations per day. Each integration is verified by an 
+                  automated build (including test) to detect integration 
+                  errors as quickly as possible. This approach leads to 
+                  significantly reduced integration problems and allows a 
+                  team to develop cohesive software more rapidly. 
+                </p>
+                <section>
+                <h4>
+                  Build Process
+                </h4>
+                <p>
+                  Building is the process of getting the sources turned into 
+                  a running system. This can often be a complicated process 
+                  involving compilation, moving files around, generating 
+                  configuration files, loading schemas into the databases, and 
+                  so on. However this process can (and as a resullt should) be 
+                  automated.
+                </p>
+                <p>
+                  Automated environments for builds are a common feature of 
+                  systems. The Unix world has had <i>make</i> for decades, the 
+                  Java community developed <i>Ant</i>, the .NET community
+                  has had <i>Nant</i> and now has MSBuild, for node.js and 
+                  Javascript we have now Grunt, Gulp and many more... 
+                  What is important, regardless of the Programming Language
+                  and framework is to make sure you can build and launch your 
+                  system using these scripts using a single command.
+                  A common mistake is not to include everything in the automated
+                  build. This should be avoided by all means as anyone should be
+                  able to bring in a virgin machine, check the sources out of the
+                  repository, issue a single command, and have a running system
+                  on their machine.
+                </p>
+                <p>
+                  <b style="color: green">
+                  Best Practice 12: The full build process should be automated
+                  and include everything that is required.
+                  </b>
+                </p>
+                <p>
+                  A big build often takes time, and with CI we want to detect 
+                  issues as soon as practical so optimizing build time is 
+                  key to meet this target as in some cases, building a complete
+                  sytem might take hours. In order to save time, good build 
+                  tools analyzes what needs to be changed as part of the 
+                  process and perform only the required actions. The common way
+                  to do this is to check the dates of the source and object 
+                  files and only compile if the source date is later.
+                  One of the trickiest aspects of building in an incremental 
+                  way is managing depedencies: if one object file changes those
+                  that depend on it may also need to be rebuilt.
+                </p>
+                <p>
+                  <b style="color: green">
+                  Best Practice 13: Try to minimize the time required to
+                  generate the build.
+                  </b>
+                </p>
+                <p>
+                  As explained before, multiple tools existe in order to perform
+                  the build, that depend, for instance, in the OS of the host 
+                  machine for the repository: Make, Ant, Grunt ... There are also
+                  some cross-platform tools that allow to create a custom 
+                  centralized build process in any OS and SCM system.
+                </p>
+                <p>
+                  The build process should take into account that different 
+                  <i>targets</i> or <i>configurations</i> may be supported. For 
+                  instance, desktop software must be usually built for Windows,
+                  OS-X and Linux so the build system should be able to create 
+                  builds for all these systems.
+                </p>
+                <p>
+                  Having a central build ensures the software is always built
+                  in the same manner. The software build process should be 
+                  reproducible, so the same build could be created as many times
+                  as needed and as close as possible to the final product build.
+                </p>
+                <p>
+                  <b style="color: green">
+                  Best Practice 14: Have a centrazlied and reproducible build system.
+                  </b>
+                </p>
+                </section>
+                <section>
+                <h4>
+                  Self Testing Builds
+                </h4>
+                <p>
+                  A build may be successfully created and it may run, but that 
+                  doesn't mean it does the right thing. Modern statically 
+                  typed languages can catch many bugs, but far more are not 
+                  detected by the compilers.
+                </p>
+                <p>
+                  A good way to catch bugs quickly and efficiently is to include
+                  automated tests in the build process. Testing isn't perfect, 
+                  of course, but it can catch a lot of bugs.
+                </p>
+                <p>
+                  The good news is that the rise of TDD has lead to a wide 
+                  availability of automated testing frameworks and tools such as
+                  the XUnit family, Selenium and plenty of others.
+                </p>
+                <p>
+                  Of course the self-testing is not going to find everything as 
+                  tests do not prove the absence of bugs but they help to detect
+                  bugs early and hence minimize their impact. As in the case of 
+                  the build generation, passing the tests takes time and we 
+                  should try to optimize the testing process (in terms of 
+                  performance and the amount of relevant tests to be passed).
+                </p>
+                </section>
+                <section>
+                <h4>
+                  Every commit creates a build
+                </h4>
+                <p>
+                  As we are encouraging developers to commit frequently, 
+                  ensuring the mainline stays in a healthy state is an important
+                  but difficult task.
+                </p>
+                <p>
+                  The best way to ensure that is by having regular builds 
+                  on an integration machine and only if this integration build 
+                  succeeds should the commit be considered to be done. Since 
+                  the developer who commits is responsible for this, that 
+                  developer needs to monitor the mainline build so they can fix
+                  it if it breaks. Your work is not completely done until the 
+                  mainline build is finished and has passed all the self-tests.
+                </p>
+                <p>
+                  <b style="color: green">
+                  Best Practice 15: Create a new build with every commit.
+                  </b>
+                </p>
+                <p>
+                  A continuous integration server acts as a monitor to the 
+                  repository. Every time a commit against the repository is done
+                  the server automatically checks out the sources onto the 
+                  integration machine, initiates a build, passes the self-test 
+                  and notifies the committer of the result of the build and 
+                  tests.
+                </p>
+                <p>
+                  The best way to monitor the repository is by using tools such
+                  as <i>hooks</i>. Hooks are a set of actions that could be 
+                  configured in Git to be done every time a user commits a file
+                  to the repository. A hook could be pre-commit or post-commit,
+                  depending on whether the hook is executed before the commit or
+                  after the commit is done respectively. 
+                </p>
+                <p>
+                  Pre-commit hooks may be used for intance to reject commits 
+                  that have some errors (e.g.  with the changes the system does
+                  not build), in that case if the error is detected the commit 
+                  is rejected and notified to the user doing the commit. 
+                </p>
+                <p>
+                  If post-commit hooks are used, it's the developer or the 
+                  repository administrator the one responsible to perform 
+                  corrective actions in case the build is not properly generated
+                  or the tests do not pass.
+                </p>
+                </section>
+                <section>
+                <h4>
+                  Fix Broken mainline immediately
+                </h4>
+                <p>
+                  A key part of doing a continuous build is that if the mainline
+                  build fails, it needs to be fixed right away. The whole point
+                  of working with CI is that you're always developing on a known
+                  stable base.
+                </p>
+                <p>
+                  It's not a terrible thing for the mainline build to break, 
+                  although if it's happening all the time it suggests people 
+                  aren't being careful enough about updating and building 
+                  locally before a commit. When the mainline build does break, 
+                  however, it's important that it gets fixed fast. Usually, the
+                  fastest way to fix the build is to revert the latest commit 
+                  from the mainline, taking the system back to the last-known 
+                  good build, this is sometimes known as <i> backing out </i> 
+                  the commit. Unless the cause for the breakage is immediately 
+                  obvious and can be fixed really fast, developers should just 
+                  revert the mainline and debug the problem on the working copy
+                  leaving the repository clean.
+                </p>
+                <p>
+                  <b style="color: green">
+                  Best Practice 16: Back out any commit that breaks the master
+                  build immediately.
+                  </b>
+                </p>
+                </section>
+                <section>
+                <h4>
+                  Visibility of CI
+                </h4>
+                <p>
+                  Continuous Integration is all about communication, so it is 
+                  important to ensure that everyone can easily see the state of 
+                  the system and the changes that have been made to it.
+                </p>
+                <p>
+                  SCM systems such as Git provide us the information about the 
+                  changes done but Git as such does not communicate the state 
+                  of the mainline build. The ideal solution should be 
+                  providing a web site (either integrated in the SCM or as a 
+                  standalone one) that will show you if there's a build in 
+                  progress and what was the state of the last mainline build. 
+                  An example of such a system is Travis [[TRAVIS-CI]]. 
+                </p>
+                </section>
+              </section>
+              <section>
+                <h3>Releasing</h3>
+                <p>
+                  A release is a version of the product that is made available 
+                  to its intended customers. External releases are published to 
+                  end-users whereas internal releases are made available only 
+                  to developers. The releases are identified by release numbers 
+                  which are totally independent from the SCM version numbers.
+                </p>
+                <p>
+                  Releases can be also classified in full or partial releases, 
+                  depending on whether it requires a complete installation or 
+                  not respectively. Partial releases require a previous full 
+                  release to be installed.
+                </p>
+                <p>
+                  Release creation involves collecting all files and 
+                  documentation required to create ystem release. Configuration
+                  descriptions have to be written for different hardware and 
+                  installation scripts have to be written. The specific release 
+                  must be documented to record exactly what files were used to 
+                  create it. This allows it to be re-created if necessary
+                </p>
+                <p>
+                  Release planning is concerned with when to issue a system 
+                  version as a release. The following factors should be taken 
+                  into account for defining a release strategy:
+                </p>
+                <ul>
+                  <li>
+                    Technical Quality of the System: If serious system faults 
+                    are reported which affect the way in which many customers 
+                    use the system, it may be necessary to issue a fault repair 
+                    release. However, minor system faults may be repaired by 
+                    issuing patches (often distributed over the Internet) that 
+                    can be applied to the current release of the system.
+                  </li>
+                  <li>
+                    Platform Changes: You may have to create a new release of a
+                    software application when a new version of the operating 
+                    system platform is released.
+                  </li>
+                  <li>
+                    Lehman's fifth law: This suggests that the increment of 
+                    functionality that is included in each release is 
+                    approximately constant. Therefore, if there has been a 
+                    system release with significant new functionality, then 
+                    it may have to be followed by a repair release. 
+                  </li>
+                  <li>
+                    Competition: A new system release may be necessary because 
+                    a competing product is available.
+                  </li>
+                  <li>
+                    Marketing Requirements: The marketing departm ent of an 
+                    organisation may have made a commitment for releases to be
+                    available at a particular date.
+                  </li>
+                  <li>
+                    Customer Change Proposals: For customised systems, 
+                    customers may have made and paid for a specific set of 
+                    system change proposals and they expect a system release as
+                    soon as these have been implemented
+                  </li>
+                </ul>
+              </section>
+              <section>
+                <h3>Controlling Changes</h3>
+                <p>
+                  There is a need to submit continuously changes to the 
+                  repository. The reasons for checking-in changes are multiple:
+                </p>
+                <ul>
+                  <li>Defects: A defect has been detected and needs to be fixed.</li>
+                  <li>New Features: New features must be added to the software.</li>
+                  <li>Improvements: A functionality already existing can be improved.</li>
+                </ul>
+                <p>
+                  Even in a continuous integration model, it is important to 
+                  have the possibility to control the changes that have been 
+                  done to the configuration items in the repository. Control 
+                  in this context does not mean <i>approval</i> but 
+                  traceability. I.e. It is not always needed that someone 
+                  approves a change, but what is needed is that it is possible
+                  to identify for every change committed the reasons for it.
+                  Lack of control in the process leads to project failures,
+                  confusion and chaos. Using a good control mechanism enables
+                  communication, sharing data and efficiency.
+                </p>
+                <p>
+                  Depending on the codeline in which the changes are done, the 
+                  level of information required and the flow that should be 
+                  followed for implementing and approving it should be different.
+                </p>
+                <p>
+                  For instance, changes in master should be encouraged rather
+                  than discouraged. In order to do so, developers should be free
+                  to commit their changes to the repository if:
+                </p>
+                <ul>
+                  <li>
+                    The change is inline with the product backlog or 
+                    requirements he was developing for.
+                  </li>
+                  <li> 
+                    He raises an issue on the issue tracker describing the 
+                    reason for the changes and the changes themselves.
+                  </li>
+                  <li>
+                    When he performs the commit, he indicates in the commit 
+                    information the related issue (the one he created).
+                  </li>
+                  <li>
+                    After the commit is done, the is sue is either 
+                    automatically or manually marked as resolved.
+                  </li>
+                </ul>
+                <p>
+                  Additionally, anybody in the development team should be free 
+                  to raise additional issues that can be assigned to anybody 
+                  within the team. Giving freedom to the development team 
+                  (within some limits) is usually a good idea.
+                </p>
+                <p>
+                  If the changes are going to be applied in a branch that was 
+                  created based on a commercial release, the process usually 
+                  follows a more strict control. For instance:
+                </p>
+                <ul>
+                  <li>
+                    The developer creates an issue in the issue tracker, this 
+                    kind of issues are usually called Change Request (CR). A CR
+                    typically has the following information:
+                    <ul>
+                      <li>
+                        Project name, date, requestor, and priority.
+                      </li>
+                      <li>
+                        Description of the problem.
+                      </li>
+                      <li>
+                        Affected configuration items, branches and releases.
+                      </li>
+                      <li>
+                        Suggested fix.
+                      </li>
+                      <li>
+                        Severity.
+                      </li>
+                      <li>
+                        Log files, screen shots...
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                      The CR is then analysed by the configuration control 
+                      board that decides what to do, approve it or reject it.
+                    <ul>
+                    <li>
+                      In case it is rejected the initiator could review and 
+                      create a new version (depending on the reasons for the 
+                      rejection).
+                    </li>
+                    <li>
+                      In case it is approved, it is assigned to a developer 
+                      who will implement it and add it to the repository. 
+                    </li>
+                    </ul>
+                  </li>
+                </ul>
+                <p>
+                  Regardless of how "controlled" is the implementation of 
+                  changes in the repository, the system used should allow 
+                  some features such as:
+                </p>
+                <ul>
+                  <li>Identify which changes have been implemented between two different baselines.</li>
+                  <li>Check the status of a particular issue, defect or CR for the different platforms and releases.</li>
+                  <li>Check if the resolution of a problem can be merged in a branch.</li>
+                </ul>
+                <p>
+                  With respect to the tools, there are multiple tools that 
+                  allow issue tracking. There are commercial ones such as Jira 
+                  or free ones such as Bugzilla or Redmine. The later is a very
+                  powerful as it is quite flexible and can be integrated with 
+                  the most popular source code management tools such as git and 
+                  svn. Additionally, other Agile management tools can be used
+                  such as Trello.
+                </p>
+                <p>
+                  Additionally, the Source Code Management tools should also 
+                  have adequate authorization mechanism to ensure the 
+                  traceability of the changes, i.e. identified who made any 
+                  particular change in the repository. For instance, SVN offers
+                  and authentication mechanism and allows to use others such as
+                  LDAP. The important thing is that SVN identifies which user
+                  has done which commit in order to trace back a change to the
+                  author. SVN also allows the definition of permissions in
+                  per-branch or per-configuration item basis, access to some
+                  branches may be only allowed to some users.
+                </p>
+              </section>
+            </section>
+          </section>
+        </section>
+      </body>
+    </html>
