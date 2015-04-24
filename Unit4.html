@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Software Quality - Unit 3</title>
+    <meta charset='utf-8'>
+    <script src='js/respec-w3c-common.js'
+      async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus: "unofficial",
+          overrideCopyright: "<p class='copyright'> This document is licensed under a <a class='subfoot' href='http://creativecommons.org/licenses/by/3.0/' rel='license'>Creative Commons Attribution 3.0 License</a>. </p>",
+          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "xxx-xxx",
+          // if your specification has a subtitle that goes below the main
+          // formal title, define it here
+          // subtitle   :  "an excellent document",
+          // if you wish the publication date to be other than the last modification, set this
+          // publishDate:  "2009-08-06",
+          // if the specification's copyright date is a range of years, specify
+          // the start date here:
+          // copyrightStart: "2005"
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+          // if there a publicly available Editor's Draft, this is the link
+          // edDraftURI:           "http://berjon.com/",
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+          // editors, add as many as you like
+          // only "name" is required
+          editors:  [
+              {
+                  name:       "Daniel Coloma"
+              ,   url:        "https://dcoloma.github.io/"
+              ,   mailto:     "danielcoloma@gmail.com"
+              ,   company:    "USJ"
+              ,   companyURL: "http://www.usj.es/"
+              },
+          ],
+
+          // name of the WG
+          wg:           "In Charge Of This Document Working Group",
+
+          // URI of the public WG page
+          wgURI:        "http://example.org/really-cool-wg",
+
+          // name (without the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "spec-writers-anonymous",
+          localBiblio:  {
+            "LINUS-SCM-GOOGLE": {
+            title:    "Linus Torvalds view on SCM"
+            ,   href:     "http://www.youtube.com/watch?v=4XpnKHJAok8"
+            ,   authors:  [
+              "Torvalds, L." 
+            ]
+            },
+            "SUCCESSFUL-GIT-BRANCHING": {
+            title:    "A successful Git branching model"
+            ,   href:     "http://nvie.com/posts/a-successful-git-branching-model/"
+            ,   authors:  [
+              "Vincent Driessen" 
+            ]
+            },
+            "TRAVIS-CI": {
+            title:    "Travis Continuous Integration System"
+            ,   href:     "https://travis-ci.org"
+            },
+            "SOFTWARE-ENGINEER-PRACTICIONER": {
+            title:    "Software Engineering: A Practitioner's Approach"
+            ,   href:     "http://highered.mheducation.com/sites/0078022126/information_center_view0/index.html"
+            ,   authors:  [
+              "Rogert S. Pressman"
+              , "Bruce R. Maxim"
+            ]
+            },
+            "INSPECTIONS-AND-REVIEWS": {
+            title:    "Inspections and Reviews"
+            ,   href:     "http://www.cs.toronto.edu/~sme/CSC444F/slides/L09-Inspections.pdf"
+            ,   publisher:  "University of Toronto"
+            },
+            "TRUTHS-PEER-REVIEWS": {
+            title:    "Seven Truths about peer reviews"
+            ,   href:     "http://www.processimpact.com/articles/seven_truths.html"
+            ,   authors:  [
+              "Karl E. Wiegers" 
+            ]
+            },
+            "REF7": {
+            title:    "Challenges in Building Fault Tolerant Flight Control System for a Civil Aircraft"
+            ,   href:     "http://www.iaeng.org/IJCS/issues_v35/issue_4/IJCS_35_4_07.pdf"
+            ,   authors:  [
+              "M. Sghairi" ,
+              "A. de Bonneval" ,
+              "Y. Crouzet",
+              "J.J. Aubert",
+              "P. Brot"
+            ]
+            },
+            "COST-EFFECTIVE-FAULT-TOLERANCE": {
+            title:    "A Cost-Effective and Flexible Scheme for Software Fault Tolerance"
+            ,   authors:  [
+              "Andrea Bondavalli et al" 
+            ]
+            },
+            "PERFORMANCE-RB-NVP-SCOP": {
+            title:    "Comparative Performability Evaluation of RB, NVP and SCOP"
+            ,   href:     "http://bonda.cnuce.cnr.it/Documentation/Papers/file-CBS94-C9402-104.pdf"
+            ,   authors:  [
+              "Silvano Chiaradonna1" ,
+              "Andrea Bondavalli" ,
+              "Lorenzo Strigini"
+            ]
+            },
+            "COST-OF-QUALITY": {
+            title:    "Cost of Quality – Not only failure costs"
+            ,   href:     "http://www.isixsigma.com/index.php?option=com_k2&view=item&id=937:cost-of-quality-not-only-failure-costs&Itemid=187"
+            },
+          },
+
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        These are the notes for Sofware Quality at USJ
+      </p>
+    </section>
+
+    <section id='sotd'>
+      <p>
+        Early Draft
+      </p>
+    </section>
+
+    <section>
+      <h1> Testing </h1>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          The purpose of software testing is to ensure that the software systems would work as expected when their target customers and users use them.
+        </p>
+        <p>
+          The basic idea of testing involves the execution of software and the observation of its behavior or outcome. If a deviation from the expected behavior is observed, the execution record is analyzed to find and fix the bug(s) that caused the failure. 
+        </p>
+        <p>
+          Testing could be defined as a controlled experimentation through program execution in a controlled environment before product release. Therefore testing fulfills two primary purposes:
+        </p>
+        <ul>
+          <li>Demonstrate quality or proper behaviour.</li>
+          <li>Detect and fix problems.</li>
+        </ul>
+        </p>
+      </section>
+      <section>
+        <h2>Types of Testing</h2>
+        <section>
+          <h3>Functional vs. Structural</h3>
+          <p>
+          The main difference between functional and structural testing is the perspective and the related focus:
+          </p>
+          <ul>
+            <li>
+          Functional testing focus on the   external behavior of a software system or its various components, while viewing the object to be tested as a black-box that prevents us from seeing the contents inside.
+            </li>
+            <li>
+          Structural testing focus on the  internal implementation, while viewing the object to be tested as a white-box that allows us to see the contents inside.
+            </li>
+          </ul>
+          <section>
+            <h4>Functional Testing</h4>
+            <p>
+            Functional testing verifies the correct handling of the external functions provided by the software, through the observation of the program external behavior during execution. It checks what is the external output of software based in some inputs.
+            </p>
+            <p>
+            There are different levels in which Black-Box testing can be performed:
+            </p>
+            <ul>
+              <li>
+            At the most detailed lev el, individual program elements can be tested. Example: functions, methods.
+              </li>
+              <li>
+            At the intermediate level, various program elements or program compone nts may be treated as an interconnected group, and tested accordingly. 
+              </li>
+              <li>
+            At the most abstract level, the whole software systems can be treated as a "blackbox", while we focus on the functions or input-output relations instead of the internal implementation.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h4>Structural Testing</h4>
+            <p>
+Structural testing verifies the correct implementation of internal units, such as program statements, data structures, blocks, etc., and relations among them.
+            </p>
+            <p>
+Because the connection between execution behavior and internal units needs to be made in White Box Testing, various software tools are typically used. For instance, debuggers, that help us in tracing through program executions. By doing so, the tester can see if a specific statement has been executed, and if the result or behavior is expected.
+            </p>
+            <p>
+This kind of testing is usually very complex due to the use of these tools. However, its key advantage is that once a problem is detected it is also localized (the failure leads directly to the bug).
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3>Coverage-Based vs. Usage-Based testing</h3>
+          <p>
+            One of the most important decisions that should be taken by the QA team is to decide when to stop testing. Such a decision could be based on different criteria.
+          </p>
+          <p>
+            Obviously, an easy (but wrong decision) would be stopping based on the resources, e.g. stop when you run out of time or of money. As such a decision would lead to quality problems, we need to find a quality-based criteria to decide when our product has passed enough tests. In order to identify when the product has reached the quality goals, there are different points of view:
+          </p>
+          <ul>
+            <li>
+            Measure the quality directly through software reliability. The issue is that this approach requires actual customer usage.
+            </li>
+            <li>
+            Measure the quality ind  irectly through the test coverage.
+            </li>
+          </ul>
+          <section>
+            <h4>Usage-Based Statistical Testing (UBST)</h4>
+            <p>
+            Actual customer usage of software products can be viewed as a form of usage-based testing. Measuring directly the quality in a real environment is the most accurate way to identify if the software quality targets have been achieved. 
+            </p>
+            <p>
+            The so-called beta test makes use of continuous iterations, through controlled software release so that these beta customers help software development and organizations improve their software quality.
+            </p>
+            <p>
+            In usage-based statistical testing (UBST), the overall testing environment resembles the actual operational environment for the software product in the field, and the overall testing sequence, as represented by the orderly execution of specific test cases in a test suite, resembles the usage scenarios, sequences, and patterns of actual software usage by the target customers.
+            </p>
+            <p>
+            Although very useful, this approach could damage the software vendor's reputation because of a beta product with bad quality. Due to that, it is recommended to use this approach mainly for final software stages or when the team feels very confident about software stability.
+            </p>
+          </section>
+          <section>
+            <h4>Coverage-Based Testing (CBT)</h4>
+            <p>
+            Most traditional testing techniques, either Black or White Box, use various forms of test coverage as the stopping criteria. This means that the testing process is stopped when a set of tests are executed successfully in the software. In this case, the key aspect is identifying which is the required test coverage.
+            </p>
+            <p>
+            In the case of Functional Testing, it could consist on completing a checklist of major functions based on product specification (system requirements).
+            </p>
+            <p>
+            In case of Structural Testing, it could consist on completing a checklist of all the product components or all the statements of the software.
+            </p>
+          </section>
+          <section>
+            <h4>Comparing CBT with UBST</h4>
+            <p>
+            The key differences that distinguish CBT from UBST are the perspective and the related stopping criteria.
+            </p>
+            <p>
+            With regards to the perspective, UBST views the objects of testing from a user's perspective and focuses on the usage scenarios, sequences, patterns, and associated frequencies or probabilities. On the other hand, CBT views the objects from a developer's perspective and focuses covering functional or implementation units and related entities.
+            </p>
+            <p>
+            With regards to the stopping criteria, UBST uses product reliability goals as the exit criterion. CBT uses coverage goals - that are supposed to be an approximations of reliability goals - as the exit criterion.
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3>Testing Levels</h3>
+          <p>
+            Tests are frequently grouped by where they are added in the software development process, or by the level of specificity of the test. 
+          </p>
+          <section>
+            <h4>Test Target</h4>
+            <section>
+              <h5>Unit Testing</h5>
+              <p>
+              Unit testing refers to tests that verify the functionality of a specific section of code, usually at the function level. In an object-oriented environment, this is usually at the class level, and the minimal unit tests include the constructors and destructors.
+              </p>
+              <p>
+              These types of tests are usually written by developers as they work on code (white-box style), to ensure that the specific function is working as expected. One function might have multiple tests, to catch corner cases or other branches in the code. Unit testing alone cannot verify the functionality of a piece of software, but rather is used to assure that the building blocks the software uses work independently of each other.
+              </p>
+              <p>
+              Unit testing is also called component testing.
+              </p>
+            </section>
+            <section>
+              <h5>Integration Testing</h5>
+              <p>
+              Integration testing is any type of software testing that seeks to verify the interfaces between components against a software design. Software components may be integrated in an iterative way or all together ("big bang"). Normally the former is considered a better practice since it allows interface issues to be localised more quickly and fixed.
+              </p>
+              <p>
+              Integration testing works to expose defects in the interfaces and interaction between integrated components (modules). Progressively larger groups of tested software components corresponding to elements of the architectural design are integrated and tested until the software works as a system.
+              </p>
+            </section>
+            <section>
+              <h5>System Testing</h5>
+              <p>
+                System testing tests a completely integrated system to verify that it meets its requirements.
+              </p>
+            </section>
+            <section>
+              <h5>System Integration Testing</h5>
+              <p>
+                System integration testing verifies that a system is integrated to any external or third-party systems defined in the system requirements.
+              </p>
+            </section>
+          </section>
+          <section>
+            <h4>Objectives of testing</h4>
+            <section>
+              <h5>Regression Testing</h5>
+              <p>
+                Regression testing focuses on finding defects after a major code change has occurred. Specifically, it seeks to uncover software regressions, or old bugs that have come back. Such regressions occur whenever software functionality that was previously working correctly stops working as intended. Typically, regressions occur as an unintended consequence of program changes, when the newly developed part of the software collides with the previously existing code. Common methods of regression testing include re-running previously run tests and checking whether previously fixed faults have re-emerged. The depth of testing depends on the phase in the release process and the risk of the added features. They can either be complete, for changes added late in the release or deemed to be risky, to very shallow, consisting of positive tests on each feature, if the changes are early in the release or deemed to be of low risk.
+              </p>
+            </section>
+            <section>
+              <h5>Acceptance Testing</h5>
+              <p>
+                Acceptance testing can mean one of two things:
+              </p>
+              <ul>
+                <li>
+              A smoke test is  used as an acceptance test prior to introducing a new build to the main testing process, i.e. before integration or regression.
+                </li>
+                <li>
+              Acceptance test  ing is performed by the customer, often in their lab environment on their own hardware, is known as user acceptance testing (UAT). Acceptance testing may be performed as part of the hand-off process between any two phases of development.[citation needed]
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h5>Alpha Testing</h5>
+              <p>
+                Alpha testing is simulated or actual operational testing by potential users/customers or an independent test team at the developers' site. Alpha testing is often employed for off-the-shelf software as a form of internal acceptance testing, before the software goes to beta testing.
+              </p> 
+            </section>
+            <section>
+              <h5>Beta Testing</h5>
+              <p>
+                Beta testing comes after alpha testing and can be considered a form of external user acceptance testing. Versions of the software, known as beta versions, are released to a limited audience outside of the programming team. The software is released to groups of people so that further testing can ensure the product has few faults or bugs. Sometimes, beta versions are made available to the open public to increase the feedback field to a maximal number of future users.A
+              </p>
+            </section>
+          </section>
+        </section>
+      </section>
+      <section>
+        <h2>Test Activities</h2>
+        <p>
+          As in many other software related activities, the typical plan, execute and assess flow is also used in testing as depicted in the figure below. 
+        </p>
+        <figure>
+          <img src='images/unit4-fig1.png'>
+          <figcaption>Test Activities as part of Software develpoment process</figcaption>
+        </figure>
+        <section>
+          <h3>Testing Planning and Preparation</h3>
+          <p>
+          Most of the key decisions about testing are made during this stage. During this phase an overall testing strategy is fixed by making the following decisions:
+          <p>
+            <ul>
+              <li>
+          Overall objectives and goals, which c  an be refined into specific goals for specific testing. Some specific goals include reliability for usage-based statistical testing or coverage for various traditional testing techniques.
+              </li>
+              <li>
+          Objects to be tes  ted and the specific focus: Functional testing views the software product as a black-box and focuses on testing the external functional behavior; while structural testing views the software product or component as a (transparent) whitebox and focuses on testing the internal implementation details.
+              </li>
+            </ul>
+          <p>
+          As soon as the first models are being generated (for example, usage models, system models, architectural models, etc), they can be used to generate test cases: A test case is a collection of entities and related information that allows a test to be executed or a test run to be performed. The collection of individual test cases that will be run in a test sequence until some stopping criteria are satisfied is called a test suite.
+          IEEE Standard 610 (1990) defines test case as follows:
+          </p>
+          <ul>
+          <li>
+          A set of test inputs, execution conditions, and ex  pected results developed for a particular objective, such as to exercise a particular program path or to verify compliance with a specific requirement.
+          </li>
+          <li>
+          (IEEE Std 829-1983) Documentation specifying inputs, predicted results, and a set of execution conditions for a test item.
+          </li>
+          </ul>
+          <p>
+          According to Ron Patton: "Test cases are the specific inputs that you'll try and the procedures that you'll follow when you test the software."
+          </p>
+          <p>
+          From a more practical point of view, a test case is composed by:
+          </p>
+          <ul>
+            <li>
+              Preconditions that should  be established before the test is conducted.
+            </li>
+            <li>
+          Clear sequence of acti ons and input data that constitutes the test sequence.
+            </li>
+            <li>
+          Expected Result.
+            </li>
+          </ul>
+          <p>
+          On the other hand, a test run, is a dynamic unit of specific test activities in the overall testing sequence on a selected testing object. Each time a static test case is invoked, an individual dynamic test run is created.
+          </p>
+          <p>
+          One aspect that should be considered when planning the test cases is the sequencing of the individual test cases and the switch-over from one test run to another. Several concerns affect the specific test procedure to be used, including:
+              </p>
+              <ul>
+                <li>
+          Dependencies among individual test cases. For instance, does a test case require the execution of another test case before?
+                </li>
+                <li>
+          Defect detection rel ated sequencing. Many problems can only be effectively detected after others have been discovered and fixed.
+                </li>
+                <li>
+          Natural grouping of test cases, suc  h as by functional and structural areas or by usage frequencies, can also be used for test sequencing and to manage parallel testing.
+                </li>
+              </ul>
+        </section>
+        <section>
+          <h3>Testing Execution</h3>
+          <p>
+          The most important activities related with test execution are:
+          </p>
+          <ul>
+            <li>Allocating test time and resources.</li>
+              <li>Invoking and running tests, and collecting execution information and measurements.</li>
+                <li>Checking testing results and identifying system failures.</li>
+          </ul>
+          <p>
+          One of the critical aspects in order to fulfill the objectives of testing is checking if the result of the test run is successful or not. In order to do so, it must be possible to observe the results of the test and determine whether the expected result was achieved or not.
+          </p>
+          <p>
+          Is enough with observing the results? In some situations, such as in object-oriented software, the execution of a test-run may have affected the state of an object. That state might also affect in the future the software that has been tested. Due to that, in some situations it is helpful to examine the state of some objects before and after a test is conducted. The reason for that is that only a small percentage of the overall functionality of an object can be observed via the return values.
+          </p>
+          <p>
+          This may be in conflict with using a "black-box" testing approach, in which only events observable outside can be used to verify the results of a test-run. However, the meaning of observed may be different for different software projects: outside a method? An object? The whole software?
+          </p>
+          <p>
+          When a failure is observed, it needs to be recorded and tracked until their resolution. In order to allow developers to trace back the failure to the bug causing it, it is important that detailed information about failure observations and the related activities is registered.
+          </p>
+          <p>
+          But not only failures must be registered, successful executions also need to be recorded as it is very important for regression testing.
+          </p>
+          <p>
+          In general for every test-run the following information should be gathered:  
+          </p>
+          <ul>
+            <li>
+          Run identification.
+            </li>
+            <li>
+          Timing. Start and end time.
+            </li>
+            <li>
+          Tester. The tester who attempted the te  st run.
+            </li>
+            <li>
+          Transactions. Transactions handled by the test run.
+            </li>
+            <li>
+          Results. Result of the test run.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Testing Analysis and Follow-up</h3>
+          <p>
+          The key objectives of those activities is based on the measurement data collected during test execution, together with other data about the testing and the overall environment Provide valuable feedback to test execution and other testing and development activities.
+          </p>
+          <p>
+          Obviously, as a consequence of testing, there are some direct follow-up activities:
+          </p>
+          <ul>
+            <li>
+          Defect fixing. The development team mus  t repair detected defects.
+            </li>
+            <li>
+          Management decisions, such as product re lease and transition from one development phase or sub-phase to another. For instance, giving the results of testing is my product mature enough for being published.
+            </li>
+          </ul>
+          <p>
+          In order to fix an issue, it is important to fosthese steps: 
+          </p>
+          <ol>
+            <li>
+              Understanding the problem by studying the execution record
+            </li>
+            <li>
+              Being able to recreate the same problem scenario and observe the same problem. 
+            </li>
+            <li>
+          Being able to recreate the same problem scenario and observe the same problem. 
+            </li>
+            <li>
+          Fault locating, to identify the exact location(s) of fault(s).
+            </li>
+            <li>
+          Reliability analysis for usage-based testing, which can be used to assess current product reliability. Sometimes, low reliability areas can be identified for focused testing and reliability improvement.
+            </li>
+          Overall defect analysis, which can be used to examine defect distribution and to identify high-defect areas for focused remedial actions.
+            </li>
+          </ol>
+          <p>
+            In order to take appropriate management decisions, some analysis can be performed on the overall testing results:
+          </p>
+          <ol>
+            <li>
+              Reliability analysis for usage-based testing, which can be used to assess current product reliability. Sometimes, low reliability areas can be identified for focused testing and reliability improvement
+            </li>
+            <li>
+              Coverage analysis for coverage-based testing, which can be used as a surrogate for reliability and used as the stopping criterion.
+            </li>
+            <li>
+              Overall defect analysis, which can be used to examine defect distribution and to identify high-defect areas for focused remedial actions.
+            </li>
+          </ol>
+        </section>
+      </section>
+      <section>
+        <h2>Test Cases and Test Coverage definition</h2>
+        <p>
+          Exhaustive testing is the execution of every possible test case. Rarely can we do exhaustive testing. Even simple systems have too many possible test cases. For example, a program with two integer inputs on a machine with a 32-bit word would have 264 possible test cases. Thus, testing is always executing a very small percentage of the possible test cases.
+        </p>
+        <p>
+          Two basic concerns in software testing have been already introduced (1) what test cases to use (test case selection) and (2) how many test cases are necessary (stopping criterion). Test case selection can be based on either the specifications (functional), the structure of the code (structural), the flow of data (data flow), or random selection of test cases. Test case selection can be viewed as an attempt to space the test cases throughout the input space. Some areas in the domain may be especially error-prone and may need extra attention. It has been also mentioned that the stopping criterion can be based on a coverage criterion, such as executing n test cases in each subdomain, or the stopping criterion can be based on a behavior criteria, such as testing until an error rate is less than a threshold x.
+        </p>
+        <p>
+          A program can be thought of as a mapping from a domain space to an answer space or range. Given an input, which is a point in the domain space, the program produces an output, which is a point in the range. Similarly, the specification of the program is a map from a domain space to an answer space.
+        </p>
+        <p>
+          Please also remember, that a specification is essential to software testing. Correctness in software is defined as the program mapping being the same as the specification mapping. A good saying to remember is "a program without a specification is always correct". A program without a specification cannot be tested against a specification, and the program does what it does and does not violate its specification.
+        </p>
+        <section>
+          <h3>Test Coverage criterion</h3>
+          <p>
+          A test coverage criterion is a rule about how to select tests and when to stop testing. One basic issue in testing research is how to compare the effectiveness of different test coverage criteria. The standard approach is to use the subsumes relationship.
+          </p>
+            <section>
+            <h4>Subsumes</h4>
+          <p>
+            A test criterion A subsumes test coverage criterion B if any test set that satisfies criterion A also satisfies criterion B. This means that the test coverage criterion A somehow includes the criterion B. For example, if one test coverage criterion required every statement to be executed and another criterion required every statement to be executed and some additional tests, then the second criterion would subsume the first criterion.
+          </p>
+          <p>
+            Researchers have identified subsumes relationships among most of the conventional criteria. However, although subsumes is a characteristic that is used for comparing test criterian, it does not measure the relative effectiveness of two criteria. This is because most criteria do specify how a set of test cases will be chosen. Picking the minimal set of test cases to satisfy a criterion is not as effective as choosing good test cases until the criterion is met. Thus, a good set of test cases that satisfy a "weaker" criterion may be much better than a poorly chosen set that satisfy a "stronger" criterion.
+          </p>
+          </section>
+          <section>
+            <h4>Functional Testing</h4>
+          <p>
+            In functional testing, the specification of the software is used to identify subdomains that should be tested. One of the first steps is to generate a test case for every distinct type of output of the program. For example, every error message should be generated. Next, all special cases should have a test case. Tricky situations should be tested. Common mistakes and misconceptions should be tested. The result should be a set of test cases that will thoroughly test the program when it is implemented. This set of test cases may also help clarify to the developer some of the expected behavior of the proposed software.
+          </p>
+          <p>
+            In the book "The Art of Software Testing", Glenford Myers poses the following functional testing problem: Develop a good set of test cases for a program that accepts three numbers, a, b, and c, interprets those numbers as the lengths of the sides of a triangle, and outputs the type of the triangle. Myers reports that in his experience most software developers will not respond with a good test set. 
+          </p>
+          <p>
+            An approach to define the test cases for this classic triangle problem, is dividing the domain space into three subdomains, one for each different type of triangle that we will consider: scalene (no sides equal), isosceles (two sides equal), and equilateral (all sides equal). We can also identify two error situations: a subdomain with bad inputs and a subdomain where the sides of those lengths would not form a triangle. Additionally, since the order of the sides is not specified, all combinations should be tried. Finally, each test case needs to specify the value of the output. Following table shows a possible solution.
+          </p>
+          <p> TABLE1 </p>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Functional Testing Approach</caption>
+                      <thead>
+                        <tr>
+                          <th>Subdomain</th>
+                          <th>Test Description</th>
+                          <th>Test Case</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td rowspan="3">Scalene</td>
+                          <td>Increasing Size</td>
+                          <td>(3,4,5) -> Scalene </td>
+                        </tr>
+                        <tr>
+                          <td>Decreasing Size</td>
+                          <td>(5,4,3) -> Scalene </td>
+                        </tr>
+                        <tr>
+                          <td>Largest is second</td>
+                          <td>(4,5,3) -> Scalene </td>
+                        </tr>
+                        <tr>
+                          <td rowspan="6">Isosceles</td>
+                          <td>a=b & other side larger</td>
+                          <td>(5,5,8) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>a=c & other side larger</td>
+                          <td>(5,8,5) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>b=c & other side larger</td>
+                          <td>(8,5,5) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>a=b & other side smaller</td>
+                          <td>(8,8,5) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>a=c & other side smaller</td>
+                          <td>(8,5,8) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>b=c & other side smaller</td>
+                          <td>(5,8,8) -> Isosceles </td>
+                        </tr>
+                        <tr>
+                          <td>Equilateral</td>
+                          <td>a=b=c</td>
+                          <td>(5,5,5) -> Equilateral </td>
+                        </tr>
+                        <tr>
+                          <td rowspan="3">Not a triangle</td>
+                          <td>Largest first</td>
+                          <td>(6,4,2) -> Not a triangle </td>
+                        </tr>
+                        <tr>
+                          <td>Largest second</td>
+                          <td>(4,6,2) -> Not a triangle </td>
+                        </tr>
+                        <tr>
+                          <td>Largest third</td>
+                          <td>(1,2,3) -> Not a triangle </td>
+                        </tr>
+                        <tr>
+                          <td rowspan="3">Bad Inputs</td>
+                          <td> One bad input</td>
+                          <td>(-1,4,2) -> Bad Inputs</td>
+                        </tr>
+                        <tr>
+                          <td>Two bad inputs</td>
+                          <td>(-1,2,0) -> Bad Inputs</td>
+                        </tr>
+                        <tr>
+                          <td>Three Bad Inputs</td>
+                          <td>(0,0,0) -> Bad Inputs</td>
+                        </tr>
+                      </tbody>
+                    </table>
+          <p>
+            This list of subdomains could be increased to distinguish other subdomains that might be considered significant. For example, in scalene subdomains, there are actually six different orderings, but the placement of the largest might be the most significant based on possible mistakes in programming.
+          </p>
+          <p>
+            Note that one test case in each subdomain is usually considered minimal but acceptable.
+          </p>
+          </section>
+          <section>
+            <h4>Test Matrices</h4>
+            <p>
+              A way to formalize this identification of subdomains is to build a matrix using the conditions that we can identify from the specification and then to systematically identify all combinations of these conditions as being true or false.
+            </p>
+            <p>
+              The conditions in the triangle problem might be:
+            </p>
+            <ol>
+              <li>
+              a=b or a=c or b=c
+              </li>
+              <li>
+              a=b and b=c
+              </li>
+              <li>
+              a < b + c and b < a + c and c < a + b
+              </li>
+              <li>
+              a <= 0 or b <= 0 or c <= 0 (equals to a>0 and b>0 and c>0). 
+              </li>
+            </ol>
+            <p>
+              These four conditions can be put on the rows of a matrix. The columns of the matrix will each be a subdomain. For each subdomain, a T will be placed in each row whose conditionis true and an F when the condition is false. All valid combinations of T and F will be used. If there are three conditions, there may be 2 cubed = 8 subdomains (columns). Additional rows will be used for defining possible values of a, b, and c and for the expected output for each subdomain test case.
+            </p>
+            <p>
+              Next table shows this matrix:
+            </p>
+
+
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Test Matrices - Functional Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Conditions</th>
+                          <th>1</th>
+                          <th>2</th>
+                          <th>3</th>
+                          <th>4</th>
+                          <th>5</th>
+                          <th>6</th>
+                          <th>7</th>
+                          <th>8</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>a=b or a=c or b=c</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>T</td>
+                        </tr>
+                        <tr>
+                          <td>a=b and b=c</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>F</td>
+                          <td>F</td>
+                          <td>F</td>
+                          <td>F</td>
+                          <td>F</td>
+                        </tr>
+                        <tr>
+                          <td>a<=b+c or b<=a+c or c<=a+b</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>T</td>
+                          <td>T</td>
+                          <td>F</td>
+                        </tr>
+                        <tr>
+                          <td>a<=0 or b<=0 or c<=0</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>F</td>
+                          <td>T</td>
+                          <td>F</td>
+                          <td>F</td>
+                        </tr>
+                        <tr>
+                          <td>Sample Test Case</td>
+                          <td>0,0,0</td>
+                          <td>3,3,3</td>
+                          <td>0,4,0</td>
+                          <td>3,8,3</td>
+                          <td>5,8,5</td>
+                          <td>0,5,6</td>
+                          <td>3,4,8</td>
+                          <td>3,4,5</td>
+                        </tr>
+                        <tr>
+                          <td>Expected Output</td>
+                          <td>Bad inputs</td>
+                          <td>Equilateral</td>
+                          <td>Bad inputs</td>
+                          <td>Not a triangle</td>
+                          <td>Isosceles</td>
+                          <td>Bad inputs</td>
+                          <td>Not a triangle</td>
+                          <td>Scalene</td>
+                        </tr>
+                      </tbody>
+                    </table>
+          </section>
+          <section>
+            <h4>Structural Testing</h4>
+            <p>
+              Structural testing coverage is based on the structure of the source code. The simplest structural testing criterion is every statement coverage, often called C0 coverage.
+            </p>
+            <section>
+              <h5>C0 - Every State Coverage</h5>
+              <p>
+                This criterion is that every statement of the source code should be executed by some test case. The normal approach to achieving C0 coverage is to select test cases until a coverage tool indicates that all statements in the code have been executed.
+              </p>
+              <p>
+                The pseudocode in the following table implements the triangle problem. The table also shows which lines are executed by which test cases. Note that the first three statements (A, B, and C) can be considered parts of the same node.
+              </p>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - C0 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Node</th>
+                          <th>Source</th>
+                          <th>3,4,5</th>
+                          <th>3,5,3</th>
+                          <th>0,1,0</th>
+                          <th>4,4,4</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>A</td>
+                          <td>read a,b,c</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>B</td>
+                          <td>type="scalene"</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>C</td>
+                          <td>if((a==b) || (b==c) || (a==c)))</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>type="isosceles"</td>
+                          <td></td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>E</td>
+                          <td>if((a==b)&&(b==c))</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>F</td>
+                          <td>type="equilateral"</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>G</td>
+                          <td>if((a>=b+c) || (b>=a+c) || (c>=a+b)))</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>H</td>
+                          <td>type="not a triangle"</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>I</td>
+                          <td>if((a<=0>) || (b<=0>) || (c<=0>)))</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>J</td>
+                          <td>type="bad inputs"</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>K</td>
+                          <td>print type</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              <p>
+                By the fourth test case, every statement has been executed. This set of test cases is not the smallest set that would cover every statement. However, finding the smallest test set would often not find a good test set.
+              </p>
+            </section>
+            <section>
+              <h5>C1 - Every Branch Testign</h5>
+              <p>
+              A more thorough test criterion is every-branch testing, which is often called C1 test coverage. In this criterion, the goal is to go both ways out of every decision.
+              </p>
+              <p>
+              If we model the program of previous table as a control flow graph, this coverage criterion requires covering every arc in the following control flow diagram.
+              </p>
+              <p>
+              Next table shows the test cases identified with this criteria.
+              </p>
+                    <figure>
+                      <img src='images/unit4-fig2.png'>
+                      <figcaption>Control Flow Graph</figcaption>
+                    </figure>
+
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - C1 Approach - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Arcs</th>
+                          <th>Test Case: (3,4,5)</th>
+                          <th>Test Case: (3,5,3)</th>
+                          <th>Test Case: (0,1,0)</th>
+                          <th>Test Case: (4,4,4)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>ABC-D</td>
+                          <td></td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>ABC-E</td>
+                          <td>*</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>D-E</td>
+                          <td></td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>E-F</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>E-G</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>F-G</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>G-H</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>G-I</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td></td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>H-I</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>I-J</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>I-K</td>
+                          <td>*</td>
+                          <td>*</td>
+                          <td></td>
+                          <td>*</td>
+                        </tr>
+                        <tr>
+                          <td>J-K</td>
+                          <td></td>
+                          <td></td>
+                          <td>*</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </section>
+            <section>
+              <h5>Every Path Testign</h5>
+              <p>
+                Even more thorough is the every-path testing criterion. A path is a unique sequence of program nodes that are executed by a test case. In the testing matrix above, there were eight subdomains. Each of these just happens to be a path. In that example, there are sixteen different combinations of T and F. However, eight of those combinations are infeasible paths. That is, there is no test case that could have that combination of T and F for the decisions in the program. It can be exceedingly hard to determine if a path is infeasible or if it is just hard to find a test case that executes that path.
+              </p>
+              <p>
+                Most programs with loops will have an infinite number of paths. In general, every-path testing is not reasonable.
+              </p>
+              <p>
+                Next table shows the eight feasible paths in the triangle pseudocode as well as the test cases required for testing all of them.
+              </p>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Every Path Approach - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Path</th>
+                          <th>T/F</th>
+                          <th>Test Case</th>
+                          <th>Output</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>ABCEGIK</td>
+                          <td>FFFF</td>
+                          <td>3,4,5</td>
+                          <td>Scalene</td>
+                        </tr>
+                        <tr>
+                          <td>ABCEGHIK</td>
+                          <td>FFTF</td>
+                          <td>3,4,8</td>
+                          <td>Not a triangle</td>
+                        </tr>
+                        <tr>
+                          <td>ABCEGIJK</td>
+                          <td>FFTT</td>
+                          <td>0,5,6</td>
+                          <td>Bad inputs</td>
+                        </tr>
+                        <tr>
+                          <td>ABCDEGIK</td>
+                          <td>TFFF</td>
+                          <td>5,8,5</td>
+                          <td>Isosceles</td>
+                        </tr>
+                        <tr>
+                          <td>ABCDEGHIK</td>
+                          <td>TFTF</td>
+                          <td>3,8,3</td>
+                          <td>Not a triangle</td>
+                        </tr>
+                        <tr>
+                          <td>ABCDEGHIJK</td>
+                          <td>TFTT</td>
+                          <td>0,4,0</td>
+                          <td>Bad Inputs</td>
+                        </tr>
+                        <tr>
+                          <td>ABCDEFGIK</td>
+                          <td>TTFF</td>
+                          <td>3,3,3</td>
+                          <td>Equilateral</td>
+                        </tr>
+                        <tr>
+                          <td>ABCDEFGHIJK</td>
+                          <td>TTTT</td>
+                          <td>0,0,0</td>
+                          <td>Bad Inputs</td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </section>
+            <section>
+              <h5>Multiple Condition Coverage</h5>
+              <p>
+                A multiple-condition testing criterion requires that each primitive relation condition is evaluated both true and false. Additionally, all combinations of T/F for the primitive relations in a condition must be tried. Note that lazy evaluation of expressions will eliminate some combinations. For example, in an "and" of two primitive relations, the second will not be evaluated if the first one is false.
+              </p>
+              <p>
+                In the pseudocode for the triangle example, there are multiple conditions in each decision statement as displayed in the tables below. Primitives that are not executed because of lazy evaluation are shown with an 'X'.
+              </p>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Multiple Condition: Condition 1 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Combination</th>
+                          <th>Possible Test Case</th>
+                          <th>Branch</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>TXX</td>
+                          <td>3,3,4</td>
+                          <td>ABC-D</td>
+                        </tr>
+                        <tr>
+                          <td>FTX</td>
+                          <td>4,3,3</td>
+                          <td>ABC-D</td>
+                        </tr>
+                        <tr>
+                          <td>FFT</td>
+                          <td>3,4,3</td>
+                          <td>ABC-D</td>
+                        </tr>
+                        <tr>
+                          <td>FFF</td>
+                          <td>3,4,5</td>
+                          <td>ABC-E</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Multiple Condition: Condition 2 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Combination</th>
+                          <th>Possible Test Case</th>
+                          <th>Branch</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>TT</td>
+                          <td>3,3,3</td>
+                          <td>E-F</td>
+                        </tr>
+                        <tr>
+                          <td>TF</td>
+                          <td>3,3,4</td>
+                          <td>E-G</td>
+                        </tr>
+                        <tr>
+                          <td>FX</td>
+                          <td>4,3,3</td>
+                          <td>E-G</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Multiple Condition: Condition 3 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Combination</th>
+                          <th>Possible Test Case</th>
+                          <th>Branch</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>TXX</td>
+                          <td>8,4,3</td>
+                          <td>G-H</td>
+                        </tr>
+                        <tr>
+                          <td>FTX</td>
+                          <td>4,8,3</td>
+                          <td>G-H</td>
+                        </tr>
+                        <tr>
+                          <td>FFT</td>
+                          <td>4,3,8</td>
+                          <td>G-H</td>
+                        </tr>
+                        <tr>
+                          <td>FFF</td>
+                          <td>3,3,3</td>
+                          <td>G-I</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Multiple Condition: Condition 4 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Combination</th>
+                          <th>Possible Test Case</th>
+                          <th>Branch</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>TXX</td>
+                          <td>0,4,5</td>
+                          <td>I-J</td>
+                        </tr>
+                        <tr>
+                          <td>FTX</td>
+                          <td>4,-2,-2</td>
+                          <td>I-J</td>
+                        </tr>
+                        <tr>
+                          <td>FFT</td>
+                          <td>5,-4,3</td>
+                          <td>I-J</td>
+                        </tr>
+                        <tr>
+                          <td>FFF</td>
+                          <td>3,3,3</td>
+                          <td>I-K</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+            </section>
+            <section>
+              <h5>Subdomain Testing</h5>
+              <p>
+              Subdomain testing is the idea of partitioning the input domain into mutually exclusive subdomains and requiring an equal number of test cases from each subdomain. This was basically the idea behind the test matrix. Subdomain testing is more general in that it does not restrict how the subdomains are selected. Generally, if there is a good reason for picking the subdomains, then they may be useful for testing. Additionally, the subdomains from other approaches might be subdivided into smaller subdomains. Theoretical work has shown that subdividing subdomains is only effective if it tends to isolate potential errors into individual subdomains.
+              </p>
+              <p>
+              Every-statement coverage and every-branch coverage are not subdomain tests. There are not mutually exclusive subdomains related to the execution of different statements or branches. Every-path coverage is a subdomain coverage, since the subdomain of test cases that execute a particular path through a program is mutually exclusive with the subdomain for any other path.
+              </p>
+              <p>
+              For the triangle problem, we might start with a subdomain for each output. These might be further subdivided into new subdomains based on whether the largest or the bad element is in the first position, second position, or third position (when appropriate). Next table shows the subdomains and test cases for every subdomain. 
+              </p>
+
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Subdomain Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>Subdomain</th>
+                          <th>Possible Test Case</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Eauilateral</td>
+                          <td>3,3,3</td>
+                        </tr>
+                        <tr>
+                          <td>Isosceles first largest</td>
+                          <td>8,5,5</td>
+                        </tr>
+                        <tr>
+                          <td>Isosceles second largest</td>
+                          <td>5,8,5</td>
+                        </tr>
+                        <tr>
+                          <td>Isosceles third largest</td>
+                          <td>5,5,8</td>
+                        </tr>
+                        <tr>
+                          <td>Scalene first largest</td>
+                          <td>5,4,3</td>
+                        </tr>
+                        <tr>
+                          <td>Scalene second largest</td>
+                          <td>3,5,4</td>
+                        </tr>
+                        <tr>
+                          <td>Scalene third largest</td>
+                          <td>3,4,5</td>
+                        </tr>
+                        <tr>
+                          <td>Not a triangle first largest</td>
+                          <td>8,3,3</td>
+                        </tr>
+                        <tr>
+                          <td>Not a triangle second largest</td>
+                          <td>3,8,4</td>
+                        </tr>
+                        <tr>
+                          <td>Not a triangle third largest</td>
+                          <td>4,3,8</td>
+                        </tr>
+                        <tr>
+                          <td>Bad Inputs first largest</td>
+                          <td>4,3,0</td>
+                        </tr>
+                        <tr>
+                          <td>Bad Inputs second largest</td>
+                          <td>3,4,0</td>
+                        </tr>
+                        <tr>
+                          <td>Bad Inputs third largest</td>
+                          <td>-1,4,5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+            </section>
+          </section>
+        </section>
+        <section>
+          <h3>Data Flow Testing</h3>
+          <p>
+          Data flow testing is testing based on the flow of data through a program. Data flows from where it is defined to where it is used. 
+          </p>
+          <p>
+            A definition of data, or DEF, is when a value is assigned to a variable. For example, with respect to a variable x, nodes containing statements such as <code>input x</code> and <code>x = 2</code> would both be defiing nodes. 
+          </p>
+          <p>
+          Usage nodes (USE) refer to situations in which a variable is used by the software. Two main kinds of use have been identified.
+          </p>
+          <ul>
+            <li>
+              The computation use, or C-USE, is when the variable is used in a computation (e.g. it appears on the right-hand side of an assignment statement) such as in <code>print x</code> or <code>a = 2+x</code> . A C-USE is said to occur on the assignment statement. 
+            </li>
+            <li>
+          The predicate use, or P-US E, is when the variable is used in the condition of a decision statement (e.g. if x>6). A P-USE is assigned to both branches out of the decision statement. 
+            </li>
+          </ul>
+          <p>
+          There are also three other types of usage node, which are all, in effect, subclass of the C-USE type:
+          </p>
+
+              <ul>
+                <li>O-use: output use - the value of the variable is output to the external environment (for instance, the screen or a printer <code>print(x)</code>).</li>
+                <li>L-use: location use - the value of the variable is used, for instance, to determine which position of an array is used (e.g. <code>a[x]</code>).</Li>
+                <li>I-use: i teration use - the value of the variable is used to control the number of iterations made by a loop (for example: <code>for (int i = 0;i <= x; i++)</code>)</li>
+              </ul>
+          <p>
+          A definition free path, or def-free, is a path from a definition of a variable to a use of that variable that does not include another definition of the variable.
+          </p>
+          <p>
+          Next figure depicts the Control Flow Graph of Triangle Problem and is annotated with the definitions and uses of the variables type, a, b, and c.
+          </p>
+          <p>
+          More details about the control-flow procedure and examples can be found in the paper "Data Flow Testing - CS-399: Advanced Topics in Computer Science, Mark New (321917)"
+          </p>
+        </section>
+        <section>
+          <h3>Random Testing</h3>
+            <p>
+              Random testing is accomplished by randomly selecting the test cases. This approach has the advantage of being fast and it also eliminates biases of the testers. Additionally, statistical inference is easier when the tests are selected randomly. Often the tests are selected randomly from an operational profile.
+            </p>
+            <p>
+              For example, for the triangle problem, we could use a random number generator and group each successive set of three numbers as a test set. We would have the additional work of determining the expected output. One problem with this is that the chance of ever generating an equilateral test case would be very small. If it actually happened, we would probably start questioning our pseudo random number generator.
+            </p>
+            <section>
+              <h4>Operational Profile</h4>
+              <p>
+              Testing in the development environment is often very different than execution in the operational environment. One way to make these two more similar is to have a specification of the types and the probabilities that those types will be encountered in the normal operations. This specification is called an operational profile. By drawing the test cases from the operational profile, the tester will have more confidence that the behavior of the program during testing is more predictive of how it will behave during operation.
+            </p>
+            <p>
+              A possible operational profile for the triangle problem is shown in next table:
+            </p>
+                   <table width=100%>
+                      <caption>Test Cases for Triangle Problem - Multiple Condition: Condition 1 - Structural Testing</caption>
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Description</th>
+                          <th>Probability</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Equilateral</td>
+                          <td>20%</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Isosceles - Obtuse</td>
+                          <td>10%</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Isosceles - Right</td>
+                          <td>20%</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Scalene - Right</td>
+                          <td>10%</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>Scalene - All Acute</td>
+                          <td>25%</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>Scalene - Obtuse Angle</td>
+                          <td>15%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </section>
+            <section>
+              <h4>Statistical Inference from testing</h4>
+            <p>
+              If random testing has been done by randomly selecting test cases from an operational profile, then the behavior of the software during testing should be the same as its behavior in the operational environment.
+            </p>
+            <p>
+              For instance, if we selected 1000 test cases randomly using an operational profile and found three errors, we could predict that this software would have an error rate of less than three failures per 1000 executions in the operational environment.
+            </p>
+            </section>
+        </section>
+        <section>
+          <h3>Boundary Testing</h3>
+          <p>
+          Often errors happen at boundaries between domains. In source code, decision statements determine the boundaries. If a decision statement is written as x<1 instead of x<0, the boundary has shifted. If a decision is written x=<1, then the boundary, x=1, is in the true subdomain. In the terminology of boundary testing, we say that the on tests are in the true domain and the off tests are values of x greater than 1 and are in the false domain.
+          </p>
+          <p>
+          If a decision is written x<1 instead of x=<1, then the boundary, x=1, is now in the false subdomain instead of in the true subdomain.
+          </p>
+          <p>
+          Boundary testing is aimed at ensuring that the actual boundary between two subdomains is as close as possible to the specified boundary. Thus, test cases are selected on the boundary and off the boundary as close as reasonable to the boundary. The standard boundary test is to do two on tests as far apart as possible and one off test close to the middle of the boundary.
+          </p>
+          <p>
+          Figure 3 shows a simple boundary. The arrow indicates that the on tests of the boundary are in the subdomain below the boundary. The two on tests are at the ends of the boundary and the off test is just above the boundary halfway along the boundary.
+          </p>
+
+                    <figure>
+                      <img src='images/unit4-fig3.png'>
+                      <figcaption>Boundary Conditions</figcaption>
+                    </figure>
+          In the triangle example, for the primitive conditions, a>=b+c or b>=a+c or c >= a + b, we could consider the boundary. Since these are in three variables as a plane in 3D space. The on tests would be two (or more) widely separated tests that have equality - for example, (8,1,7) and (8,7,1). These are both true. The off test would be in the other domain (false) and would be near the middle - for example, (7.9, 4,4).
+        </section>
+      </section>
+      <section>
+        <h2>Test Automation</h2>
+        <p>
+        For large software systems, the test coverage required to ensure a proper quality may be huge. Due to that, it is impossible to run all the tests manually and mechanisms to automate the tests are used. However, it should be noted that in many cases (if not all) a full automation of the procedure is impossible due to the need of manual intervention or analysis of the results. Hence, when automation is used, it should be assessed in which areas of the software functionality is going to lead to the higher benefits.
+        </p>
+        <p>
+        Among the three major test activities, preparation, execution, and follow-up, execution is a prime candidate for automation.
+        </p>
+        <p>
+        The testing that programmers do is generally called unit testing (aka Object Testing):
+        </p>
+        <ul>
+          <li>
+        It starts by testing   individual objects in isolation.
+          </li>
+          <li>
+        The idea of Object Testing is to t ake a single object and test it by itself, without worrying about the role it plays in the surrounding system.
+          </li>
+          <li>
+        If you build each object to behave cor rectly according to a defined specification then when you piece those objects together there is a much greater change that the system will behave the way you want. 
+          </li>
+        </ul>
+        <p>
+        The rhythm of an Object Test is similar to any other test:
+        </p>
+        <ul>
+          <li>
+        Prepare: create the object.
+          </li>
+          <li>
+        Execute: invoke a metho    d.
+          </li>
+          <li>
+        Assess: check the result of the invocation.
+          </li>
+        </ul>
+        <p>
+        In order to facilita  te this process, a number of framework have been built for different programming languages such as:
+        </p>
+        <ul>
+          <li>
+        QUnit: Unit Testing Framework for JavaScript.
+          </li>
+          <li>
+        JUnit:      Unit Testing Framework for Java.
+          </li>
+          <li>
+        NUnit: Unit Testing Framework for  .NET.
+          </li>
+        </ul>
+        <p>
+        And many more to over 30 programming languages and environme nts.
+        </p>
+        <p>
+        Although the implementations are different for every environment, the concepts are the same in any of these frameworks that are known in the abstract as xUnit.
+        </p>
+        <p>
+        Most software developers just want to write code; testing is simply a necessary evil in our line of work. Automated tests provide a nice safety net so that we can write code more quickly, but we will run the automated tests frequently only if they are really easy to run.
+        </p>
+        <p>
+        What makes tests easy to run? Four specific goals answer this question:
+        </p>
+        <ul>
+          <li>
+        They must be Fully Automated Tests so they can be run with out any effort.
+          </li>
+          <li>
+        They must be Self-Checking Tests so they can detect   and report any errors without manual inspection.
+          </li>
+          <li>
+        They must be Repe  atable Tests so they can be run multiple times with the same result.
+          </li>
+          <li>
+        Ideally, each test should be an Independent Test that can be run by itself .
+          </li>
+        </ul>
+        <p>
+        With these four goals satisfied, one click of a button (or keyboard shortcut) is all it should take to get the valuable feedback the tests provide. Let's look at these goals in a bit more detail.
+        </p>
+        <section>
+          <h3>Goal1: Fully Automated Tests</h3>
+          <p>
+            A test that can be run without any Manual Intervention (page 250) is a Fully Automated Test. Satisfying this criterion is a prerequisite to meeting many of the other goals. Yes, it is possible to write Fully Automated Tests that don't check the results and that can be run only once. The main() program that runs the code and directs print statements to the console is a good example of such a test. 
+          </p>
+        </section>
+        <section>
+          <h3>Goal2: Self-checking Tests</h3>
+          <p>
+            A Self-Checking Test has encoded within it everything that the test needs to verify that the expected outcome is correct. The Test Runner "calls us" only when a test did not pass; as a consequence, a clean test run requires zero manual effort. Many members of the xUnit family provide a Graphical Test Runner (see Test Runner) that uses a green bar to signal that everything is OK; a red bar indicates that a test has failed and warrants further investigation.A
+          </p>
+        </section>
+        <section>
+          <h3>Goal3: Repeatable Tests</h3>
+          <p>
+            A Repeatable Test can be run many times in a row and will produce exactly the same results without any human intervention between runs. Unrepeatable Tests increase the overhead of running tests significantly. This outcome is very undesirable because we want all developers to be able to run the tests very frequently, as often as after every "save". Unrepeatable Tests can be run only once before whoever is running the tests must perform a Manual Intervention. Just as bad are Nondeterministic Tests that produce different results at different times; they force us to spend lots of time chasing down failing tests. The power of the red bar diminishes significantly when we see it regularly without good reason. All too soon, we begin ignoring the red bar, assuming that it will go away if we wait long enough. Once this happens, we have lost a lot of the value of our automated tests, because the feedback indicating that we have introduced a bug and should fix it right away disappears. The longer we wait, the more effort it takes to find the source of the failing test.
+            </p>
+            <p>
+              Tests that run only in memory and that use only local variables or fields are usually repeatable without us expending any additional effort. Unrepeatable Tests usually come about because we are using a Shared Fixture of some sort. In such a case, we must ensure that our tests are <i>self-cleaning</i> as well. When cleaning is necessary, the most consistent and foolproof strategy is to use a generic Automated Teardown mechanism. Although it is possible to write teardown code for each test, this approach can result in Erratic Tests when it is not implemented correctly in every test.
+              </p>
+        </section>
+        <section>
+          <h3>Goal4: Simplicity</h3>
+          <p>
+          Coding is a fundamentally difficult activity because we must keep a lot of information in our heads as we work. When we are writing tests, we should stay focused on testing rather than coding of the tests. This means that tests must be simple - simple to read and simple to write. They need to be simple to read and understand because testing the automated tests themselves is a complicated endeavor. They can be tested properly only by introducing the very bugs that they are intended to detect; this is hard to do in an automated way so it is usually done only once (if at all), when the test is first written. For these reasons, we need to rely on our eyes to catch any problems that creep into the tests, and that means we must keep the tests simple enough to read quickly.
+          </p>
+          <p>
+          Of course, if we are changing the behavior of part of the system, we should expect a small number of tests to be affected by our modifications. We want to Minimize Test Overlap so that only a few tests are affected by any one change. Contrary to popular opinion, having more tests pass through the same code doesn't improve the quality of the code if most of the tests do exactly the same thing.
+          </p>
+          <p>
+          Tests become complicated for two reasons:
+          </p>
+          <ul>
+            <li>
+          We try to verify too much functionality i  n a single test.
+            </li>
+            <li>
+          Too large an "expressiveness gap" separates th e test scripting language (e.g., Java) and the before/after relationships between domain concepts that we are trying to express in the test.
+            </li>
+          </ul>
+          <p>
+          The tests should be small and test one thing at a time. Keeping tests simple is particularly important during test-driven development because code is written to pass one test at a time and we want each test to introduce only one new bit of behavior. We should strive to Verify One Condition per Test by creating a separate Test Method for each unique combination of pre-test state and input. 
+          </p>
+          <p>
+          The major exception to the mandate to keep Test Methods short occurs with customer tests that express real usage scenarios of the application. Such extended tests offer a useful way to document how a potential user of the software would go about using it; if these interactions involve long sequences of steps, the Test Methods should reflect this reality.
+          </p>
+        </section>
+        <section>
+          <h3>Goal5: Maintainability</h3>
+          <p>Tests should be maintained along with the rest of the software. Testware must be much easier to maintain that production software as otherwise:</p>
+          <ul>
+            <li>It will slow the development down.</li>
+            <li>It will get left behind.</li>
+            <li>It will have less value.</li>
+            <li>Developers will go back to manual testing.</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Test Driven Development</h2>
+        <section>
+          <h3>What is TDD</h3>
+          <p>
+            The steps of test first design (TFD) are overviewed in the UML activity diagram of Figure 4.  The first step is to quickly add a test, basically just enough code to fail.  Next you run your tests, often the complete test suite although for sake of speed you may decide to run only a subset, to ensure that the new test does in fact fail.  You then update your functional code to make it pass the new tests.  The fourth step is to run your tests again.  If they fail you need to update your functional code and retest.  Once the tests pass the next step is to start over (you may first need to refactor any duplication out of your design as needed, which is what converts TFD into TDD).
+          </p>
+
+                    <figure>
+                      <img src='images/unit4-fig4.png'>
+                      <figcaption>TFD Steps</figcaption>
+                    </figure>
+                    <p>
+                      Dean Leffingwell describes TDD with this simple formula:
+                    </p>
+                    <p>
+                         TDD = Refactoring + TFD.
+                    </p>
+                    <p>
+                         TDD completely turns traditional development around. When you first go to implement a new feature, the first question that you ask is whether the existing design is the best design possible that enables you to implement that functionality.  If so, you proceed via a TFD approach.  If not, you refactor it locally to change the portion of the design affected by the new feature, enabling you to add that feature as easy as possible.  As a result you will always be improving the quality of your design, thereby making it easier to work with in the future.
+                    </p>
+                    <p>
+                         Instead of writing functional code first and then your testing code as an afterthought, if you write it at all, you instead write your test code before your functional code.  Furthermore, you do so in very small steps - one test and a small bit of corresponding functional code at a time.  A programmer taking a TDD approach refuses to write a new function until there is first a test that fails because that function isn't present.  In fact, they refuse to add even a single line of code until a test exists for it.  Once the test is in place they then do the work required to ensure that the test suite now passes (your new code may break several existing tests as well as the new one).  This sounds simple in principle, but when you are first learning to take a TDD approach it proves require great discipline because it is easy to "slip" and write functional code without first writing a new test.
+                    </p>
+                    <p>
+                      An underlying assumption of TDD is that you have a testing framework available to you.  Agile software developers often use the xUnit family of open source tools, such as JUnit or VBUnit, although commercial tools are also viable options.  Without such tools TDD is virtually impossible.  Figure 5 presents a UML state chart diagram for how people typically work with the xUnit tools (source Keith Ray).
+                    </p>
+                    <figure>
+                      <img src='images/unit4-fig5.png'>
+                      <figcaption>Testing via xUnit</figcaption>
+                    </figure>
+                    <p>
+                    Kent Beck, who popularized TDD, defines two simple rules for TDD (Beck 2003):
+                    </p>
+                    <ul>
+                      <li>
+                    First, you should write new business code only when an automated test has failed.  
+                      </li>
+                      <li>
+                    Second, you should eliminate any duplic  ation that you find.  
+                      </li>
+                    </ul>
+                    <p>
+                    Beck explains how these two simple rules generate complex individual and group behavior:
+                    </p>
+                    <ul>
+                      <li>
+                    You design organically, with the runnin  g code providing feedback between decisions.
+                      </li>
+                      <li>
+                    You write your own tes ts because you can't wait 20 times per day for someone else to write them for you. 
+                      </li>
+                      <li>
+                    Your development environment must provide rapid response to s  mall changes (e.g you need a fast compiler and regression test suite).
+                      </li>
+                      <li>
+                    Your designs must consist of highly cohesive, loosely coupled components (e.g. your des  ign is highly normalized) to make testing easier (this also makes evolution and maintenance of your system easier too).
+                      </li>
+                    </ul>
+                    <p>
+                    For developers, the implication is that they need to learn how to write effective unit tests.  
+                    </p>
+        </section>
+        <section>
+          <h3>TDD also improves documentation</h3>
+          <p>
+          Most programmers don't read the written documentation for a system, instead they prefer to work with the code. And there's nothing wrong with this.  When trying to understand a class or operation most programmers will first look for sample code that already invokes it.  Well-written unit tests do exactly this - they provide a working specification of your functional code - and as a result unit tests effectively become a significant portion of your technical documentation. The implication is that the expectations of the pro-documentation crowd need to reflect this reality.  Similarly, acceptance tests can form an important part of your requirements documentation.  This makes a lot of sense when you stop and think about it.  Your acceptance tests define exactly what your stakeholders expect of your system, therefore they specify your critical requirements.  Your regression test suite, particularly with a test-first approach, effectively becomes detailed executable specifications.
+          </p>
+          <p>
+          Are tests sufficient documentation?  Very likely not, but they do form an important part of it.  For example, you are likely to find that you still need user, system overview, operations, and support documentation.  You may even find that you require summary documentation overviewing the business process that your system supports.  When you approach documentation with an open mind, I suspect that you will find that these two types of tests cover the majority of your documentation needs for developers and business stakeholders.  Furthermore, they are an important part of your overall efforts to remain as agile as possible regarding documentation.
+          </p>
+        </section>
+        <section>
+          <h3>Why TDD</h3>
+          <p>
+            A significant advantage of TDD is that it enables you to take small steps when writing software. This is far more productive than attempting to code in large steps. For example, assume you add some new functional code, compile, and test it. Chances are pretty good that your tests will be broken by defects that exist in the new code. It is much easier to find, and then fix, those defects if you've written two new lines of code than two thousand. The implication is that the faster your compiler and regression test suite, the more attractive it is to proceed in smaller and smaller steps. I generally prefer to add a few new lines of functional code, typically less than ten, before I recompile and rerun my tests.
+          </p>
+          <p>
+            The act of writing a unit test is more an act of design than of verification. It is also more an act of documentation than of verification. The act of writing a unit test closes a remarkable number of feedback loops, the least of which is the one pertaining to verification of function.
+          </p>
+          <p>
+            The first reaction that many people have to agile techniques is that they're ok for small projects, perhaps involving a handful of people for several months, but that they wouldn't work for "real" projects that are much larger. That's simply not true. Beck (2003) reports working on a Smalltalk system taking a completely test-driven approach which took 4 years and 40 person years of effort, resulting in 250,000 lines of functional code and 250,000 lines of test code. There are 4000 tests running in under 20 minutes, with the full suite being run several times a day. Although there are larger systems out there, I've personally worked on systems where several hundred person years of effort were involved, it is clear that TDD works for good-sized systems.
+          </p>
+        </section>
+        <section>
+          <h3>A simple example</h3>
+          <p>
+            You are asked to write a code to extract the UK postal area code from any given full UK postcode. Example Input "SS17 7HN", output should be "SS", for input "B43 4RW", output should be "B".
+          </p>
+          <p>
+            Before starting coding, you need to create the tests and for doing so you need to think about the structure of the software. An obvious approach is creating a class named <i>PostCode</i> with
+          a method that retrieves the postal area code (e.g. areaCode()). In that way, in order to calculate the are code something similar to:
+          </p>
+          <p>
+            <code>postCode = new PostCode("SS17 THN");</code>
+          </p>
+          <p>
+            <code>string area = postCode.areaCode();</code>
+          </p>
+          <p>
+            Hence, the first thing that should be done is developing the test cases for such a solution, as you have been already provided with two examples, a good idea is using them as the test cases:
+          </p>
+          <ul>
+            <li>
+              Test Case 1: ("SS17 THN") -> "SS"
+            </li>
+            <li>
+              Test Case 2: ("B43 4RW") -> "B"
+            </li>
+          </ul>
+          <p>
+            Depending on the programming language, you should build those test cases through the xUnit tool. If you try to execute them, both are going to fail because the class PostCode does not exist yet.
+          </p>
+          <p>
+            The next step is building an empty class PostCode with a method postalArea that always return the string <i>postcode</i>.
+          </p>
+          <p>
+            In this case, again the tests are going to fail, as the return value is not the expected one.
+          </p>
+          <p>
+            In the following iteration we could implement the solution for the first part of the problem, when the postal code is 8 chars long, the area code is composed by the 2 first ones. If we try again to run the tests, the first one ("SS17 THN") will complete successfully whereas the second one will fail. We have added a very reduce functionality, and we have nearly immediately checks that what we has added is correct.
+          </p>
+          <p>
+            In the following iteration we could implement the solution for the second part of the problem, when the postal code is 7 chars long, the area code is composed by the firs ones. If we try again to run the tests, both will complete successfully. Again, we have just added very few lines code (e.g. could be 2-3), and have checked immediately that what we has added is correct.
+          </p>
+          <p>
+            Imagine now that you have been told that there are postal codes of 8 digits in which only the first one denotes the area, e.g. "W1Y2 3RD", now you should first create a new test case for that new example. Obviously, it will fail as it will return "W1" instead of "W " but adding the funcionality to implement the new feature should be quite safe as it would be easy to check if in the process of implementing it you are breaking the existing features.
+          </p>
+        </section>
+      </section>
+      </section>
+      </section>
+      </body>
+    </html>
