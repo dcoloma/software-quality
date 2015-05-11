@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Software Quality - Unit 5</title>
+    <meta charset='utf-8'>
+    <script src='js/respec-w3c-common.js'
+      async class='remove'></script>
+    <script class='remove'>
+    var respecConfig = {
+          specStatus: "unofficial",
+          overrideCopyright: "<p class='copyright'> This document is licensed under a <a class='subfoot' href='http://creativecommons.org/licenses/by/3.0/' rel='license'>Creative Commons Attribution 3.0 License</a>. </p>",
+          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "xxx-xxx",
+          // if your specification has a subtitle that goes below the main
+          // formal title, define it here
+          // subtitle   :  "an excellent document",
+          // if you wish the publication date to be other than the last modification, set this
+          // publishDate:  "2009-08-06",
+          // if the specification's copyright date is a range of years, specify
+          // the start date here:
+          // copyrightStart: "2005"
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+          // if there a publicly available Editor's Draft, this is the link
+          // edDraftURI:           "http://berjon.com/",
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+          // editors, add as many as you like
+          // only "name" is required
+          editors:  [
+              {
+                  name:       "Daniel Coloma"
+              ,   url
+              :        "https://dcoloma.github.io/"
+              ,   mailto:     "danielcoloma@gmail.com"
+              ,   company:    "USJ"
+              
+              
+              
+              
+              ,   companyURL: "http://www.usj.es/"
+              },
+          ],
+
+          // name of the WG
+          wg:           "In Charge Of This Document Working Group",
+
+          // URI of the public WG page
+          wgURI:        "http://example.org/really-cool-wg",
+
+          // name (without the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "spec-writers-anonymous",
+          localBiblio:  {
+            "DEFECT-ANALYSIS-AND-PREVENTION": {
+            title:    "Defect Analysis and Prevention for Software Process Quality Improvement"
+            ,   href:     "http://www.ijcaonline.org/volume8/number7/pxc3871759.pdf"
+            ,   authors:  [
+              "Kumaresh Sakhti"
+              , "Baskaran R"
+            ]
+            },
+            "SOFTWARE-FAILURE-ANALYSIS-HP": {
+            title:    "Software Failure Analysis for High-Return Process Improvement Decisions"
+            ,   href:     "http://www.hpl.hp.com/hpjournal/96aug/aug96a2.pdf"
+            ,   authors:  [
+              "Grady, Robert B" 
+            ]
+            },
+            "ODC": {
+            title: "Orthogonal Defect Classification - A Concept For In-Process Measurements "
+            ,   href:     "http://www.chillarege.com/articles/odc-concept.html"
+            ,   authors:  [
+              "Chillarege, Ram" 
+            ]
+            },
+            "DEFECT-PREVENTION-NUTSHELL": {
+            title:    "Software Defect Prevention in a nutshell"
+            ,   href:     "http://www.isixsigma.com/industries/software-it/software-defect-prevention-nutshell/"
+            ,   authors:  [
+              "Purushotham Narayana"
+            ]
+            },
+            "TRUTHS-PEER-REVIEWS": {
+            title:    "Seven Truths about peer reviews"
+            ,   href:     "http://www.processimpact.com/articles/seven_truths.html"
+            ,   authors:  [
+              "Karl E. Wiegers" 
+            ]
+            },
+            "ART-OF-TESTING": {
+            title:    "The Art of Software Testing"
+            ,   authors:  [
+              "Glenford J. Myers" ,
+              "Corey Sandler" ,
+              "Tom Badget"
+            ]
+            },
+            "COST-EFFECTIVE-FAULT-TOLERANCE": {
+            title:    "A Cost-Effective and Flexible Scheme for Software Fault Tolerance"
+            ,   authors:  [
+              "Andrea Bondavalli et al" 
+            ]
+            },
+            "PERFORMANCE-RB-NVP-SCOP": {
+            title:    "Comparative Performability Evaluation of RB, NVP and SCOP"
+            ,   href:     "http://bonda.cnuce.cnr.it/Documentation/Papers/file-CBS94-C9402-104.pdf"
+            ,   authors:  [
+              "Silvano Chiaradonna1" ,
+              "Andrea Bondavalli" ,
+              "Lorenzo Strigini"
+            ]
+            },
+            "COST-OF-QUALITY": {
+            title:    "Cost of Quality Not only failure costs"
+            ,   href:     "http://www.isixsigma.com/index.php?option=com_k2&view=item&id=937:cost-of-quality-not-only-failure-costs&Itemid=187"
+            },
+          },
+
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        These are the notes for Sofware Quality at USJ
+      </p>
+    </section>
+    <section id='sotd'>
+      <p>
+        Early Draft
+      </p>
+    </section>
+    <section>
+      <h1> QA Activities beyond Testing </h1>
+      <p>
+        Although testing is one of the key QA activities, there are many 
+        additional actions that could be taken in order to assure that the 
+        quality of the product meets some targets. Some of them are going
+        to be analysed in this chapter.
+      </p>
+      <section>
+        <h2>Defect Prevention and Process Improvement</h2>
+        <p>
+          The best way to avoid defects is preventing them and the most common
+          technique for doing so is <i>Defect Causal Analysis (DCA)</i>.
+          This type of analysis consists in identifying the causes of 
+          defects and other problems and taking action to prevent them from 
+          occurring in the future by improving the process and reducing the
+          causes that originate the defects.
+        </p>
+        <p>
+          DCA can be seen as a systematic process to 
+          identify and analyze causes associated with the occurrence of specific
+          defect types, allowing the identification of improvement opportunities
+          for the organizational process assets and the implementation of 
+          actions to prevent the occurrence of that same defect type in future 
+          projects. DCA is used by many companies, for instance, HP has 
+          extesively used it with very good results [[SOFTWARE-FAILURE-ANALYSIS-HP]].
+        </p>
+        <p>
+          There are multiple methodologies to implement a DCA system, but in
+          general, the following activities should be conducted in all of them:
+        </p>
+        <ol>
+          <li>
+            <p>
+              <b>Defect Identification:</b>
+              Defects are found by QA activities specifically intended to detect
+              defects such as Design review, Code Inspection, function and unit 
+              testing.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Defect Classification:</b>
+              Once defects are identified they need to be classified.
+              There are multiple ways and techniques to classify defects, for
+              instance: Requirements, Design, Logical and Documentation. These
+              categories can be again divided in second and third levels 
+              depending on the complexity and size of the product.
+            </p>
+            <p>
+              Orthogonal Defect Classification (ODC) [[ODC]] is one of the 
+              most important techiques used for clasifying defects.
+              It means that a defect is categorized into classes that 
+              collectively point to the part of the process which needs 
+              attention, much like characterizing a point in a Cartesian 
+              system of orthogonal axes by its (x, y, z) coordinates.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Defect Analysis:</b>
+              After defects are logged and classified, the next step is to
+              review and analyze them using root cause analysis (RCA) 
+              techniques.
+            </p>
+            <p>
+              As doing a defect analysis for all the defects is a big effort.
+              A useful tool before doing this kind of analysis is a Pareto chart.
+              This kind of charts shows the defect type with the highest 
+              frequency of occurrence of defects. It shows the frequencies of 
+              occurrences of the various categories of problems encountered, in
+              order to determine which of the existing problems occur most 
+              frequently. The problem categories or causes are shown on the 
+              x-axis of the bar graph and the cumulative percentage is shown 
+              on the y-axis of the graph. Such a diagram helps us to identify 
+              the defect types should be given higher priority and must be 
+              attended first.
+            </p>
+            <p>
+              For instance, the following picture shows an example of a Pareto
+              diagram:
+            </p>
+            <figure>
+              <img src='images/unit5-fig1-pareto.gif'>
+              <figcaption>Pareto Diagram Example</figcaption>
+            </figure>
+            <p>
+              Root-cause analysis is the process of finding the activity or 
+              process which causes the defects and find out ways of eliminating
+              or reducing the effect of that by providing remedial measures.
+            </p>
+            <p>
+              Defects are analyzed to determine their origins. A collection of 
+              such causes will help in doing the root cause analysis. One of 
+              the tools used to facilitate root cause analysis is a simple 
+              graphical technique called cause-and-effect diagram / fishbone 
+              diagram which is drawn for sorting and relating factors that 
+              contribute to a given situation.
+            </p>
+            <p>
+              It is important that this process uses the knowledge and expertise
+              of the team and that it considers that the target is providing
+              information and analysis in a way that helps implementing changes
+              in the prcoesses that help prevent defects later on.
+            </p>
+            <p>
+              For instance, the following picture shows an example of a Fishbone
+              diagram:
+            </p>
+            <figure>
+              <img src='images/unit5-fig2-fishbone.gif'>
+              <figcaption>Fishbone Diagram Example</figcaption>
+            </figure>
+          </li>
+          <li>
+            <p>
+              <b>Defect Prevention:</b>
+              Once the causes of the defects are known it is key to identify 
+              actions that can be put in place to cut down these causes.
+              This can be achieved, for intstance with meetings where all the 
+              possible causes are identified from the cause-and-effect diagram 
+              and debated among the team. All suggestions are listed and then the
+              ones that are identified as the main reasons for causes are 
+              separated out. For these causes, possible preventive actions are 
+              discussed and finally agreed among project team members.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>Process Improvement:</b>
+              Once the preventive actions have been identified, they need to be
+              put in place and verify their effectiveness, for instance by
+              observing the Defect Density and comparing it with previous 
+              projects.
+            </p>
+          </li>
+        </ol>
+        <p>
+          You can find some examples and more details about this process at
+          [[DEFECT-PREVENTION-NUTSHELL]] and [[DEFECT-ANALYSIS-AND-PREVENTION]].
+        </p>
+      </section>
+      <section>
+        <h2>Code Inspection and Formal Verification</h2>
+        <p>
+          During many years, people considered that the only consumers of software
+          were machines and human beings were not intended to review the code 
+          after it was written. This attitude began to change in the early 1970s
+          through the efforts of many developers who saw the value in reading 
+          code as part of a QA culture.
+        </p>
+        <p>
+          Nowadays, not all the companies apply techniques based in reading code
+          as part of their Software Development (including QA) process, but the
+          concept of studying program code as part of defect removal preocess is
+          widely accepted as benefitial. Of course, the likelihood of those
+          techniques being successful depend on multiple: factors the size or
+          complexity of the software, the size of the development team, the
+          timeline for development and, of course, the background and culture of
+          the programming team.
+        </p>
+        <p>
+          Part of the skepticism for this kind of methods is because many people
+          believe that tasks lead by humans could lead to worse results than 
+          mathematical proofs conducted by a computer. However, it has been 
+          proven that simple and informal code review techniques contribute 
+          substantially to productivity and reliability in three major ways.
+          <ul>
+            <li>
+              We know that the earlier errors are found, the lower the costs of
+              correcting them and the higher the probability of fixing them
+              them properly. We have just studied in previous section that the 
+              best way to reduce defects is preventing them, the second best 
+              way to reduce them is by conducting code reviews that detect the 
+              defects just while they are being injected.
+            </li>
+            <li>
+              Lower error-correction costs: when an error is found it is 
+              usually located precisely in the code as opposed to black box
+              testing where you only receive an unexpected result. Moreover, 
+              this process frequently exposes a batch of errors, allowing the 
+              errors to be corrected later together. Computer-based testing, on
+              the other hand, normally exposes only a symptom of the error 
+              (e.g. the program does not terminate or the program prints a
+              meaningless result), so developers need to identify the roots
+              behind the symptnm which makes errors to be detected and corrected
+              one by one.
+            </li>
+            <li>
+              This kind of technique changes also the mind of developers.
+              People reviewing code is also learning in parallel, people whose
+              code is being reviewed is not only fixing defects but learning
+              new techniques, paradigms, etc. that could be applied in future
+              projects.
+            </li>
+          </ul>
+        </p>
+        <p>
+          Code Reviews are generally effective in finding from 30 to 70 percent
+          of the logic-design and coding errors in typical programs.
+          They are not effective, however, in detecting high-level design 
+          errors, such as errors made in the requirements analysis process. 
+          Note that a success rate of 30 to 70 percent doesn't mean that up 
+          to 70 percent of all errors might be found but up to 70% of the 
+          defects that are going to be detected (remember we don't know how
+          many defectsi are in a software).
+        </p>
+        <p>
+          Of course, a possible criticism of these statistics is that the 
+          human processes find only the <i>easy</i> errors (those that would 
+          be trivial to find with computer-based testing) and that the 
+          difficult, obscure, or tricky errors can be found only by 
+          computer-based testing. However, some testers using these 
+          techniques have found that the human processes tend to be more 
+          effective than the computer-based testing processes in finding 
+          certain types of errors, while the opposite is true for other 
+          types of errors. This means that reviews and computer-based 
+          testing are complementary; error-detection efficiency will suffer
+          if one or the other is not present.
+        </p>
+        <p>
+          Different ways of performing code reviews exist and in the following
+          sections we are going to assess few of them.
+        </p>
+        <section>
+          <h3>Formal Code Inspection</h3>
+          <p>
+            For historical reasons, <i>formal</i> reviews are usually called 
+            <i>inspections</i>. This is due to the work Michael Fagan conducted
+            and presented in his 1976 study at IBM regarding the efficacy of 
+            peer reviews. We are going to called them <i>Formal Code Inspection
+            </i> to distinguish them from other types of Code Reviews.
+          </p>
+          <p>
+            There is always a inspection team that usually consists of four 
+            people. One of them plays the role of moderator who should be an
+            expert programmer, but not the author of the program (he does not
+            need to be familiar with the software either).
+          </p>
+          <p>
+            Moderator duties include: 
+          </p>
+          <ul>
+            <li>
+              Distributing materials for, and scheduling, the inspection session.
+            </li>
+            <li>
+              Leading the session.
+            </li>
+            <li>
+              Recording all errors found.
+            </li>
+            <li>
+              Ensuring that the errors are subsequently corrected.
+            </li>
+          </ul>
+          <p>
+            The rest of the team is the developer of the code, a software 
+            architect (could be the architecture of the software) and a Quality
+            Assurance engineer.
+          </p>
+          <p>
+            The Inspection Agenda is distributed some days in advance of the
+            Inspect Session. Together with the agenda, the moderator 
+            distributes the software, specification and any relevant material
+            to the inspection team so they can become familiar with the
+            material before the meeting takes place.
+          </p>
+          <p>
+            During the review session the moderator ensures that two key
+            activities take place:
+            <ol>
+              <li>
+                The programmer describes, statement by statement, the logic of
+                the software. Other participants are free (and encouraged) to
+                raise questions in order to determine whether errors exist. It 
+                is likely that the developer himself, instead of the rest of team,
+                is the one that find many of the errors identified during this stage. In other 
+                words, the simple act of reading aloud a program to an audience 
+                seems to be a remarkably effective error-detection technique.
+              </li>
+              <li>
+                The program is analyzed with respect to checklists of 
+                historically common programming errors.
+              </li>
+            </ol>
+          </p>
+          <p>
+            When the session is over, the programmer receives an error list
+            that includes all the errors that have been discovered. Hence, the
+            session is focused on <b> finding defects not fixing them.</b> 
+            Despite that, in some occasions, when a problem is discovered, the
+            review team could propose and discuss some design changes. When
+            some of the detected defects require significant changes in the
+            code, the review team could agree to have follow-up meetings in 
+            order to review again the code after the changes are implemented.
+          </p>
+          <p>
+            The list of errors is not only used by the developer in order to 
+            fix them; it is also used by moderator to verify if the error 
+            checklist could be improved with the results.
+          </p>
+          <p>
+            The review sessions are typically very dynamic and hence the
+            moderator should be responsible not only for reviewing the code
+            but also to keeping it focused so time is used efficiently
+            (these sessions should be of 90-120 minutes maximum).
+          </p>
+          <p>
+            This kind of approaches requires of the right attitude, specially
+            from the developer whose work is going to be under scrutiny. He
+            must forget about his ego and think about the process as a way
+            to improve the quality of his work and improve his development 
+            skills, as he usually receives a lot of feedback about programming
+            styles, algorithms and techniques. But it is not only the 
+            developer but also the rest of the team the ones who could learn
+            by such an open exchange of ideas.
+          </p>
+          <p>
+            The following diagram describes theis process grafically:
+          </p>
+          <figure>
+            <img src='images/unit5-fig3-formal.png'>
+            <figcaption>Formal Code Inspections Flow</figcaption>
+          </figure>
+          <p>
+            The following tables describes some checklists used in formal code
+            reviews as explained in [[ART-OF-TESTING]].
+          </p>
+          <figure>
+            <img src='images/unit5-fig4-checklist1.png'>
+            <figcaption>Checklist for Formal Inspections - 1</figcaption>
+          </figure>
+          <figure>
+            <img src='images/unit5-fig5-checklist2.png'>
+            <figcaption>Checklist for Formal Inspections - 2 </figcaption>
+          </figure>
+        </section>
+        <section>
+          <h3>Walkthrough</h3>
+          <p>
+            A Walkthrough is quite similar to "Formal Code Inspections" as it
+            is also very formal, it is conducted by a team, and it takes place
+            during a pre-scheduled session of 90-120 minutes. However, 
+            there is a key difference: the procedure during the meeting. Instead 
+            of simply reading the software and use checklists, the participants 
+            "play computer", which means that a person that is designated as the 
+            tester comes to the meeting with a set of pre-defined test cases for 
+            the software.
+            During the meeting, each test case is mentally executed; that is, 
+            the test data are "walked through" the logic of the program. The 
+            state of the program is monitored on paper or a whiteboard.
+          </p>
+          <p>
+            The test cases must not be a complete set of test cases, especially
+            because every mental execution of a test case use to take a lot of
+            time. The test cases themselves are not the critical thing; they 
+            are just an excuse for questioning the developer about the 
+            assumptions and decisions taken.
+          </p>
+          <p>
+            Although the size of the team is quite similar (three to five), the
+            role of the participants is slightly different. Apart from the 
+            author of the software and a moderator, there are two key roles in
+            walkthroughs: a tester role (that is the one responsible for 
+            guiding the execution of the test cases) and a secretary that 
+            writes down all the errors found. Additionally, other participants
+            are welcome, typically experience programmers.
+          </p>
+        </section>
+        <section>
+          <h3>Over the shoulder Review</h3>
+          <p>
+            The two formal approaches described formerly, are good, and help
+            to detect many defects. Additionally, they provide extra metrics
+            and information about the effectiveness of the reviews themselves.
+            However, this require a lot of effort, and consumes a lot of extra
+            developer time. Many studies during the last yeasr have 
+            shown that there are other less formal methods that could
+            achieve similar results but requiring less training and time.
+          </p>
+          <p>
+            The first one we are going to study is over-the-shoulder reviews.
+            This is the most common and informal of code reviews. An <i>
+            over-the-shoulder</i> review is just that: a developer standing 
+            over the developer's computer while the author walks the reviewer
+            through a set of code changes.
+          </p>
+          <p>
+            Typically the author "drives" the review by sitting at the computer
+            opening various files, pointing out the changes and explaining why 
+            it was done that way. Multiple tools can be used by the developer
+            and it's usual to move back and forth between files.
+          </p>
+          <p>
+            If the reviewer sees something wrong, they can take different 
+            actions, such as doing a little of "pair-programming" while the
+            developer implements the fix or just take note of the issue to
+            be solved offline.
+          </p>
+          <p>
+            With cooperation tools such as videoconferencing, desktop sharing
+            and so on, it is possible to perform this kind of reviews remotely
+            but obviously, they are not so effective as the greatest asset of
+            this technique is the closeness between developers and the easyness
+            to take ad-hoc actions taken the opportunity of being together.
+          </p>
+          <p>
+            The key advantage of this approach is its simplicity: no special
+            training is required and can be done at any time without any
+            preparation. It also encourages human interaction and encourages 
+            people to cooperate. Reviewers tend to be more verbose and brave
+            when speaking than when they need to record their reviews in a
+            system such as DataBase.
+          </p>
+          <p>
+            Of course it has some drawbacks. The first one is that due to its
+            informal nature, it is really difficult to be enforced, i.e. there
+            is no way (document, tool, etc...) to check if such a review has
+            been conducted. The second one is that, as the author is the one
+            leading the whole process he might omit parts of the code. The third
+            one is the lack of traceability to check that the detected defects
+            have been properly addressed.
+          </p>
+          <p>
+            The following diagram describes this process grafically
+          </p>
+          <figure>
+            <img src='images/unit5-fig6-over_the_shoulder.png'>
+            <figcaption>Over the shoulder reviews workflow</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h3>Offline Reviews</h3>
+          <p>
+            This is the second-most common form of informal code review, and the
+            technique preferred by most open-source projects. Here, whole files,
+            or changes are packaged up (ZIP file, URL, Pull Request, etc...) by
+            the author and sent to reviewers via e-mail or any other tool.
+            Reviewers examine the files offline, ask questions and discuss with
+            the author and other developers, and suggest changes.
+          </p>
+          <p>
+            Collecting the files to be reviewed was formerly a difficul task but
+            nowadays, with Source Code Management systems such as Git, it is
+            extremely easy to identify the files that the developer has modified
+            and hence the changes he wants to merge into the main repository.
+          </p>
+          <p>
+            But SCM tools have helped not only to identifying the changes made
+            by the developer, but also in other multiple areas such as:
+            <ul>
+              <li>
+                Sending E-mail notifications: Request for review, review done,
+                comments need to be addressed, etc...
+              </li>
+              <li>
+                Recording review comments: Things to be changed, result of the
+                review, whether the changes have been implemented or not, etc. 
+                This is key for having a way to enforce reviews.
+              </li>
+              <li>
+                Combined display: Allow developers and reviewers to easily
+                check the differences between files allowing different views.
+              </li>
+              <li>
+                Discussion: Sometimes it's needed some type of discussion 
+                between the developer and the reviewer in order to undertand
+                a bit more the code, clarify reasons behind some decisions, 
+                etc.
+              </li>
+            </ul>
+          </p>
+          <p>
+            Obviously, the main advantage with respect to <i>over-the-shoulder
+            </i> reviews is that it can work perfectly with developers that
+            are not based in the same place, either across a building or across
+            an ocean. Additionally, by using this technique is extremely easy
+            to allow multiple reviewers to review the code in parallel, in many
+            cases, if the reviews are done in an SCM system, even anyone with
+            access to the SCM could comment in the review, even if he/she is
+            not a reviewer.
+          </p>
+          <p>
+            The main disadvantage with an over-the-shoulder review is that it
+            takes longer as it usually requires different interactions, this
+            could be especially painful if people are in different timezones.
+          </p>
+          <p>
+            In general, we could say that offline code reviews, done properly
+            integrated in an SCM gets a good balance between speed, 
+            effectiveness and traceability.
+          </p>
+          <p>
+            The following diagram describes this process grafically
+          </p>
+          <figure>
+            <img src='images/unit5-fig7-offline.png'>
+            <figcaption>Offline Code Reviews Workflow</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h3>Pair Programming</h3>
+          <p>
+            Pair Programming it is a development process that incorporates 
+            continuous code review in the development process itself. It 
+            consists in two developers writing code at a 
+            single terminal with only one developer typing at a time and 
+            continuous free-form discussion and review.
+          </p>
+          <p>
+            Studies of pair-programming have shown it to be very effective at
+            both finding bugs and promoting knowledge transfer. However, having
+            the reviewing developer so involved in the development itself is
+            seen by many people as a risk to be biased: it's going to be more
+            difficult for him to go a step back and critique the code from a
+            fresh point of view. However, it could be argued that deep
+            knowledge and understanding also provides him the capabiltiy to
+            provide more effetive comments.
+          </p>
+          <p>
+            The key difference with the other techniques mentioned above is that
+            introducing this way of working affects not only how QA Activities
+            are performed but also development ones (i.e. you could combine
+            all the other review techniques with different ways of developing
+            code). Adopting this way of working requires evaluating properly
+            how are developers going to work in such an environment and the
+            time required for working in this way.
+          </p>
+        </section>
+        <section>
+          <h3>Code Review Techniques: Summary</h3>
+          <p>
+          Each of the types of review is useful in its own way. Offline reviews
+          strike a balance between time invested and ease of implementation.
+          In any case, and any kind of code review is better than nothing, but
+          it should be also acknowledged that code reviews are not enough to 
+          guarantee the quality of a final product.
+          </p>
+        </section>
+      </section>
+      <section>
+        <h2>Assertion Driven Development & Design by contract</h2>
+        <section>
+          <h3>Deffensive Programming</h3>
+          <p>
+            Deffensive Programing consists in including in the software as many
+            checks as possible, even if they are redundant (e.g. checks made by
+            callers and callees). Sometimes it's said, "maybe they don't help,
+            but they don't harm either".
+          </p>
+          <p>
+            The problem with this way of working, is that, in some cases, it 
+            ends-up adding a lot of redundancy "just in case", which means 
+            adding unnecessary complexity and increasing software size. The 
+            bigger and more complex a software is, the easier defects can affect
+            it.
+          </p>
+          <p>
+            The ideas behind deffensive software, are interesting, but in order
+            to make these ideas have a possitive effect, a more systematic 
+            approach should be followed.
+          </p>
+        </section>
+        <section>
+          <h3>Contract Concept</h3>
+          <p>
+            A contract, in the real world, is an agreement between two parties
+            in which each party expect some benefits from the contract if 
+            they meet some obligations. Both are linked, i.e. if the 
+            obligations are not met by any of the parties, there is no guarantee
+            the benefits will happen. Those benefits and obligations are clearly
+            documented so that there are no misunderstanding between the 
+            parties.
+          </p>
+          <p>
+            Imagine a courier company that has a express service within Madrid
+            city. That express service can be only done if the customer meets
+            some conditios (e.g. the package is within the limits, the address
+            is valid and in Madrid, the user pays...). If the customer meets
+            this conditions, he gets the benefit of the package being delivered
+            in 4 hours. If the customer does not meet them, there is no 
+            guarantee he can get the express deliver benefits. The following 
+            table shows the obligations/benefits of this example:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Party
+                </th>
+                <th>
+                  Obligations
+                </th>
+                <th>
+                  Benefits
+                </th>
+              </tr>
+            </thead>
+            <tr>
+              <td>
+                Client
+              </td>
+              <td>
+                Provide letter or package of no more thant 5 Kilograms, each
+                dimension no more than 2 meters. Pay 100 Euros. Provide a
+                valid recipient address in Madrid.
+              </td>
+              <td>
+                Get package delivered witouth any damage to recipient in 4 
+                hours or less.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Supplier
+              </td>
+              <td>
+                Deliver package to recipient in four hours or less.
+              </td>
+              <td>
+                No need to deal with deliveries too big, too heavy or unpaid.
+              </td>
+            </tr>
+          </table>
+          <p>
+            One important remark, is that when a contract is exhaustive, there
+            is a guarantee that all the obligations are related to the benefits.
+            This is also called the "No hidden clause" rule. This does not mean
+            that the contract could not refer to external laws, best practices,
+            regulation... it only means they do not need to be explicitly 
+            stated. For instance, in case the courier fails to meet their 
+            obligations, it is highly likely a law establishes a compensation to
+            the customer.
+          </p>
+        </section>
+        <section>
+          <h3>Contracts in Software</h3>
+          <p>
+            It is easy to understand how the concept of contracts in the real 
+            world could be extrapolated to software development. In software
+            every task can be split in multiple sub-tasks, the idea of sub-tasks
+            is similar of contracting something to a company. I create a 
+            function, module, etc... that handles this part that is essential
+            to meet the complete task.
+          </p>
+          <pre>
+             task is
+             do
+               subtask1:
+               subtask2:
+               subtask3:
+             end
+          </pre>
+          <p>
+            If all the subtasks are completed correctly, the task will be also
+            finished successfully. If there is a contract between the task and
+            the subtasks, the task will have some guarantees about the 
+            completion. Subtasks in software developmentare typically functions, 
+            object methods...
+          </p>
+          <p>
+            Please also think about the Spotify way of working in which they 
+            created an architecture that manage every team to deliver different
+            parts of Spotify client independently. It is quite similar, they 
+            have divided the main task (the Spotify client) in multiple subtasks
+            (the components of the architecture). If all the components behave
+            properly, the final task will be working properly too.
+          </p>
+        </section>
+        <section>
+          <h3>Design By Contract</h3>
+          <p>
+            Design by Contract (DbC) is based on the definition of formal,
+            precise and verifiable interface specifications for every 
+            software component. These specifications extend the ordinary
+            definition of abstract types with preconditions, postconditions and
+            invariants. Those specifications are also known as contracts.
+          </p>
+          <p>
+            A software contract could be defined as the set of three different
+            things:
+            <ul>
+              <li>
+                Preconditions: A certain conditions to be guaranteed on entry
+                by any client module that calls it. It is an obligation for
+                the client module and a benefit for the supplier (no need to
+                handle cases outside of the precondition)
+              </li>
+              <li>
+                Postconditions: Gurantee a certain property on exit. This is 
+                an obligation for the supplier and a benefit for the client.
+              </li>
+              <li>
+                Class-invariant: Guarantee that certain properties are not
+                going to be changed on exit.
+              </li>
+            </ul>
+          </p>
+          <p>
+            This could be formalized as three questions developers must try
+            to solve when implementing a function:
+            <ul>
+              <li>
+                What does contract expect?
+              </li>
+              <li>
+                What does contract gurantee?
+              </li>
+              <li>
+                What does contract maintain?
+              </li>
+            </ul>
+          </p>
+        </section>
+        <section>
+          <h3>Using Design By Contract</h3>
+          <p>
+            The ideal environment for <i>Design by Contract</i> is one in which
+            the language developers use has support for it in a native way. 
+            Unfortunately not too many of them support this capability, being 
+            Eiffel the most known one. For those languages, the contract is 
+            part of the function definition. For instance, see an Eiffel example
+            below:
+          </p>
+          <pre>
+          class ACCOUNT create
+            make
+            feature
+              ... Attributes as before:
+                  balance , minimum_balance , owner , open ...
+              deposit (sum: INTEGER) is
+                    -- Deposit sum into the account.
+                require
+                  sum >= 0
+                do
+                  add (sum)
+                ensure
+                  balance = old balance + sum
+                end
+          </pre>
+          <p>
+            In programming languages with no direct support, in most of the cases
+            assertions are used as a way to implement DbC techniques. There are
+            libraries that try to simplify the process of defining these 
+            assertions. An assertion is a predicate used to indicate that if 
+            the software is a correct status, the predicate should be always
+            true at that place. If an assertion evaluates to false, that should
+            mean that the software is in a wrong status (e.g. the contract has
+            been broken).
+          </p>
+          <p>
+            Of course, the functions can still do some checkings, but only for
+            conditions that are not part of the contract. The idea of DbC is
+            removing any duplication and minimizing the amount of code 
+            necessary to check that the contract is met.
+          </p>
+        <section>
+          <h3>Monitoring the assertions</h3>
+          <p>
+            One question that could be raised is "What happens if one of these
+            conditions fails during execution?". This depens on whether 
+            assertions are monitored or not during runtime (and this use to be
+            customizable depending on developer needs), but it is not a critical
+            aspect. The target of DbC is implementing reliable software that 
+            work, what happens when they do not work is interesting, but not 
+            the main target.
+          </p>
+          <p>
+            Developer can choose from various levels of assertion monitoring:
+            no checking, preconditions only, pre and postconditions, conditions
+            and invariants...
+          </p>
+          <p>
+            If a developer decides not to check assertions, the assertions or
+            contracts do not have any impact on system execution. If a condition
+            is not met, then the software could be in an error situation and
+            no extra actions will be taken, these are just bugs. In most of the
+            cases this is the typical configuration for released products.
+          </p>
+          <p>
+            If a developer decides to check assertions, the effect of assertions
+            not met is typically an exception being fired. The typical use case
+            for enabling assertion checking is debugging, i.e. detecting 
+            defects not in blind but based on consistency conditions. In most of
+            cases this is the typical configuration for released products. 
+          </p>
+          <p>
+            There might be also special treating of these exceptions, for 
+            instance in Eiffel routines a <i>rescue</i> clause which expresses
+            the alternate behaviour of the routine (and is similar to clauses 
+            that occur in human contracts, to allow for exceptional, unplanned 
+            circumstances).
+            When a routine includes a rescue clause, any exception occurring 
+            during the routine's execution interrupts the execution of the
+            body and starts the execution of the rescue clause. This could be
+            used for shielding the code inn some situations.
+          </p>
+        </section>
+      </section>
+      <section>
+        <h2>Fault Tolerance and Failure Containment</h2>
+        <p>
+          There is no practical way to guarantee that a given software has no 
+          bugs. It doesn't matter how good are our tools, methodologies and 
+          engineers... It doesn't matter how deep inspections and testings are
+          either. In many cases the presence of bugs is tolerated as something
+          "natural", but there are some systems were the reliability and 
+          security requirements are so important that extra measures should be 
+          taken to mitigate the consequences of undetected bugs.
+        </p>
+        <p>
+          When a system has extreme reliability requirements, fault tolerant 
+          solutions should be put in place. The idea behind fault tolerant 
+          solutions consists in breaking the bug/failure cause/effect 
+          relationship. A result of this is a increase of the reliability as 
+          reliability is inversely proportional to the frequency of failures. 
+          These techniques are usually expensive as they typically require 
+          redundancy of sort so they are only in systems that require it.
+        </p>
+        <p>
+          However, in some situations, failures cannot be prevented and hence 
+          reliability cannot be improved. However, there are ways to minimize 
+          the consequences of failures with the target of maximizing safety. 
+          It is important we don't confuse reliability with safety: for instance
+          a medical system could not be 100% reliable but it should be 100% 
+          safe. The techniques intended to increase system safety are called 
+          failure containment techniques.
+        </p>
+        <p>
+          In this chapter we are going to study both type of techniques.
+        </p>
+          <section>
+          <h3>Fault Tolerance</h3>
+          <p>
+            Fault Tolerance techniques are used to tolerate software faults and
+            prevent system failures from occurring when a fault occurs. These
+            kind of techniques are used in software that is very sensitive
+            to failures such as aerospacial software, nuclear power, 
+            healthcare...
+          </p>
+          <section>
+            <h4>Single Version Software Environments (No Redundancy)</h4>
+            <p>
+              In this case, only one instance of the software exists, and it 
+              tries to detect faults and recover from them without the need to 
+              replicate the software. This kind of techniques are really 
+              difficult to be implemented, as it has been studied that efficient
+              fault tolerant systems require some kind of redundancy as we will
+              see in next section.
+            </p>
+          </section>
+          <section>
+            <h4>Multiple Version Software Environments (Redundancy)</h4>
+            <p>
+              Redundancy in real world activities is the best way to increase 
+              reliability: multiple engines in a plane, lights in a car... For 
+              instance, the NASA performed a research to calculate the 
+              possibility of survival in a mission depending of the amount of 
+              redundant equipment in the spacecraft and the results 
+              demonstrated that the survival chances are extremely dependent 
+              on redundancy as show in the figure below.
+            </p>
+            <figure>
+              <img src='images/unit5-fig8-survival-vs-redundancy.svg' width='500px' height='400px'>
+              <figcaption>Mission Survival vs. Material Redundancy (source NASA)</figcaption>
+            </figure>
+            <p>
+              The same is true for software systems but with some caveats. 
+              Redundancy in software only works if the redundant system works 
+              when the original one fails: this is normal in hardware systems 
+              but not in software. If I have two identical software systems and
+              the first one fails, it is extremely likely the second one fails 
+              too. Due to this is important that redundant software systems 
+              are uncorrelated. Designing uncorrelated systems usually requires 
+              two teams, working isolated, with different techniques... This 
+              means duplicating at least the development cost.
+            </p>
+            <p>
+              In these systems, those multiple instances of the software 
+              developed independently can work in different configurations: 
+              N-Version programming (NVP), Recovery Blocks (RcB), N self 
+              checking programming (NSCP)...
+            </p>
+          </section>
+          <section>
+            <h4>Types of recovery</h4>
+            <p>
+              Error Recovery is the key part in fault tolerant systems.
+              However, although the most important one, it's the last step in a
+              series of 4 parts:
+            </p>
+            <ol>
+              <li>
+                Error Detection: This consists in the ability to detect that the
+                Software is an erronous state, for instance, via asserions as
+                it has been studied in this unit.
+              </li>
+              <li>
+                Error Diagnosis: Assess the causes for the error situation in 
+                which the Software has fallen.
+              </li>
+              <li>
+                Error Containment: Before trying to correct the error, we 
+                should stop the error propagation, so further damages will not
+                happen.
+              </li>
+              <li>
+                Error Recovery: Consists in replacing the erroneous state with
+                an error-free state.
+              </li>
+            </ol>
+            <p>
+              Depending on how the new error-free state is calculated we could
+              distinguish two approaches:
+            </p>
+            <ul>
+              <li>
+                Backward Recovery: In this mechanisms the system tries to go
+                back to a previously saved state that the system knows it is
+                correct. Recoding or saving these states is called 
+                checkpointing. Some systems instead of recording the states
+                completely keep deltas with respect to previous states, which
+                is know as differential checkpointing. Recovery blocks is one
+                example of this type of technique.
+              </li>
+              <li>
+                Forward Recovery: In this approach, the system tries to find
+                a new state from which the system can continue the operation.
+                This state can be calculated by Error Compensation. Error 
+                Compensation relies on redundancy based algorithms in which
+                the redundancy system provides a set of potential results
+                from which a compensation is executed to derive an answer
+                deemed as acceptable. An example of this technique is N-Version
+                programming. This techniques are more complex and requires more
+                resources so they are mostly used when the system is critical
+                with respect to delays (i.e. there is no time for a backward
+                recovery).
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h3>Failure Containment</h3>
+          <p>
+            There is software that is used in safety critical systems, that 
+            have severe consequences in case a failure occurs. In those 
+            situations it is very important to avoid some of the potential 
+            accidents or at lt
+          </p>
+          <p>
+            Various specific techniques are used for this kind of systems, 
+            most of them based on the analysis of the potential hazards linked 
+            to the failures: 
+          </p>
+          <ul>
+            <li>
+              Hazard Elimination through substitution, simplification, 
+              decoupling, elimination of specific human errors and reduction 
+              of hazardous materials or conditions. These techniques reduce 
+              certain defect injections or substitute non-hazardous ones for 
+              hazardous ones. The general approach is similar to the defect 
+              prevention and defect reduction techniques surveyed earlier, but 
+              with a focus on those problems involved in hazardous situations.
+            </li>
+            <li>
+              Hazard Reduction through design for controllability (for 
+              example, automatic pressure release in boilers), us of locking 
+              devices (for example, hardware/software interlocks), and failure 
+              minimization using safety margins and redundancy. These 
+              techniques are similar to fault tolerance, where local failures 
+              are contained without leading to system failures.
+            </li>
+            <li>
+              Hazard control through reducing exposure, isolation and 
+              containments (for example barriers between the system and the 
+              environment), protection systems (active protection activated in 
+              case of hazard), and fail-safe design (passive protection, fail 
+              in a safe state without causing further damages). These techniques 
+              reduce the severity of failures, therefore weakening the link 
+              between failures and accidents.
+            </li>
+            <li>
+              Damage control through escape routes, safe abandonment of 
+              products and materials, and devices for limiting physical damages 
+              to equipment or people. These techniques reduce the severity of 
+              accidents, thus limiting the damages cause by these accidents 
+              and related software failures.
+            </li>
+          </ul>
+          <p>
+            Notice that both hazard control and damage control above are 
+            post-failure activities that attempt to <b>contain</b> the failures so 
+            that they will not lead to accidents or the accident damage can be 
+            controlled or minimized. All these techniques are usually very 
+            expensive and process/technology intensive, hence they should be 
+            only applied when safety matters and deal with rare conditions 
+            related to accidents.
+          </p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
