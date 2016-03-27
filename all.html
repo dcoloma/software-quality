@@ -4,6 +4,7 @@
     <title>Software Quality - Teaching Notes</title>
     <meta charset='utf-8'>
     <script src='js/respec-w3c-common.js' async class='remove'></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
     <script class='remove'>
       var respecConfig = {
           specStatus: "unofficial",
@@ -1825,60 +1826,184 @@
         measurable, make measurable", Galileo
       </p>
       <p>
-        "Not everything that can be counted counts, and not everything that
-        counts can be counted.", Albert Einstein
+        These are just some sample sentences about the importance of measuring
+        in general. Obviously, the capability of quantifying characteristics of
+        a product are extremely helpful to manage that product. However, it's 
+        also important to stress that is essential to understand the attributes
+        that are being measured so the metric doesn't end-up being a number but
+        a proper indicator with a very clear meaning. Additionally, we studied
+        in Unit 1 that Quality is a extremely subjective thing, so we should 
+        not assume that every aspect related with product quality can be 
+        quantified, or at least, quantified easily. Albert Einstein put it 
+        very nicely when he said his famous sentence: "Not everything that can 
+        be counted counts, and not everything that counts can be counted.".
+      </p>
+      <p>
+        Also, we should bear in mind that the act of measuring some software
+        attribute, is not intended to improve that metric but firstly to 
+        understand its impact and its validity as an indicator for some software
+        characteristic. A typical mistake is trying to improve any metric you
+        are calculating in your projects. Doing this for the sake of it is a
+        mistake, as Goodhart explained in his law: <b>"When a measure becomes a
+        target, it ceases to be a good measure". </b> Imagine you are working
+        in a development team and you are told that you need to increase the
+        number of defects found during the development cycles. What is likely
+        to happen is that the team is going to start reporting anything they
+        could suspect is a bug, it doesn't matter how small, difficult to
+        detect, or difficult to reproduce it is. At the end of the day, the
+        team has been asked to find more bugs, and that is what they are
+        going to do!
       </p>
       <section>
         <h2>Introduction</h2>
         <p>
-          Measurement is the process by which numbers or symbols are assigned
-          to attributes of entities of a software product, process, or
-          project, according to a well defined set of rules or theory.
+          What does this all mean? It means that we shuld try to get metrics,
+          but more importantly, we need to understand how those metrics affect
+          the quality of the product, and how they could become indicators of
+          certain software attributes.
         </p>
         <p>
-          Measuring some software attributes (calculating metrics) is helpful
-          in several ways:
+          If we do that, we could use those metrics to improve our process and
+          increase product quality over releases, predict potential issues (e.g.
+          last time we got those indicators, the product was a disaster on the
+          field), re-use successful experiences (if a product worked extremely
+          well, check it's metrics and what did it make differente), etc. In 
+          summary we should use metrics to understand first and imrpove 
+          afterwards.
+        </p>
+        <p>
+          But, what is relationship between the terms measurement, metric and
+          indicator?
         </p>
         <ul>
           <li>
-            Creating indicators.
+            Measurement is the process to get a quantitative indication of the
+            exact amount (dimension, capacity, etc.) of some attributes. The
+            output of measuremnt is a measure. Examples: 120.000 Lines of code 
+            is a mesasurement of the size of the software, 120 defects could be
+            a measure of the number of defect that I have found, etc.
           </li>
           <li>
-            Building models for simulation.
+            Metric: is a quantitative measure of the degree to which a system, 
+            component or a process possesses a given attribute. I.e. the 
+            difference between a measure and a metric is that the metric has a
+            semantic meaning linked to it. E.g. 120 defects / 20.000 LOC means
+            that the Defect Density is 1 defect/KLOC.
           </li>
           <li>
-            Building models for decision making;
-          </li>
-          <li>
-            Aiding goal setting and deployment;
+            Indicator: Once you understand the meaning of a metric, you can use
+            it as indiator to evaluate a product or retrieve insights from it. 
+            For instance, we could use the Defect Density to get insights about
+            how my defect removal techniques (Testing or Code Reviews) are 
+            working.
           </li>
         </ul>
-        <p>
-          In summary, by using metrics, visibility of the software and
-          process quality can be obtained and thus it is possible to exert
-          control based in concrete data.
-        </p>
+        <table>
+          <caption>Measurement, Metrics, Indicator</caption>
+          <thead>
+            <tr>
+              <th>Action </th>
+              <th>Concept</th>
+              <th>Examples</th>
+            </tr>￼
+          </thead>
+          <tbody>
+            <tr>
+              <td> Collect (Data) </td>
+              <td>
+                <ul>
+                  <li>
+                    <b>Measure:</b> Quantitative indication of the exact amount
+                    (dimension, capacity, etc.) of some attributes
+                  </li>
+                  <li>
+                    <b>Measurement:</b> The act of determining a measure
+                  </li>
+                </ul>
+              </td>
+              <td> 
+                <code><ul>
+                    <li>120 detected bugs</li>
+                    <li>12 months of project duration</li>
+                    <li>10 engineers working on the project</li>
+                    <li>100.000 Lines of Code (LOC)</li>
+                </ul></code>
+              </td>
+            </tr>￼
+            <tr>
+              <td> Calculate (Metrics) </td>
+              <td>
+                <ul><li>
+                <b>Metric:</b> is a quantitative measure of the degree to which a
+                system, component or a process possesses a given attribute
+                </li></ul>
+              </td>
+              <td> 
+                <code><ul>
+                    <li>2 bugs found per engineer-month</li>
+                    <li>1.2 bugs per KLOC </li>
+                </ul></code>
+              </td>
+            </tr>
+            <tr>
+              <td> Evaluate (Metrics) </td>
+              <td>
+                <ul><li>
+                <b>Indicator:</b> a metric that provides insights into the product,
+                process, project.
+                </li></ul>
+              </td>
+              <td> 
+                <code><ul>
+                 <li>Bugs found per engineer-month might be an indicator
+                   of the test process efficiency</li>
+                 <li>bugs/KLOC an indicator of code quality, etc. </li>
+                </ul></code>
+              </td>
+            </tr>￼
+          </tbody>
+        </table>
         <p>
           There are three main kind of metrics related to software:
         </p>
         <ul>
           <li>
-            Product Metrics: describe the characteristics of the product such
-            as: size, complexity, design features, performance, and quality
-            level, etc.
-          </li>
-          <li>
-            Process Metrics: These can be used to improve software processes
-            such as: ffectiveness of defect removal during development, the
-            pattern of testing defect arrival, the response time of the fix
-            process, etc.
+            Process Metrics: They are related to the <i>Life Cycle</i> of 
+            the Software Development Process. Hence, they are typically 
+            used to improve software processes.Some examples of these type 
+            of metrics are: effectiveness of defect removal during 
+            development, the pattern of testing defect arrival, the response
+            time of the fix process, etc.
           </li>
           <li>
             Project Metrics: Describe the project characteristics and
             execution: number of software developers, cost, schedule, and
             productivity, etc.
           </li>
+          <li>
+            Product Metrics: describe the characteristics of the product at 
+            a given point of time (a snaphot of the product) without paying
+            attention to the process that led to that product. Some examples 
+            are: complexity, size, defect density, etc.
+          </li>
         </ul>
+        <p>
+          Example of measurements:
+        </p>
+        <pre>
+          * 120 defects detected during 6 months by 2 engineers
+          * Defects defected every month: 10, 10, 20, 20, 25, 35
+          * Defects remaining in the final product: 40 
+          * Size of the Product: 40.000 Lines of Code
+        </pre>
+        <p>
+          Metrics and Indicator Examples:
+        </p>
+        <pre>
+          * Process Metric: Defect Arrival Pattern per month: 10, 10, 20, 20, 25, 35 -> Indicator of Maturity
+          * Project Metric: 40 KLOC / 2 / 6 = KLOC per eng-month   -> Indicator of Productivy
+          * Product Metric: 40 defects / 40 KLOC = 1 defect / KLOC -> Indicator of Quality
+        </pre>
         <p>
           Software quality metrics are a subset of software metrics that
           focus on the quality aspects of the product, process, and project.
@@ -1889,7 +2014,7 @@
             End-product quality metrics: Metrics related to the software
             product once it has been finalized and delivered. The following
             type of metrics are in this group:
-            <ul>
+            <ol>
               <li>
                 Intrinsic Product Quality Metrics: These are the metrics that
                 are related with the quality of the product itself, without
@@ -1899,7 +2024,7 @@
                 Customer Satisfaction Metrics: These are the metrics that are
                 related to the view customers have of the product quality.
               </li>
-            </ul>
+            </ol>
           </li>
           <li>
             In-process quality metrics: Metrics related to the software while
@@ -1923,19 +2048,36 @@
         <p>
           The link model between a process and a product for manufacturer
           goods is in most of the cases simple. However, for software, this
-          model is in general more complex because: 
+          model is in general more complex because the influence of the humans
+          involved in software development is way higher than in goods
+          manufacturing and the degree of automation is smaller in software
+          development that in manufacturing.
+        </p>
+        <p>
+          As engineers, our target is:
         </p>
         <ul>
           <li>
-            The developer individual skills and experience is extremely
-            important for the results of software development.
+            Applying all the possible techniques during the development process
+            to reduce the number of defects (prevention, removal) and implement
+            techniques to minimise their consequences.
           </li>
           <li>
-            External factors such as the novelty of an application or the
-            need for an accelerated development schedule may impair product
-            quality.
+            Measure in-process metrics to anticipate possible issues when 
+            launching the product to the customers. If we are doubtful to 
+            release a new version because we have observed "anomalous" 
+            in-process metrics, we can use techinques such as controlled 
+            roll-out, A/B Testing, Beta Users, etc. to do the launch in a 
+            smaller scale.
+          </li>
+          <li>
+            Measure end-product metrics when it's used by the customers and 
+            correlate them with the in-process metrics so we can use that 
+            correlation for predict the behaviour of next releaes or future
+            products.
           </li>
         </ul>
+        </p>
         <p>
           The ultimate goal of software quality engineering is to investigate
           the relationships among in-process metrics, project
@@ -1954,81 +2096,213 @@
               Software reliability is a measure of how often the software
               encounters an error that leads to a failure. From a formal
               point view, Reliability can be defined as the probability of
-              not failing in a specified length of time:
+              not failing during a specified length of time:
             </p>
             <p style="color: red">
               R(n) (where n is the number of time units) 
             </p>
             <p>
               The probability of failing in a specified length of time is 1
-              minus the reliability for that length of time:
+              minus the reliability for that length of time and it's usually
+              denoted by a capital F letter:
             </p>
-          <p style="color: red">
-            F(n) = 1 - R(n)
-          </p>
-          <p>
-            If time is measured in days, R(1) is the probability of the 
-            software system having zero failures during one day (i.e. the 
-            probability of not failing in 1 day)
-          </p>
-          <p>
-            A couple of metrics related with the software reliability are 
-            the "Error Rate" and the "Mean Time To Failure" (MTTF). The MTTF 
-            can be defined as the average time that occurs between two system 
-            failures. Error Rate is the average number of failures suffered by
-            the system during a given amount of time. Both metrics are related
-            with the following formula:
-          </p>
-          <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
-            <mrow><mi>Error Rate</mi> <mo>=</mo>
-            <mfrac><mrow>1</mrow><mrow>MTTF</mrow></mfrac>
-            </mrow>
-          </math>
-          <p>
-            Unless detailed statistics/models are available, the best estimate
-            of the short-term future behavior is the current behavior. For 
-            instance, if a system suffers 24 failures during one day, the best
-            estimate for the next day is that 24 failures will occur (24 
-            errors/day) that correspond to a 1hour MTTF.
-          </p>
-          <p>
-            The relationship between the error rate and the reliability 
-            depends on the statistical distribution of the errors.
-          </p>
-          <p>
-            If the system failures follow an exponential distribution the 
-            follow relationship is true:
-          </p>
-          <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
-            <mrow><mi>R(t)</mi><mo> = </mo><msup> <mi>e</mi> <mn>&minus;&lambda;t</mn> </msup></mrow>
-          </math>
-          <p>
-            Where &lambda; is the Error Rate and t is the amount of time for 
-            which the system reliability is calculated.
-          </p>
-          <p>
-            You can find a lot of information about reliability and how maths 
-            is used for calculating it at [[RELIABILITY-MATHS]]
+            <p style="color: red">
+              F(n) = 1 - R(n)
+            </p>
             <p>
-              <p>
-                Although exponential distribution may be a good compromise 
-                that could be applied to any software system, there are other 
-                distributions that may describe in a more accurate way the 
-                error arrival pattern. For instance, the Weibull distribution
-                is frequently used in reliability analysis [[WEIBULL-BASICS]].
-              </p>
-              <p>
-                If we take into account Software Upgrades, there are some
-                interesting analysis about how a sawteeth pattern is observed
-                [[SOFTWARE-RELIABILITY]].
-              </p>
-              <p>
-                In a software system, during two days only one failure has
-                occurred, what is the probability that the system will not
-                fail in 1, 2, 3, and 4 days?  Consider that errors follow an
-                exponential distribution.
-              </p>
+              If time is measured in days, R(1) is the probability of the
+              software system having zero failures during one day (i.e. the
+              probability of not failing in 1 day)
             </p>
+            <p>
+              A couple of metrics related with the software reliability are 
+              the "Error Rate" and the "Mean Time To Failure" (MTTF). The 
+              <b>MTTF</b> can be defined as the average time that occurs
+              between two system failures. Error Rate is the average number of
+              failures suffered by the system during a given amount of time.
+              Both metrics are related with the following formula:
+            </p>
+            <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+              <mrow><mi><mtext>Error Rate</mtext></mi> <mo>=</mo>
+              <mfrac><mrow><mtext>1</mtext></mrow><mrow><mtext>MTTF</mtext></mrow></mfrac>
+              </mrow>
+            </math>
+            <p>
+              The relationship between the error rate and the reliability 
+              depends on the statistical distribution of the errors, not only
+              on the error rate.
+            </p>
+            <p>
+              For instance, the following table shows the errors that occured
+              per day in two different systems during one week.
+            </p>
+            <table>
+              <caption>Example of same error rate with different distribution</caption>
+              <thead>
+                <tr>
+                  <th colspan=8>Defects per Day</th>
+                </tr>￼
+                <tr>
+                  <th></th>
+                  <th>DAY 1</th>
+                  <th>DAY 2</th>
+                  <th>DAY 3</th>
+                  <th>DAY 4</th>
+                  <th>DAY 5</th>
+                  <th>DAY 6</th>
+                  <th>DAY 7</th>
+                </tr>￼
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Project A</b></td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                </tr>
+                <tr>
+                  <td><b>Project B</b></td>
+                  <td>7</td>
+                  <td>6</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              It can be seen that both systems suffered the same amount of 
+              errors during the week 28 and hence the error rate for both 
+              systems is the same: 28/7 = 4 Errors/Day. However, the 
+              reliability of the system for the first day is very different.
+            </p>
+            <p>
+              Unless detailed statistics/models are available, the best estimate
+              of the short-term future behavior is the current behavior. For 
+              instance, if a system suffers 24 failures during one day, the best
+              estimate for the next day is that 24 failures will occur (24 
+              errors/day) that correspond to a 1hour MTTF. That means that by 
+              default, we could assume that most of the system failures follow 
+              an exponential distribution, and hence the following formula could
+              be used to calculate their reliability:
+            </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                <mrow><mi><mtext>R(t)</mtext></mi><mo> = </mo><msup> <mi>e</mi> <mn>&minus;&lambda;t</mn> </msup></mrow>
+              </math>
+            <p>
+              Where &lambda; is the Error Rate and t is the amount of time for 
+              which the system reliability is calculated. A key concept of 
+              exponential distributions is that the error rate is constant and
+              hence it doesn't change with the time. The following tables show
+              the Probability and Cumulative Density Functions of exponential
+              curves with different values of &lambda;
+            </p>
+            <figure>
+              <img src='images/unit2-fig20-exp-pdf.png' height='400px' width='500px'>
+              <figcaption>Probabily Density Function for Exponential Distributions</figcaption>
+            </figure>
+            <figure>
+              <img src='images/unit2-fig21-exp-cdf.png' height='400px' width='500px'>
+              <figcaption>Cumulative Density Function for Exponential Distributions</figcaption>
+            </figure>
+            <p>
+              However, this concept of systems having a constant error rate
+              that doesn't change over time, it's not very common in the real
+              world. For instance, in Hardware components, the error rate
+              evolves with the time in different ways:
+              <ul>
+                <li>
+                  During the early life of the product the error rate starts at
+                  high value, but this error rate tends to go down gradually
+                  over time.
+                </li>
+                <li>
+                  After the early life of the product passes (the duration of
+                  the early life depends on the product) the error rate tends
+                  to be stable, during a time called <b> Useful Time </b>.
+                </li>
+                <li>
+                  After the useful time is over, the <b>wearout period</b>
+                  starts. During that period, the error rate keeps growing
+                  until the hardware component suffers a failure.
+                </li>
+              </ul>
+              <figure>
+                <img src='images/unit2-fig22-bath.png' height='350px' width='500px'>
+                <figcaption>Error Rate evolution in hardware products</figcaption>
+              </figure>
+              A canonical example of this behaviour are lightbulbs. In order to
+              minimize the number of failures users suffer with lightbulbs,
+              right after being produced, the manufacturers keep them switched
+              on during a time similar to the early life of the product. By
+              doing this, they guarantee that the lightbulbs that go to the
+              customer hands, got there at a time when the error rate is as low
+              as possible. Any component with early failures is discarded
+              before it can get to the end-users.
+            </p>
+            <p>
+              You can find a lot of information about reliability and how maths
+              is used for calculating it at [[RELIABILITY-MATHS]]
+            <p>
+            <p>
+              Although exponential distribution may be a good compromise 
+              that could be applied to any software system, there are other 
+              distributions that may describe in a more accurate way the 
+              idea of having a non constant error rate. For instance, the 
+              Weibull distribution is frequently used in reliability 
+              analysis [[WEIBULL-BASICS]].
+            </p>
+            <p>
+              In a Weibull distribution, the error rate can change with the
+              time. The Reliability function is: 
+            </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
+                <mrow>
+                  <mi>R(t)</mi>
+                  <mo> = </mo>
+                  <msup> 
+                    <mi>e</mi>
+                    <mn>
+                      <!--<mfrac>
+                        <mrow>&minus;t</mrow>
+                        <mrow>&eta;</mrow>
+                      </mfrac>-->
+                      (&minus;t<mo>/</mo>&eta;)
+                      <mn>
+                        &beta; 
+                      </mn>
+                    </mn>
+                  </msup>
+                </mrow>
+              </math>
+            <p>
+              That depends on two variables, &eta; and &beta; that define the 
+              shape of the distribution function. For a fixed value of &eta;, 
+              the failure rate could be constant (&beta; = 1), descending 
+              (&beta; < 1) or ascending (&beta; > 1). Please note that combining
+              those three options we could describe the Hardware component 
+              failure rate phases.
+            </p>
+            <figure>
+              <img src='images/unit2-fig23-weibull-rate.png' height='400px' width='500px'>
+              <figcaption>Weibull Error Rate depending on &beta;</figcaption>
+            </figure>
+            <p>
+              If we take into account Software Upgrades, there are some
+              interesting analysis about how a sawteeth pattern is observed
+              [[SOFTWARE-RELIABILITY]]. Again, such a curve could be defined by
+              combining different Weibull distributions.
+            </p>
+            <figure>
+              <img src='images/unit2-fig24-sawteeth-rate.png' height='350px' width='500px'>
+              <figcaption>Sawteeth distribution of error rate</figcaption>
+            </figure>
           </section>
           <section>
             <h4>Defect Density</h4>
@@ -2040,8 +2314,8 @@
             </p>
             <p>
               <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
-                <mrow><mi>Defect Density</mi> <mo>=</mo>
-                <mfrac><mrow>Number of Confimed Defects</mrow><mrow>Software Size</mrow></mfrac>
+                <mrow><mi><mtext>Defect Density</mtext></mi> <mo>=</mo>
+                <mfrac><mrow><mtext>Number of Confirmed Defects</mtext></mrow><mrow><mtext>Software Size</mtext></mrow></mfrac>
                 </mrow>
               </math>
             </p>
@@ -2213,61 +2487,37 @@
               </p>
               <div class="example">
                 <p>
-                  At IBM Rochester, lines of code data are based on
-                  instruction statements (logical LOC) and include executable
-                  code and data definitions but exclude comments. LOC counts
-                  are obtained for the total product and for the new and
-                  changed code of the new release. Because the LOC count is
-                  based on source instructions, the two size metrics are
-                  called shipped source instructions (SSI) and new and
-                  changed source instructions (CSI), respectively. The
-                  relationship between the SSI count and the CSI count can be
-                  expressed with the following formula:
+                  In the first version of a software product 30 Defects
+                  were reported by end-users and the software size was 30KLOC.
+                  After fixing all the discovered bugs, the team works in a 
+                  new version that includes 10 new KLOC. End-users report 10
+                  additional defects in this new version that were injected
+                  in the new 10KLOC.
                 </p>
-                <pre>
-                  SSI (current release) =
-                    SSI (previous release)
-                    + CSI (new and changed code instructions for current release) 
-                    - deleted code (usually very small) 
-                    - changed code (to avoid double count in both SSI and CSI)
-                </pre>
                 <p>
-                  Defects after the release of the product are tracked.
-                  Defects can be field defects, which are found by customers,
-                  or internal defects, which are found internally. The
-                  several post release defect rate metrics per thousand SSI
-                  (KSSI) or per thousand CSI (KCSI) are:
+                  The Defect Density of the first version was 1 defect/KLOC. 
                 </p>
-                <ul>
-                  <li>
-                    (1) Total defects per KSSI (a measure of code quality of
-                    the total product) 
-                  </li>
-                  <li>
-                    (2) Field defects per KSSI (a measure of defect rate in
-                    the field)
-                  </li>
-                  <li>
-                    (3) Release-origin defects (field and internal) per KCSI
-                    (a measure of development quality)
-                  </li>
-                  <li>
-                    (4) Release-origin field defects per KCSI (a measure of
-                    development quality per defects found by customers)
-                  </li>
-                </ul>
                 <p>
-                  Metric (1) measures the total release code quality, and
-                  metric (3) measures the quality of the new and changed
-                  code. For the initial release where the entire product is
-                  new, the two metrics are the same. Thereafter, metric (1)
-                  is affected by aging and the improvement (or deterioration)
-                  of metric (3).  Metrics (1) and (3) are process measures;
-                  their field counterparts, metrics (2) and (4) represent the
-                  customer's perspective. Given an estimated defect rate
-                  (KCSI or KSSI), software developers can minimize the impact
-                  to customers by finding and fixing the defects before
-                  customers encounter them.0
+                  If we calculate the Defect Density of the second version in
+                  the same way, it would be: DD = 10/40 = 0.25 defects/KLOC. If
+                  we compare this value, we could conclude that the second
+                  version was way better that the first one.
+                </p>
+                <p>
+                  But, this could be misleading as indeed, the second version
+                  could include only defects in the new 10KLOC, not in the old
+                  ones. We could calculate the same metric but just counting
+                  the new Lines of Code. If we do so, the result would be: 
+                  DD = 10/10 = 1 defect/KLOC which is the same than for the
+                  first release.
+                </p>
+                <p>
+                  We could conclude that for end-users, the second version is
+                  going to be a significant improvement as the number of defects
+                  are going to perceive is smaller both in absolute and relative
+                  terms. However, the team has been doing a similar job in 
+                  terms of defects remaining after releasing the product (defect
+                  injection and detection).
                 </p>
               </div>
               <p>
@@ -2276,8 +2526,8 @@
               </p>
               <ul>
                 <li>
-                  Drive Quality Improvement: Very important for the
-                  development team.
+                  Drive Quality Improvement: Very important for the development
+                  team.
                 </li>
                 <li>
                   Meet customer expectations.
@@ -2296,44 +2546,10 @@
                 order to reduce the total number of defects.
               </p>
               <p>
-                For instance, an hypothetical example of this situation is 
-                described in the following example.
-              </p>
-              <div class="example">
-                <pre>
-                   Initial Release of Product Y
-                   KCSI = KSSI = 50 KLOC
-                   Defects/KCSI = 2.0
-                   Total number of defects = 2.0 x 50 = 100
-                   
-                   Second Release
-                   KCSI = 20
-                   KSSI = 50 + 20 (new and changed LOC) - 4 (assuming 20% are changed LOC) 
-                        = 66 Defect/KCSI = 1.8 (assuming 10% improvement over the first release)
-                   Total number of additional defects = 1.8 x 20 = 36
-                   
-                   Third Release
-                   KCSI = 30
-                   KSSI = 66 + 30 (new and changed LOC) - 6 (assuming 20% are changed LOC) = 90
-
-                   Targeted number of additional defects (no more than previous release) = 36 
-                   Defect rate target for new and changed LOC: 36/30 = 1.2 defects/KCSI or lower
-                </pre>
-              </div>
-              <p>
-                From the initial release to the second release the defect rate
-                improved by 10%. However, customers experienced a 64% reduction
-                [(100 - 36)/100] in the number of defects because the second
-                release is smaller. The size factor works against the third
-                release because it is much larger than the second release. Its
-                defect rate has to be one third (1.2/1.8) better than that of
-                the second release for the number of new defects not to exceed
-                that of the second release. Of course, sometimes the difference
-                between the two defect rate targets is very large and the new
-                defect rate target is deemed not achievable. In those
-                situations, other actions should be planned to improve the
-                quality of the base code or to reduce the volume of postrelease
-                field defects (i.e. by finding them internally).
+                In the example above, from the initial release to the second 
+                release the defect rate didn't improve. However, customers 
+                experienced a 66% reduction [(30 - 10)/30] in the number of 
+                defects because the second release is smaller.
               </p>
             </section>
             <section>
@@ -2630,7 +2846,7 @@
                   <caption> EI Complexity Matrix </caption>
                   <thead>
                     <tr>
-                      <th> DETs</th><th> 1-4 DETs</th><th> 5-15 DETs</th><th> 16+ DETs</th>
+                      <th> FTRs</th><th> 1-4 DETs</th><th> 5-15 DETs</th><th> 16+ DETs</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -2651,7 +2867,7 @@
                   <caption> EO and EQ Complexity Matrix </caption>
                   <thead>
                     <tr>
-                      <th> DETs</th><th> 1-5 DETs</th><th> 6-19 DETs</th><th> 20+ DETs</th>
+                      <th> FTRss</th><th> 1-5 DETs</th><th> 6-19 DETs</th><th> 20+ DETs</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -2827,19 +3043,18 @@
               The problems metric is usually expressed in terms of problems
               per user month (PUM):
             </p>
+
             <math xmlns="http://www.w3.org/1998/Math/MathML" styel="color: red">
               <mrow>
-                <mi>PUM</mi> 
+                <mi>PUM</mi>
                 <mo>=</mo>
                 <mfrac>
-                  <mrow>
-                    Total number of problems that customers reported during a
-                    period of time
-                  </mrow>
-                  <mrow>
-                    Total number of license months of the software during that
-                    period
-                  </mrow>
+                  <mrow><mtext>
+                    Total number of problems that customers reported during a period of time
+                  </mtext></mrow>
+                  <mrow><mtext>
+                    Total number of license months of the software during that period
+                  </mtext></mrow>
                 </mfrac>
               </mrow>
             </math>
@@ -3001,20 +3216,22 @@
       <section>
         <h2>In process Quality Metrics </h2>
         <section>
-          <h3>Defect Density During Integration Testing</h3>
+          <h3>Defect Density After a Development Cycle</h3>
           <p>
-            Defect rate during formal integration testing is usually positively
+            Defect rate during a development cycle is usually positively 
+            correlated with the defect rate in the next phases. For instance,
+            the defect rate after integration testing is usually positively
             correlated with the defect rate in the field. Higher defect rates
-            found during testing is an indicator that the software has
-            experienced higher error injection during its development process,
-            unless the higher testing defect rate is due to an extraordinary
-            testing effort (for example, additional testing or a new testing
-            approach that was deemed more effective in detecting defects). The
+            found during a phase is an indicator that the software has
+            experienced higher error injection during that phase, unless the 
+            higher testing defect rate is due to an extraordinary testing 
+            effort (for example, additional testing or a new testing approach 
+            that was deemed more effective in detecting defects). The
             rationale for the positive correlation is simple: Software defect
             density never follows the uniform distribution. If a piece of code
             or a product has higher testing defects, it is a result of more
             effective testing or it is because of higher latent defects in the
-            code.  Myers suggested a counterintuitive principle that the more
+            code. Myers suggested a counterintuitive principle that the more
             defects found during testing, the more defects will be found later.
           </p>
           <p>
@@ -3059,9 +3276,16 @@
               </ul>
             </li>
           </ol>
+          <p>
+            This concept is shown graphically in the next diagram:
+          </p>
+          <figure>
+            <img src='images/unit2-fig25-defectcuadrant.png' height='300px' width='400px'>
+            <figcaption>Understanding Evolution of Defect Density</figcaption>
+          </figure>
         </section>
         <section>
-          <h3>Defect Arrival Pattern During Machine Testing</h3>
+          <h3>Defect Arrival Pattern </h3>
           <p>
             Overall defect density during testing is a summary indicator. The
             pattern of defect arrivals (or for that matter, times between
@@ -3073,9 +3297,15 @@
             Next figure shows two contrasting patterns for both the defect
             arrival rate and the cumulative defect rate. Data were plotted from
             44 weeks before code-freeze until the week prior to code-freeze.
-            The second pattern, represented by the charts on the right side,
-            obviously indicates that testing started late, the test suite was
-            not sufficient, and that the testing ended prematurely.
+            In both projects, the overall defect count is the same, however the
+            potential forecast of the quality on the field is quite different.
+            In the first project, during the last weeks, the number of defects
+            reported every week is smaller and is tending to zero.
+            The second project, represented by the charts on the right side,
+            follows the opposite pattern. This obviously indicates that testing
+            started late, the test suite was not sufficient, and that the 
+            testing ended prematurely. It's extremely likely that this project,
+            if released as it is, would lead to even more defects in the field.
           </p>
           <figure>
             <img src='images/unit2-fig1.png'>
@@ -3092,25 +3322,24 @@
             execution time data, the time interval is in units of CPU time.
           </p>
           <p>
-            When we talk about the defect arrival pattern during testing, there
-            are actually three slightly different metrics, which should be
-            looked at simultaneously:
+            When we talk about the defect arrival pattern, there are actually 
+            three slightly different metrics, which should be looked at 
+            simultaneously:
           </p>
           <ul>
             <li>
               The defect arrivals (defects reported) during the testing phase
-              by time interval (e.g., week). These are the raw number of
+              by time interval (e.g. week). These are the raw number of 
               arrivals, not all of which are valid defects.
             </li>
             <li>
-              The pattern of valid defect arrivals—when problem
-              determination is done on the reported problems. This is the
-              true defect pattern.
+              The pattern of valid defect arrivals when problem determination 
+              is done on the reported problems. This is the true defect pattern.
             </li>
             <li>
               The pattern of defect backlog overtime. This metric is needed
               because development organizations cannot investigate and fix
-              all reported problems immedi- ately. This metric is a workload
+              all reported problems immediately. This metric is a workload
               statement as well as a quality statement. If the defect backlog
               is large at the end of the development cycle and a lot of fixes
               have yet to be integrated into the system, the stability of the
@@ -3121,32 +3350,122 @@
           </ul>
         </section>
         <section>
-          <h3>Phase-Based Defect Removal Pattern</h3>
+          <h3>Defect Removal Metrics </h3>
           <p>
-            The phase-based defect removal pattern is an extension of the test
-            defect density metric. In addition to testing, it requires the
-            tracking of defects at all phases of the development cycle,
-            including the design reviews, code inspections, and formal
-            verifications before testing. Because a large percentage of
-            programming defects is related to design problems, conducting
-            formal reviews or functional verifications to enhance the defect
-            removal capability of the process at the front end reduces error
-            injection. The pattern of phase-based defect removal reflects the
-            overall defect removal ability of the development process.
+            We have just introduced an interesting concept. Detecting a defect
+            doesn't mean it is going to be automatically removed. This can 
+            happen because of many different reasons:
+          </p>
+          <ul>
+            <li>
+              Lack of time: The solution of the defect requires a lot of time
+              to be properly fixed (detect root, fix it, ensure no other 
+              functionality breaks because of the fix, etc.)
+            </li>
+            <li>
+              Lack of bandwidth: The team is focused on implementing features so
+              no immediate attention is put on fixing that defect.
+            </li>
+            <li>
+              Lack of importance: The defect is minor or not important enough 
+              to become a priority for the team.
+            </li>
+            <li>
+              Lack of knowdlege: The defect is well-known but the root of the 
+              defect is not known yet (remember a defect is just a symptom).
+            </li>
+          </ul>
+          <p>
+            A metric intended to distinguish between defect detection and defect
+            removal is the Defect Removal Pattern, that describes the evolution
+            of the number of defects removed over the time. This metric can
+            be calculated per unit of time or per phase of the project (e.g. 
+            iteration).
           </p>
           <p>
-            Following figure shows the patterns of defect removal of two
-            development projects: project A was front-end loaded and project B
-            was heavily testing-dependent for removing defects. In the figure,
-            the various phases of defect removal are high-level design review
-            (I0), low-level design review (I1), code inspection (I2), unit test
-            (UT), component test (CT), and system test (ST). As expected, the
-            field quality of project A outperformed project B significantly.
+            Some related metrics are the "average time to detect a defect" 
+            (which provides an indication about how good the process is about
+            detecting defects) and the "average time to fix a defect" which 
+            is an indiator of how good the process is with respect to fixing
+            defects once they have been detected. These metrics are key as
+            we should remember that the later a defect is detected and fixed,
+            the more expensive it is.
+          </p>
+        </section>
+        <section>
+          <h3>Defect Backlog / Burndown</h3>
+          <p>
+            A burndown chart is a graphical representation of the amount of work
+            left to be done vs. the time. It's typically used in Agile 
+            methodologies to check sprint evolution, measure team speed, etc.
+            In those cases, the amount work is always decreasing as the tasks 
+            for the sprint are identified before the sprint starts.
           </p>
           <figure>
-            <img src='images/unit2-fig2.png'>
-            <figcaption>Defect Removal by Phase for two products</figcaption>
+            <img src='images/unit2-fig26-agileburndown.png'
+             height='400px' width='600px'>
+            <figcaption>Typical Burndown Chart</figcaption>
           </figure>
+          <p>
+            An equivalent concept is the Defect Backlog / Burndown. In that case
+            the graphic does not represent the amount of work to be done but 
+            the amount of unfixed defects. The curve can go down if no more 
+            defects are found and the remaining ones are fixed, or go up if the
+            number of detected defects overpace the fix rate.
+          </p>
+          <figure>
+            <img src='images/unit2-fig27-defectburndown.png' 
+             height='400px' width='600px'>
+            <figcaption>Defect Burndown Chart</figcaption>
+          </figure>
+          <p>
+            In the example above, we can see that the red line shows the number
+            of cumulative defects (fixed or unfixed), the green one shows the 
+            number of fixed ones, whereas the black line shows the "delta" 
+            between detected and fixed defects (i.e. the size of the defect 
+            backlog).
+          </p>
+          <p>
+            Ideally, the defect backlog count should be zero before releasing
+            a product. But in big product that is nearly impossible. This 
+            requires product managers to play with the four key aspects of
+            any software project: resources, scope, time and quality. In 
+            particular, the following actions could be done:
+          </p>
+          <ul>
+            <li>
+              Increase the number of resources fixing defects: The idea is
+              adding more resources to work on fixing defects. However, we 
+              should be extremely cautious about this as adding resources late
+              to a project can lead to additional delays.
+            </li>
+            <li>
+              Reduce the product scope: don't let more features being added
+              at a given point of time (no more features 1 month before the
+              target release date). This leads to more resoures focused on
+              fixing defects and fewer bugs injected by new features landing
+              on the project.
+            </li>
+            <li>
+              Postpone the release date: Ask for more time so more time can be
+              spent fixing defects.
+            </li>
+            <li>
+              Reduce the target quality by not paying attention to any bug but 
+              just to the critical ones (e.g. blocker defects).
+            </li>
+          </ul>
+          <p>
+            One approach that is used sometimes to make the defect backlog 
+            go to zero is using triage meetings to determine which defects
+            are blockers and which ones are not. The idea is that the closer
+            the release date is, the more difficult is to consider a bug
+            as a blocker for the release. However, having a clear set of
+            guidelines about what is a blocker and what is not, is also very
+            helpful, for instance, Mozilla used <a
+              href="https://wiki.mozilla.org/B2G/Triage#Blocker_Triage_Guidelines">
+            a particualr one for FirefoxOS</a>
+          </p>
         </section>
         <section>
           <h3>Defect Removal Effectiveness</h3>
@@ -3183,20 +3502,19 @@
             The higher the value of the metric, the more effective the
             development process and the fewer the defects escape to the next
             phase or to the field. This metric is a key concept of the defect
-            removal model for software development. Folowing figure shows the
-            DRE by phase for a real software project. 
+            removal model for software development.
           </p>
-          <figure>
-            <img src='images/unit2-fig3.png'>
-            <figcaption>Phase Effectiveness of a Software Project</figcaption>
-          </figure>
           <p>
-            The weakest phases were unit test (UT), code inspections (I2), and
-            component test (CT). Based on this metric, action plans to improve
-            the effectiveness of these phases were established and deployed.
-            For instance, if during a phase, the DRE is not reaching the DRE
-            target, new people, processes and tools should be used to increase
-            it.
+            For instance, if during the development of a product 80 bugs were
+            found and fixed, but there were still 20 defects latent that were
+            found by the customers when the product hit the field, the DRE would
+            be:
+          </p>
+          <p>
+            DRE = 80 / (80 + 20) = 80%
+          </p>
+          <p>
+            In average, 80 of every 100 defects were removed.
           </p>
           <p>
             Another view of this metric is depicted in the following Figure.
@@ -3215,13 +3533,11 @@
               <mi>DRE</mi>
               <mo>=</mo>
               <mfrac>
-                <mrow>
+                <mrow><mtext>
                   Defects Removed (at the step)
-                </mrow>
+                </mtext></mrow>
                 <mrow>
-                  <mi> Defects existing on step entry </mi>
-                  <mo>+</mo>
-                  Defects Injected during this step
+                  <mtext> Defects existing on step entry + Defects Injected during this step</mtext>
                 </mrow>
               </mfrac>
               <mo>*</mo>
@@ -3236,129 +3552,57 @@
             <theader>
               <tr>
                 <th rowspan=2 colspan=2></th>
-                <th colspan=9>Origin of the defect</th>
+                <th colspan=5>Origin of the defect</th>
               </tr>
               <tr>
-                <th>RQ</th>
-                <th>HL</th>
-                <th>LL</th>
-                <th>Code</th>
-                <th>UT</th>
-                <th>CT</th>
-                <th>ST</th>
-                <th>Field</th>
-                <th>Total</th>
+                <th>Iteration 1</th>
+                <th>Iteration 2</th>
+                <th>Iteration 3</th>
+                <th>Iteration 4</th>
+                <th>TOTAL REMOVED</th>
               </tr>
             </theader>
             <tbody>
               <tr>
-                <th rowspan=9>Where Found?</th>
-              <th>RQ</th>
+                <td rowspan=5>Where Found?</td>
+                <td>Iteration 1</td>
+                <td>5</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td><b>5</b></td>
               </tr>
               <tr>
-                <th>HL</th>
-                <td>49</td>
-                <td>681</td>
+                <td>Iteration 2</td>
+                <td>10</td>
+                <td>15</td>
                 <td>-</td>
                 <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>730</td>
+                <td><b>25</b></td>
               </tr>
               <tr>
-                <th>LL</th>
-                <td>6</td>
-                <td>42</td>
-                <td>681</td>
+                <td>Iteration 3</td>
+                <td>5</td>
+                <td>5</td>
+                <td>10</td>
                 <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>729</td>
+                <td><b>20</b></td>
               </tr>
               <tr>
-                <th>CR</th>
-                <td>12</td>
-                <td>28</td>
-                <td>114</td>
-                <td>941</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>1095</td>
+                <td>Iteration 4</td>
+                <td>5</td>
+                <td>5</td>
+                <td>0</td>
+                <td>5</td>
+                <td><b>15</b></td>
               </tr>
               <tr>
-                <th>UT</th>
-                <td>21</td>
-                <td>43</td>
-                <td>43</td>
-                <td>223</td>
-                <td>2</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>332</td>
-              </tr>
-              <tr>
-                <th>CT</th>
-                <td>20</td>
-                <td>41</td>
-                <td>61</td>
-                <td>261</td>
-                <td>-</td>
-                <td>4</td>
-                <td>-</td>
-                <td>-</td>
-                <td>387</td>
-              </tr>
-              <tr>
-                <th>ST</th>
-                <td>6</td>
-                <td>8</td>
-                <td>24</td>
-                <td>72</td>
-                <td>-</td>
-                <td>-</td>
-                <td>1</td>
-                <td>-</td>
-                <td>111</td>
-              </tr>
-              <tr>
-                <th>Field</th>
-                <td>8</td>
-                <td>16</td>
-                <td>16</td>
-                <td>40</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>1</td>
-                <td>61</td>
-              </tr>
-              <tr>
-                <th>Total</th>
-                <td>122</td>
-                <td>859</td>
-                <td>939</td>
-                <td>1537</td>
-                <td>2</td>
-                <td>4</td>
-                <td>1</td>
-                <td>1</td>
-                <td>3465</td>
+                <td><b>Total Injected</b></td>
+                <td><b>25</b></td>
+                <td><b>25</b></td>
+                <td><b>10</b></td>
+                <td><b>5</b></td>
+                <td><b>65</b></td>
               </tr>
             </tbody>
           </table>
@@ -3368,26 +3612,28 @@
           </p>
           <div class="example">
             <pre>
-During the RQ phase the total figure of errors injected is 122. The meaning of 
-the 49 figure in the cell for column RQ and row HL means that 49 defects of 
-those 122 were detected during the High Level Design phase. The table also 
-shows that during the HL phase 859 additional errors were injected from which 
-681 were detected.
-That means that the total number of defets detected during the HL phase is:
-49 + 681 = 730 defects.
-The number of defects that potentially could had been detected during the HL 
-phase are the number of errors injected during the RQ and the HL phase as no 
-defects have been detected before: 122+859= 981 defects.
-With that data, the DRE is 730/981 = 74,44%
-For the Low Level (LL) design phase the DRE could be calculated in a very 
-similar manner: The defects removed during that phase are 729.
-The number of defects when the software got into the LL phase are the defects 
-injected so far (122+859 = 1081) minus the number of defects removed in previous 
-phases (729) which yields: 1081 – 729 = 251 defects when entrying in the LL phase.
-The number of potential defects that could had been fixed during that phase is 
-the number of defects when entrying the LL phase (251) plus the number of defects 
-injected during that phase (939): 251 + 939 = 1190.
-The DRE would be then 729 / 1190 = 61%￼￼
+              During the First Iteration the total numbers of defect injected was 25.
+
+              The meaning of the value "5" in the intersection of "Iteration 1"
+              row and column is that during that phase, only 5 defects were
+              removed.
+
+              The meaning of the value 10 in the intersetion of row "Iteration
+              2" and column "Iteration 1" is that during Iteration 2, 10
+              defects that were originated in Iteration 1 were removed. 
+
+              Equally, the meaning of the value 15 in the intersetion of row
+              "Iteration 2" and column "Iteration 2" is that during Iteration
+              2, 15 defects that were also originated in Iteration 2 were
+              removed.
+
+              We could calculate the DRE of all the different iterations quite
+              easily:
+
+              * Iteration 1: DRE = 5/25 = 20%
+              * Iteration 2: DRE = (10+15) / [(25+25) - 5] = 25/45 = 55%;
+              * Iteration 3: DRE = (5+5+10) / [(25+25+10) - (5+25)] = 20/30 = 66%;
+              * Iteration 4: DRE = (5+5+0+5) / [(25+25+10+5) - (5+25+20)] = 15/15 = 100%;
             </pre>
           </div>
           <p>
@@ -3404,7 +3650,7 @@ The DRE would be then 729 / 1190 = 61%￼￼
             <tr>
               <td>Requirements</td>
               <td>Requirements Gathering Process and Specification Development</td>
-              <td>Requirement Analysis and Review</<td></td>>
+              <td>Requirement Analysis and Review</td>
             </tr>
             <tr>
               <td>High Level Design</td>
