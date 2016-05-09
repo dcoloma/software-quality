@@ -8240,6 +8240,13 @@
           redundancy of sort so they are only in systems that require it.
         </p>
         <p>
+          For instance, the software used in the flight control systems is one
+          example of software with very extreme requirements about failures.
+          The report [[CHALLENGES-FAULT-TOLERANT-SYSTEMS]] provides more
+          details about the challenges that this kind of systems pose to
+          software developers.
+        </p>
+        <p>
           However, in some situations, failures cannot be prevented and hence
           reliability cannot be improved. However, there are ways to minimize
           the consequences of failures with the target of maximizing safety.
@@ -8302,6 +8309,100 @@
               N-Version programming (NVP), Recovery Blocks (RcB), N self
               checking programming (NSCP)...
             </p>
+            <section>
+              <h5>Software Fault Tolerance</h5>
+              <ol type="A">
+                <li>
+                  Recovery blocks: Use repeated executions (or redundancy over
+                  time) as the basic mechanism for fault tolerance. The
+                  software includes a set of "recovery points" in which the
+                  status is recorded so that they could be used as fallbacks in
+                  case something goes wrong. When a piece of code is executed,
+                  a "test acceptance" is internally executed, if the result is
+                  OK, a new "recovery point" is set-up, if the result is not
+                  acceptable, then the software returns to the previous
+                  "recovery point" and an alternative to the faulty code is
+                  enacted. This process continues until the "acceptance test"
+                  is passed or no more alternatives are available, which leads
+                  to a failure. Some key characteristics about this scheme that
+                  is depicted in <a href='#fig-recovery-blocks'></a>: 
+                  <ul type="a">
+                    <li>
+                      It is a backward error recovery technique: when an
+                      error occurs, appropriate actions are taken to react
+                      but no preventing action is taken.
+                    </li>
+                    <li>
+                      It is a "serial technique" in which the same
+                      functionality (the recovery block) is never executed in
+                      parallel.
+                    </li>
+                    <li>
+                      The "acceptance test" algorithm is the critical
+                      part to success as well as the availability of recovery
+                      blocks designed in different ways to the original code.
+                    </li>
+                  </ul>
+                  <figure>
+                    <img src='images/unit1-fig4-recoveryblocks.png' height='400px' width='500px'>
+                    <figcaption>Recovery Blocks</figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <p>
+                    NVP (N-version programming):
+                  </p>
+                  <p>
+                    This technique uses parallel redundancy, where N copies,
+                    each of a different version, of codes fulfilling the same
+                    functionality are running in parallel with the same
+                    inputs. When all of those N-copies have completed the
+                    operation, an adjudication process (decision unit) takes
+                    place to determine (based in a more or less complex vote)
+                    the output.
+                  </p>
+                  <p>
+                    Some key characteristics about this scheme that is
+                    depicted in 
+                    <a href='#fig-n-version-programming'></a>
+                  </p>
+                  <ul type="a">
+                    <li> 
+                      It is a forward error recovery technique: preventive
+                      actions are taken. Even if no error occurs the same
+                      functionality is executed multiple times.
+                    </li>
+                    <li>
+                      It is a "parallel technique" in which the same
+                      functionality is always executed in parallel by
+                      different versions of the same functionality.
+                    </li>
+                    <li>
+                      The "decision unit" algorithm is the critical part
+                      to success as well as the availability of different
+                      versions of the same code designed in different ways.
+                    </li>
+                  </ul>
+                  <figure>
+                    <img src='images/unit1-fig5-Nversion.png' height='400px' width='500px'>
+                    <figcaption>N version programming</figcaption>
+                  </figure>
+                  <p>
+                    Obviously a wide range of different variants of those
+                    systems have been proposed based in multiple combinations
+                    of them [[COST-EFFECTIVE-FAULT-TOLERANCE]] and multiple
+                    comparisons between the performance are also available
+                    [[PERFORMANCE-RB-NVP-SCOP]].
+                  </p>
+                </li>
+              </ol>
+              <p>
+                What do you think are the key advantages and disadvantages
+                of the two fault tolerance techniques described (Recovery
+                Blocks & N-Version)? Exercise 3: Recovery Blocks vs.
+                N-Version
+              </p>
+            </section>
           </section>
           <section>
             <h4>Types of recovery</h4>
